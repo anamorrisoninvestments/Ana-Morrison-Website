@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-black: #000000;
+  --color-ivory: #F7F3EC;
+  --color-blue-electric: #22AEEF;
+  --color-blue-deep: #10145F;
+  --color-gold: #C8A45D;
+  --color-gold-light: #E2C98A;
+  --color-gray-dark: #111111;
+  --color-gray-mid: #1A1A1A;
+  --color-gray-soft: #2A2A2A;
+  --color-text-muted: #888888;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #F7F3EC;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C8A45D 0%, #E2C98A 50%, #C8A45D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-blue-gradient {
+  background: linear-gradient(135deg, #22AEEF 0%, #10145F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8A45D, transparent);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #C8A45D; border-radius: 3px; }
+::selection { background: #C8A45D; color: #000000; }
+:focus-visible { outline: 2px solid #C8A45D; outline-offset: 2px; }
