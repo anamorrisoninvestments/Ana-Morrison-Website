@@ -6,6 +6,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import BooksSection from "@/components/sections/BooksSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
+import NewsletterSection from "@/components/sections/NewsletterSection";
 import CTASection from "@/components/sections/CTASection";
 import { CLIENT } from "@/lib/client-data";
 
@@ -25,6 +26,7 @@ export default function HomePage() {
         <ServicesSection />
         <BooksSection />
         <SocialProofSection />
+        <NewsletterSection />
         <CTASection />
       </main>
       <Footer />

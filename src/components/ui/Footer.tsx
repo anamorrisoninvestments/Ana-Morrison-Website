@@ -1,10 +1,26 @@
 import Link from "next/link";
 import { CLIENT } from "@/lib/client-data";
+import NewsletterForm from "@/components/ui/NewsletterForm";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-[#111111] border-t border-[#C8A45D]/20">
+      {/* Newsletter bar */}
+      <div className="border-b border-[#C8A45D]/20 py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 justify-between">
+          <div className="md:max-w-xs">
+            <p className="text-[#C8A45D] text-xs tracking-[4px] uppercase mb-2">Newsletter gratuito</p>
+            <p className="text-[#F7F3EC] font-light text-lg leading-snug">
+              Estrategias de inversión que no comparto en redes.
+            </p>
+          </div>
+          <div className="w-full md:max-w-sm">
+            <NewsletterForm variant="footer" />
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
@@ -35,6 +51,7 @@ export default function Footer() {
               {[
                 ["Sobre Mí", "/sobre-mi"],
                 ["Servicios", "/servicios"],
+                ["Cursos", "/cursos"],
                 ["Libros", "/libros"],
                 ["Blog", "/blog"],
                 ["Prensa", "/prensa"],

@@ -10,11 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base, lastModified: now, changeFrequency: "weekly" as const, priority: 1 },
     { url: `${base}/sobre-mi`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/servicios`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${base}/cursos`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${base}/libros`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/conferencias`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/prensa`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily" as const, priority: 0.8 },
     { url: `${base}/contacto`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${base}/recursos/guia-5-rutas`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/en`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 
