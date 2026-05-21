@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -66,14 +67,17 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
             </nav>
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               {/* Cover */}
-              <div className="relative w-full max-w-sm aspect-[3/4] bg-gradient-to-br from-[#1A1A1A] to-[#10145F]/30 flex items-center justify-center border border-[#C8A45D]/30">
-                <div className="absolute -inset-3 border border-[#C8A45D]/10" />
-                <div className="text-center p-8 z-10">
-                  <div className="text-7xl mb-4">📖</div>
-                  <p className="text-[#F7F3EC] font-bold text-xl leading-tight">{book.title}</p>
-                  {"coAuthor" in book && book.coAuthor && <p className="text-[#22AEEF] text-sm mt-2">con {book.coAuthor}</p>}
-                </div>
-                <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold uppercase tracking-widest">
+              <div className="relative w-full max-w-sm aspect-[3/4] border border-[#C8A45D]/30 overflow-hidden">
+                <div className="absolute -inset-3 border border-[#C8A45D]/10 z-20 pointer-events-none" />
+                <Image
+                  src={book.cover}
+                  alt={`Portada: ${book.title}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold uppercase tracking-widest z-30">
                   {book.status}
                 </div>
               </div>

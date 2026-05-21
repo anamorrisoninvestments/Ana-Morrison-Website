@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import CTASection from "@/components/sections/CTASection";
@@ -79,14 +80,16 @@ export default function LibrosPage() {
                 <div key={book.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 !== 0 ? "lg:grid-flow-col-dense" : ""}`}>
                   {/* Cover */}
                   <div className={`relative ${i % 2 !== 0 ? "lg:col-start-2" : ""}`}>
-                    <div className="relative w-full max-w-sm mx-auto aspect-[3/4] bg-gradient-to-br from-[#1A1A1A] to-[#10145F]/30 flex items-center justify-center border border-[#C8A45D]/30">
-                      <div className="absolute -inset-2 border border-[#C8A45D]/10" />
-                      <div className="text-center p-8">
-                        <div className="text-6xl mb-4">📖</div>
-                        <p className="text-[#F7F3EC] font-bold text-lg leading-tight mb-2">{book.title}</p>
-                        {book.coAuthor && <p className="text-[#22AEEF] text-sm">con {book.coAuthor}</p>}
-                      </div>
-                      <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold tracking-widest uppercase">
+                    <div className="relative w-full max-w-sm mx-auto aspect-[3/4] border border-[#C8A45D]/30 overflow-hidden">
+                      <div className="absolute -inset-2 border border-[#C8A45D]/10 z-20 pointer-events-none" />
+                      <Image
+                        src={book.cover}
+                        alt={`Portada: ${book.title}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 400px"
+                        className="object-cover"
+                      />
+                      <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold tracking-widest uppercase z-30">
                         {book.status}
                       </div>
                     </div>

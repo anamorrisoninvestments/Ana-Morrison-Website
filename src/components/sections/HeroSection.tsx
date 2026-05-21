@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { CLIENT } from "@/lib/client-data";
 
 export default function HeroSection() {
@@ -114,13 +115,15 @@ export default function HeroSection() {
               {/* Gold frame */}
               <div className="absolute -inset-4 border border-[#C8A45D]/30" />
               <div className="absolute -inset-2 border border-[#C8A45D]/10" />
-              <div className="w-full h-full bg-gradient-to-br from-[#1A1A1A] to-[#111111] flex items-center justify-center">
-                {/* Placeholder — replace with <Image src="/images/anamaria-morrison.jpg" /> */}
-                <div className="text-center">
-                  <div className="text-[#C8A45D] text-6xl mb-4">👤</div>
-                  <p className="text-[#888888] text-sm">Foto profesional de AnaMaria</p>
-                  <p className="text-[#888888] text-xs mt-1">Subir a /public/images/anamaria-morrison.jpg</p>
-                </div>
+              <div className="relative w-full h-full overflow-hidden">
+                <Image
+                  src="/images/anamaria-morrison.jpg"
+                  alt="AnaMaria Morrison — Fundadora de The Host Circle"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 448px"
+                  className="object-cover"
+                />
               </div>
               {/* Gold accent */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#C8A45D]" />

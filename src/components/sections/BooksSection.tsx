@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { CLIENT } from "@/lib/client-data";
 
 export default function BooksSection() {
@@ -33,16 +34,16 @@ export default function BooksSection() {
               transition={{ delay: i * 0.15 }}
               className="group border border-[#C8A45D]/20 hover:border-[#C8A45D]/60 transition-all bg-black overflow-hidden"
             >
-              {/* Cover placeholder */}
-              <div className="w-full h-56 bg-gradient-to-br from-[#1A1A1A] to-[#10145F]/30 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10"
-                  style={{ backgroundImage: "linear-gradient(45deg, #C8A45D 1px, transparent 1px), linear-gradient(-45deg, #C8A45D 1px, transparent 1px)", backgroundSize: "30px 30px" }}
+              {/* Cover */}
+              <div className="relative w-full aspect-[3/4] max-h-96 bg-black flex items-center justify-center overflow-hidden">
+                <Image
+                  src={book.cover}
+                  alt={`Portada: ${book.title}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  className="object-contain"
                 />
-                <div className="text-center z-10">
-                  <div className="text-5xl mb-2">📖</div>
-                  <p className="text-[#888888] text-xs">Portada próximamente</p>
-                </div>
-                <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold tracking-widest uppercase">
+                <div className="absolute top-4 right-4 px-3 py-1 bg-[#C8A45D] text-black text-xs font-bold tracking-widest uppercase z-10">
                   {book.status}
                 </div>
               </div>
