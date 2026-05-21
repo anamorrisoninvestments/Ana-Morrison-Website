@@ -7,17 +7,18 @@ import { CLIENT } from "@/lib/client-data";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#10145F]/20 via-black to-black" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#C8A45D]/5 to-transparent" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0D0A08]">
+      {/* Warm radial glows */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#10145F]/15 via-[#0D0A08] to-[#0D0A08]" />
+      <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#C8A45D]/6 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-[#C8A45D]/4 to-transparent" />
 
-      {/* Grid pattern */}
+      {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: "linear-gradient(#C8A45D 1px, transparent 1px), linear-gradient(90deg, #C8A45D 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          backgroundSize: "80px 80px",
         }}
       />
 
@@ -29,9 +30,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 mb-6"
+              className="inline-flex items-center gap-3 mb-8 px-4 py-2 rounded-full border border-[#C8A45D]/25 bg-[#C8A45D]/5"
             >
-              <span className="h-px w-8 bg-[#C8A45D]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D] animate-pulse" />
               <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
                 Founder & CEO · The Host Circle
               </span>
@@ -41,7 +42,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              className="heading-serif text-6xl sm:text-7xl lg:text-8xl leading-[0.92] mb-8"
             >
               <span className="text-[#F7F3EC]">Ana</span>
               <span className="text-gold-gradient">Maria</span>
@@ -63,7 +64,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-[#888888] text-sm italic mb-8 border-l-2 border-[#C8A45D]/40 pl-4"
+              className="text-[#888888] text-sm italic mb-10 border-l-2 border-[#C8A45D]/40 pl-4 font-serif"
             >
               "{CLIENT.tagline}"
             </motion.p>
@@ -76,13 +77,13 @@ export default function HeroSection() {
             >
               <Link
                 href="/contacto"
-                className="px-8 py-4 bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-colors text-center"
+                className="px-8 py-4 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.4)] text-center"
               >
                 Trabajemos Juntos
               </Link>
               <Link
                 href="/sobre-mi"
-                className="px-8 py-4 border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-sm hover:border-[#C8A45D] hover:text-[#C8A45D] transition-colors text-center"
+                className="px-8 py-4 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-sm hover:border-[#C8A45D] hover:text-[#C8A45D] transition-all text-center hover:bg-[#C8A45D]/5"
               >
                 Conoce Mi Historia
               </Link>
@@ -97,14 +98,14 @@ export default function HeroSection() {
             >
               {CLIENT.stats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-[#C8A45D] text-2xl sm:text-3xl font-bold">{stat.value}</p>
+                  <p className="heading-serif text-[#C8A45D] text-3xl sm:text-4xl font-bold">{stat.value}</p>
                   <p className="text-[#888888] text-xs mt-1 leading-tight">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: photo placeholder */}
+          {/* Right: photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -112,10 +113,12 @@ export default function HeroSection() {
             className="relative hidden lg:block"
           >
             <div className="relative w-full aspect-[3/4] max-w-md mx-auto">
+              {/* Warm glow behind photo */}
+              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#C8A45D]/10 to-transparent blur-2xl" />
               {/* Gold frame */}
-              <div className="absolute -inset-4 border border-[#C8A45D]/30" />
-              <div className="absolute -inset-2 border border-[#C8A45D]/10" />
-              <div className="relative w-full h-full overflow-hidden">
+              <div className="absolute -inset-4 rounded-[1.75rem] border border-[#C8A45D]/25" />
+              <div className="absolute -inset-2 rounded-[1.5rem] border border-[#C8A45D]/10" />
+              <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                 <Image
                   src="/images/anamaria-morrison.jpg"
                   alt="AnaMaria Morrison — Fundadora de The Host Circle"
@@ -124,17 +127,19 @@ export default function HeroSection() {
                   sizes="(max-width: 1024px) 100vw, 448px"
                   className="object-cover"
                 />
+                {/* Subtle warm overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A08]/30 via-transparent to-transparent" />
               </div>
-              {/* Gold accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#C8A45D]" />
-              <div className="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2 border-[#C8A45D]" />
+              {/* Gold accent corners */}
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-[#C8A45D] rounded-br-xl" />
+              <div className="absolute -top-4 -left-4 w-14 h-14 border-t-2 border-l-2 border-[#C8A45D] rounded-tl-xl" />
             </div>
 
             {/* Floating badge */}
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-6 bottom-24 bg-[#10145F] border border-[#22AEEF]/40 px-4 py-3 shadow-xl"
+              className="absolute -left-6 bottom-24 bg-[#10145F] border border-[#22AEEF]/40 px-5 py-4 rounded-2xl shadow-xl backdrop-blur-sm"
             >
               <p className="text-[#22AEEF] text-xs tracking-wider uppercase font-semibold">USA · México · Colombia</p>
               <p className="text-white text-sm font-bold mt-0.5">4 Países de Operación</p>

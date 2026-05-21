@@ -5,9 +5,9 @@ import NewsletterForm from "@/components/ui/NewsletterForm";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#111111] border-t border-[#C8A45D]/20">
+    <footer className="bg-[#0D0A08] border-t border-[#C8A45D]/15">
       {/* Newsletter bar */}
-      <div className="border-b border-[#C8A45D]/20 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="border-b border-[#C8A45D]/15 py-10 px-4 sm:px-6 lg:px-8 bg-[#141210]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 justify-between">
           <div className="md:max-w-xs">
             <p className="text-[#C8A45D] text-xs tracking-[4px] uppercase mb-2">Newsletter gratuito</p>
@@ -35,7 +35,7 @@ export default function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 border border-[#C8A45D]/30 flex items-center justify-center text-[#C8A45D] hover:bg-[#C8A45D] hover:text-black transition-all text-xs font-bold uppercase"
+                  className="w-9 h-9 rounded-full border border-[#C8A45D]/30 flex items-center justify-center text-[#C8A45D] hover:bg-[#C8A45D] hover:text-black transition-all text-xs font-bold uppercase"
                   aria-label={key}
                 >
                   {key === "instagram" ? "IG" : key === "facebook" ? "FB" : key === "tiktok" ? "TK" : key === "youtube" ? "YT" : "LI"}
@@ -88,7 +88,7 @@ export default function Footer() {
             </ul>
             <Link
               href="/contacto"
-              className="inline-block mt-6 px-5 py-2 bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-colors"
+              className="inline-block mt-6 px-5 py-2 rounded-full bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-all"
             >
               Trabajemos Juntos
             </Link>

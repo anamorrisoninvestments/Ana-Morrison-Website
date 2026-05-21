@@ -49,7 +49,7 @@ export default function Guia5RutasPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-black min-h-screen">
+      <main className="bg-[#0D0A08] min-h-screen">
         {/* Hero */}
         <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#C8A45D08_0%,transparent_60%)] pointer-events-none" />

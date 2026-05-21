@@ -16,7 +16,7 @@ export default function ServiciosPage() {
     <>
       <Navbar />
       <main className="pt-20">
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#C8A45D]/5 to-transparent" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-[#888888] text-sm mb-8">
@@ -34,7 +34,7 @@ export default function ServiciosPage() {
           </div>
         </section>
 
-        <section className="py-20 bg-[#111111]">
+        <section className="py-20 bg-[#141210]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-12">
               {CLIENT.services.map((service, i) => (

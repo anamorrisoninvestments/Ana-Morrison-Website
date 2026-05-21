@@ -15,7 +15,7 @@ const icons: Record<string, string> = {
 
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="py-24 bg-black">
+    <section id="servicios" className="py-24 bg-[#0D0A08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,15 +24,16 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">Las 5 Rutas + Mentoría</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#F7F3EC] mt-3 mb-4">
-            Cómo puedo <span className="text-gold-gradient">ayudarte</span>
+          <h2 className="heading-serif text-4xl sm:text-5xl mt-3 mb-4">
+            <span className="text-[#F7F3EC]">Cómo puedo </span>
+            <span className="text-gold-gradient">ayudarte</span>
           </h2>
           <p className="text-[#F7F3EC]/60 text-lg max-w-2xl mx-auto">
             Hay más de una forma de crear riqueza con el alquiler a corto plazo. Encuentra la ruta que se adapta a tu situación.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {CLIENT.services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -40,12 +41,14 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group p-8 border border-[#C8A45D]/20 hover:border-[#C8A45D] bg-[#111111] hover:bg-[#111111]/80 transition-all cursor-pointer"
+              className="group p-8 rounded-2xl border border-[#C8A45D]/15 hover:border-[#C8A45D]/50 bg-[#1C1916] hover:bg-[#221E1A] transition-all cursor-pointer hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1"
             >
-              <div className="text-3xl mb-4">{icons[service.title] || "✦"}</div>
+              <div className="text-3xl mb-5 w-14 h-14 rounded-2xl bg-[#C8A45D]/8 flex items-center justify-center border border-[#C8A45D]/15">
+                {icons[service.title] || "✦"}
+              </div>
               <h3 className="text-[#C8A45D] font-bold text-lg tracking-wide mb-3">{service.title}</h3>
               <p className="text-[#F7F3EC]/60 text-sm leading-relaxed">{service.description}</p>
-              <div className="mt-6 h-px bg-gradient-to-r from-[#C8A45D]/0 via-[#C8A45D]/40 to-[#C8A45D]/0 group-hover:via-[#C8A45D] transition-all" />
+              <div className="mt-6 h-px bg-gradient-to-r from-[#C8A45D]/0 via-[#C8A45D]/30 to-[#C8A45D]/0 group-hover:via-[#C8A45D]/70 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
@@ -54,11 +57,11 @@ export default function ServicesSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-14"
         >
           <Link
             href="/contacto"
-            className="inline-block px-10 py-4 bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-colors"
+            className="inline-block px-10 py-4 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.35)]"
           >
             Quiero Saber Cuál Ruta Es Para Mí
           </Link>

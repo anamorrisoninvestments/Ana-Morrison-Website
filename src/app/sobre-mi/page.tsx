@@ -42,7 +42,7 @@ export default function SobreMiPage() {
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#10145F]/20 to-transparent" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
@@ -62,7 +62,7 @@ export default function SobreMiPage() {
         </section>
 
         {/* Bio completa */}
-        <section className="py-20 bg-[#111111]">
+        <section className="py-20 bg-[#141210]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-16">
               <div className="lg:col-span-2 prose prose-invert max-w-none">
@@ -73,7 +73,7 @@ export default function SobreMiPage() {
                 ))}
               </div>
               <div className="space-y-6">
-                <div className="p-6 border border-[#C8A45D]/30 bg-black">
+                <div className="p-6 rounded-2xl border border-[#C8A45D]/30 bg-black">
                   <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-4">En Cifras</p>
                   {CLIENT.stats.map((s) => (
                     <div key={s.label} className="flex justify-between items-center py-3 border-b border-[#C8A45D]/10 last:border-0">
@@ -107,7 +107,7 @@ export default function SobreMiPage() {
             </h2>
             <div className="space-y-6">
               {CLIENT.faq.sobreMi.map((item, i) => (
-                <div key={i} className="border border-[#C8A45D]/20 p-6">
+                <div key={i} className="rounded-2xl border border-[#C8A45D]/20 p-6">
                   <h3 className="text-[#C8A45D] font-semibold mb-3">{item.q}</h3>
                   <p className="text-[#F7F3EC]/70 text-sm leading-relaxed">{item.a}</p>
                 </div>

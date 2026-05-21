@@ -28,7 +28,7 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="pt-20">
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#C8A45D]/5 to-transparent" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-[#888888] text-sm mb-8">
@@ -46,13 +46,13 @@ export default function BlogPage() {
           </div>
         </section>
 
-        <section className="py-20 bg-[#111111]">
+        <section className="py-20 bg-[#141210]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Categories */}
             <div className="flex flex-wrap gap-3 mb-12">
               <span className="px-4 py-2 bg-[#C8A45D] text-black text-xs font-bold tracking-wider uppercase">Todos</span>
               {categories.map((cat) => (
-                <span key={cat} className="px-4 py-2 border border-[#C8A45D]/30 text-[#C8A45D] text-xs tracking-wider uppercase hover:bg-[#C8A45D]/10 cursor-pointer transition-colors">
+                <span key={cat} className="px-4 py-2 rounded-2xl border border-[#C8A45D]/30 text-[#C8A45D] text-xs tracking-wider uppercase hover:bg-[#C8A45D]/10 cursor-pointer transition-colors">
                   {cat}
                 </span>
               ))}

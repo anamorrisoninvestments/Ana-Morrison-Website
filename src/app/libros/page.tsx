@@ -54,7 +54,7 @@ export default function LibrosPage() {
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#C8A45D]/5 to-transparent" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-[#888888] text-sm mb-8">
@@ -73,14 +73,14 @@ export default function LibrosPage() {
         </section>
 
         {/* Books */}
-        <section className="py-20 bg-[#111111]">
+        <section className="py-20 bg-[#141210]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-16">
               {CLIENT.books.map((book, i) => (
                 <div key={book.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 !== 0 ? "lg:grid-flow-col-dense" : ""}`}>
                   {/* Cover */}
                   <div className={`relative ${i % 2 !== 0 ? "lg:col-start-2" : ""}`}>
-                    <div className="relative w-full max-w-sm mx-auto aspect-[3/4] border border-[#C8A45D]/30 overflow-hidden">
+                    <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl rounded-2xl border border-[#C8A45D]/30 overflow-hidden">
                       <div className="absolute -inset-2 border border-[#C8A45D]/10 z-20 pointer-events-none" />
                       <Image
                         src={book.cover}
@@ -111,7 +111,7 @@ export default function LibrosPage() {
                     </div>
                     <Link
                       href={`/libros/${book.slug}`}
-                      className="inline-block px-8 py-3 bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-colors"
+                      className="inline-block px-8 py-3 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-colors"
                     >
                       Más Información
                     </Link>
@@ -130,7 +130,7 @@ export default function LibrosPage() {
             </h2>
             <div className="space-y-6">
               {CLIENT.faq.libros.map((item, i) => (
-                <div key={i} className="border border-[#C8A45D]/20 p-6">
+                <div key={i} className="rounded-2xl border border-[#C8A45D]/20 p-6">
                   <h3 className="text-[#C8A45D] font-semibold mb-3">{item.q}</h3>
                   <p className="text-[#F7F3EC]/70 text-sm leading-relaxed">{item.a}</p>
                 </div>

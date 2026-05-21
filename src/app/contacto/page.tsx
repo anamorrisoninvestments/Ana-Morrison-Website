@@ -25,7 +25,7 @@ export default function ContactoPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="pt-20">
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#C8A45D]/5 to-transparent" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl mb-12">
@@ -53,7 +53,7 @@ export default function ContactoPage() {
 
               {/* Sidebar */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="p-6 border border-[#C8A45D]/30 bg-[#111111]">
+                <div className="p-6 rounded-2xl border border-[#C8A45D]/30 bg-[#141210]">
                   <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-4">Contacto Directo</p>
                   <div className="space-y-4">
                     <div>
@@ -84,7 +84,7 @@ export default function ContactoPage() {
                   </a>
                 </div>
 
-                <div className="p-6 border border-[#C8A45D]/20 bg-[#111111]">
+                <div className="p-6 border border-[#C8A45D]/20 bg-[#141210]">
                   <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-4">Áreas de Consulta</p>
                   <ul className="space-y-2">
                     {["Conferencias y keynotes", "Mentoría 1:1", "Co-hosting y administración", "Inversión en Tax Deeds", "Estrategias de Airbnb", "Arbitraje inmobiliario"].map((area) => (
@@ -95,7 +95,7 @@ export default function ContactoPage() {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-[#C8A45D]/10 border border-[#C8A45D]/30">
+                <div className="p-6 bg-[#C8A45D]/10 rounded-2xl border border-[#C8A45D]/30">
                   <p className="text-[#C8A45D] font-bold text-sm mb-2">⏱ Tiempo de respuesta</p>
                   <p className="text-[#F7F3EC]/70 text-sm">Respondo todos los mensajes en menos de 24 horas en días hábiles.</p>
                 </div>

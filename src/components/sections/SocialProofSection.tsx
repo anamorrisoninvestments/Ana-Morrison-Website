@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CLIENT } from "@/lib/client-data";
 
 const socialPlatforms = [
   { name: "Instagram", count: "33.2K", handle: "@anamorrisoninvestments", platform: "seguidores" },
@@ -32,7 +31,7 @@ export default function SocialProofSection() {
   return (
     <>
       {/* Social numbers */}
-      <section className="py-16 bg-[#10145F]/10 border-y border-[#22AEEF]/10">
+      <section className="py-16 bg-[#10145F]/8 border-y border-[#22AEEF]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {socialPlatforms.map((p, i) => (
@@ -42,9 +41,9 @@ export default function SocialProofSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center"
+                className="text-center p-6 rounded-2xl bg-[#10145F]/10 border border-[#22AEEF]/10 hover:border-[#22AEEF]/30 transition-all"
               >
-                <p className="text-[#22AEEF] text-3xl font-bold mb-1">{p.count}</p>
+                <p className="heading-serif text-[#22AEEF] text-4xl font-bold mb-1">{p.count}</p>
                 <p className="text-[#F7F3EC]/80 text-sm font-semibold">{p.name}</p>
                 <p className="text-[#888888] text-xs">{p.platform}</p>
               </motion.div>
@@ -54,7 +53,7 @@ export default function SocialProofSection() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-[#0D0A08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,12 +62,13 @@ export default function SocialProofSection() {
             className="text-center mb-16"
           >
             <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">Lo Que Dicen</span>
-            <h2 className="text-4xl font-bold text-[#F7F3EC] mt-3">
-              Historias de <span className="text-gold-gradient">transformación</span>
+            <h2 className="heading-serif text-4xl mt-3">
+              <span className="text-[#F7F3EC]">Historias de </span>
+              <span className="text-gold-gradient">transformación</span>
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
@@ -76,11 +76,11 @@ export default function SocialProofSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 border border-[#C8A45D]/20 bg-[#111111] relative"
+                className="p-8 rounded-2xl border border-[#C8A45D]/15 bg-[#1C1916] relative hover:border-[#C8A45D]/35 transition-all hover:shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
               >
-                <div className="text-[#C8A45D] text-5xl font-serif leading-none mb-4 opacity-50">"</div>
-                <p className="text-[#F7F3EC]/80 text-sm leading-relaxed mb-6 italic">{t.quote}</p>
-                <div className="border-t border-[#C8A45D]/20 pt-4">
+                <div className="heading-serif text-[#C8A45D] text-6xl leading-none mb-4 opacity-40 select-none">"</div>
+                <p className="text-[#F7F3EC]/80 text-sm leading-relaxed mb-6 italic font-serif">{t.quote}</p>
+                <div className="border-t border-[#C8A45D]/15 pt-4">
                   <p className="text-[#C8A45D] font-semibold text-sm">{t.name}</p>
                   <p className="text-[#888888] text-xs">{t.role}</p>
                 </div>

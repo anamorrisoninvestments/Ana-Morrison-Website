@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <Navbar />
       <main className="pt-20">
         {/* Header */}
-        <section className="py-20 bg-black relative overflow-hidden">
+        <section className="py-20 bg-[#0D0A08] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#C8A45D]/5 to-transparent" />
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-[#888888] text-sm mb-8">
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
 
         {/* Content */}
-        <section className="py-12 bg-[#111111]">
+        <section className="py-12 bg-[#141210]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <article className="space-y-2">
               {renderContent(post.content)}
@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Author bio */}
-            <div className="p-8 border border-[#C8A45D]/30 bg-black">
+            <div className="p-8 rounded-2xl border border-[#C8A45D]/30 bg-black">
               <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">Sobre la Autora</p>
               <p className="text-[#F7F3EC] font-bold text-lg mb-2">{CLIENT.name}</p>
               <p className="text-[#F7F3EC]/60 text-sm leading-relaxed mb-4">{CLIENT.bio.short}</p>
@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <h2 className="text-2xl font-bold text-[#F7F3EC] mb-8">Artículos relacionados</h2>
               <div className="grid sm:grid-cols-3 gap-6">
                 {related.map((p) => (
-                  <Link key={p.slug} href={`/blog/${p.slug}`} className="group border border-[#C8A45D]/20 hover:border-[#C8A45D] p-6 bg-[#111111] transition-all">
+                  <Link key={p.slug} href={`/blog/${p.slug}`} className="group border border-[#C8A45D]/20 hover:border-[#C8A45D] p-6 bg-[#141210] transition-all">
                     <p className="text-[#C8A45D] text-xs uppercase tracking-wider mb-2">{p.category}</p>
                     <h3 className="text-[#F7F3EC] font-semibold text-sm leading-tight group-hover:text-[#C8A45D] transition-colors">{p.title}</h3>
                   </Link>

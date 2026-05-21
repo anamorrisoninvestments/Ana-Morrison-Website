@@ -2,17 +2,27 @@
 
 @theme inline {
   --color-black: #000000;
+  --color-espresso: #0D0A08;
+  --color-warm-900: #141210;
+  --color-warm-800: #1C1916;
+  --color-warm-700: #2A2520;
   --color-ivory: #F7F3EC;
+  --color-ivory-soft: #EDE8DF;
+  --color-sand: #C9A96E;
   --color-blue-electric: #22AEEF;
   --color-blue-deep: #10145F;
   --color-gold: #C8A45D;
   --color-gold-light: #E2C98A;
+  --color-gold-pale: #F0E4C8;
   --color-gray-dark: #111111;
   --color-gray-mid: #1A1A1A;
   --color-gray-soft: #2A2A2A;
   --color-text-muted: #888888;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant);
+  --radius-card: 1.25rem;
+  --radius-btn: 9999px;
 }
 
 * {
@@ -24,11 +34,21 @@ html {
 }
 
 body {
-  background-color: #000000;
+  background-color: #0D0A08;
   color: #F7F3EC;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+}
+
+.heading-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .text-gold-gradient {
@@ -50,8 +70,30 @@ body {
   background: linear-gradient(90deg, transparent, #C8A45D, transparent);
 }
 
+/* Luxury card with rounded corners and warm shadows */
+.card-luxury {
+  border-radius: 1.25rem;
+  background: #1C1916;
+  border: 1px solid rgba(200, 164, 93, 0.18);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(200, 164, 93, 0.08) inset;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-luxury:hover {
+  border-color: rgba(200, 164, 93, 0.45);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(200, 164, 93, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Warm texture overlay */
+.bg-warm-texture {
+  background-color: #141210;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(200, 164, 93, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(200, 164, 93, 0.03) 0%, transparent 50%);
+}
+
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-track { background: #0D0A08; }
 ::-webkit-scrollbar-thumb { background: #C8A45D; border-radius: 3px; }
 ::selection { background: #C8A45D; color: #000000; }
 :focus-visible { outline: 2px solid #C8A45D; outline-offset: 2px; }

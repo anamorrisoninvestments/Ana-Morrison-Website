@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-black/95 backdrop-blur-md border-b border-[#C8A45D]/20" : "bg-transparent"
+        scrolled ? "bg-[#0D0A08]/95 backdrop-blur-md border-b border-[#C8A45D]/20" : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
@@ -76,7 +76,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contacto"
-            className="px-5 py-2 bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-colors"
+            className="px-5 py-2 rounded-full bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_20px_rgba(200,164,93,0.35)]"
           >
             Trabajemos Juntos
           </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/98 border-t border-[#C8A45D]/20"
+            className="lg:hidden bg-[#0D0A08]/98 border-t border-[#C8A45D]/20"
           >
             <ul className="flex flex-col px-6 py-6 gap-4">
               {links.map((link) => (
@@ -121,7 +121,7 @@ export default function Navbar() {
                 <Link
                   href="/contacto"
                   onClick={() => setMenuOpen(false)}
-                  className="block w-full text-center px-5 py-3 bg-[#C8A45D] text-black font-semibold tracking-wider uppercase"
+                  className="block w-full text-center px-5 py-3 rounded-full bg-[#C8A45D] text-black font-semibold tracking-wider uppercase"
                 >
                   Trabajemos Juntos
                 </Link>

@@ -14,10 +14,10 @@ const milestones = [
 
 export default function AboutSection() {
   return (
-    <section id="sobre-mi" className="py-24 bg-[#111111]">
+    <section id="sobre-mi" className="py-24 bg-[#141210]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
-          {/* Photo + Milestones */}
+          {/* Photo */}
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -27,8 +27,10 @@ export default function AboutSection() {
               className="relative max-w-md mx-auto w-full"
             >
               <div className="relative w-full aspect-[3/4]">
-                <div className="absolute -inset-3 border border-[#C8A45D]/20" />
-                <div className="relative w-full h-full overflow-hidden">
+                {/* Warm glow */}
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#C8A45D]/8 to-transparent blur-xl" />
+                <div className="absolute -inset-3 rounded-[1.75rem] border border-[#C8A45D]/20" />
+                <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                   <Image
                     src="/images/anamaria-about.jpg"
                     alt="AnaMaria Morrison"
@@ -36,8 +38,9 @@ export default function AboutSection() {
                     sizes="(max-width: 1024px) 100vw, 500px"
                     className="object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A08]/25 via-transparent to-transparent" />
                 </div>
-                <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[#C8A45D]" />
+                <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#C8A45D] rounded-br-2xl" />
               </div>
             </motion.div>
           </div>
@@ -50,8 +53,8 @@ export default function AboutSection() {
             transition={{ duration: 0.7 }}
           >
             <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">Mi Historia</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#F7F3EC] mt-3 mb-6">
-              Más que administrar propiedades,
+            <h2 className="heading-serif text-4xl sm:text-5xl mt-3 mb-6">
+              <span className="text-[#F7F3EC]">Más que administrar propiedades,</span>
               <br />
               <span className="text-gold-gradient">construyo oportunidades.</span>
             </h2>
@@ -64,7 +67,7 @@ export default function AboutSection() {
               estoy certificada como analista de subastas del condado (tax deeds), y ayudo a inversionistas a replicar
               mi metodología a través de <strong className="text-[#C8A45D]">The Host Circle</strong>.
             </p>
-            <blockquote className="border-l-2 border-[#C8A45D] pl-4 italic text-[#F7F3EC]/60 text-sm mb-8">
+            <blockquote className="border-l-2 border-[#C8A45D] pl-4 italic text-[#F7F3EC]/60 text-sm mb-8 font-serif">
               "La riqueza no se improvisa. Se construye con visión, educación, crédito, estrategia, sistemas y acción constante."
             </blockquote>
             <Link
@@ -75,7 +78,7 @@ export default function AboutSection() {
             </Link>
 
             {/* Milestones */}
-            <div className="space-y-4 mt-10">
+            <div className="space-y-3 mt-10">
               {milestones.map((m, i) => (
                 <motion.div
                   key={i}
@@ -83,19 +86,19 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex gap-6 items-start p-5 border border-[#C8A45D]/20 hover:border-[#C8A45D]/50 transition-colors bg-black/50"
+                  className="flex gap-6 items-start p-5 rounded-2xl border border-[#C8A45D]/15 hover:border-[#C8A45D]/40 transition-all bg-[#1C1916]/60 hover:bg-[#1C1916]"
                 >
-                  <div className="flex-shrink-0 text-[#C8A45D] font-bold text-lg min-w-[80px]">{m.year}</div>
+                  <div className="flex-shrink-0 text-[#C8A45D] font-bold text-lg min-w-[80px] heading-serif">{m.year}</div>
                   <p className="text-[#F7F3EC]/80 text-sm leading-relaxed">{m.text}</p>
                 </motion.div>
               ))}
 
               {/* Countries */}
-              <div className="p-5 bg-[#10145F]/20 border border-[#22AEEF]/20">
+              <div className="p-5 rounded-2xl bg-[#10145F]/15 border border-[#22AEEF]/20">
                 <p className="text-[#22AEEF] text-xs tracking-widest uppercase font-semibold mb-3">Operaciones en</p>
                 <div className="flex flex-wrap gap-2">
                   {CLIENT.countries.map((c) => (
-                    <span key={c} className="px-3 py-1 bg-[#22AEEF]/10 text-[#22AEEF] text-sm border border-[#22AEEF]/20">
+                    <span key={c} className="px-3 py-1.5 rounded-full bg-[#22AEEF]/8 text-[#22AEEF] text-sm border border-[#22AEEF]/20">
                       {c}
                     </span>
                   ))}
