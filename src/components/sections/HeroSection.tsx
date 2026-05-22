@@ -3,17 +3,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { CLIENT } from "@/lib/client-data";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0D0A08]">
-      {/* Warm radial glows */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#10145F]/15 via-[#0D0A08] to-[#0D0A08]" />
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#C8A45D]/6 to-transparent" />
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-[#C8A45D]/4 to-transparent" />
 
-      {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -23,8 +20,7 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: text */}
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -34,7 +30,7 @@ export default function HeroSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D] animate-pulse" />
               <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-                Founder & CEO · The Host Circle
+                AnaMaria Morrison · The Host Circle
               </span>
             </motion.div>
 
@@ -42,70 +38,61 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="heading-serif text-6xl sm:text-7xl lg:text-8xl leading-[0.92] mb-8"
+              className="heading-serif text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[#F7F3EC]"
             >
-              <span className="text-[#F7F3EC]">Ana</span>
-              <span className="text-gold-gradient">Maria</span>
-              <br />
-              <span className="text-[#F7F3EC]">Morrison</span>
+              Construye, automatiza y escala tu negocio de{" "}
+              <span className="text-gold-gradient italic">alquiler a corto plazo</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[#F7F3EC]/70 text-lg sm:text-xl leading-relaxed mb-4 max-w-lg"
+              className="text-[#F7F3EC]/75 text-lg leading-relaxed mb-6 max-w-xl"
             >
-              Empresaria, inversionista inmobiliaria y estratega de alquileres a corto plazo.
-              Más de <strong className="text-[#C8A45D]">9 años</strong> transformando propiedades en vehículos de libertad financiera.
+              Estrategia profesional de hospitalidad, inversión inmobiliaria,
+              automatización con inteligencia artificial y acompañamiento de alto nivel.
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-[#888888] text-sm italic mb-10 border-l-2 border-[#C8A45D]/40 pl-4 font-serif"
+              className="text-[#888888] text-base leading-relaxed mb-10 max-w-xl"
             >
-              "{CLIENT.tagline}"
+              Ayudo a propietarios, inversionistas y emprendedores a transformar
+              propiedades en activos rentables mediante administración profesional,
+              hospitalidad premium, automatización con IA, educación estratégica
+              y acompañamiento de transformación personal.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 flex-wrap"
             >
+              <Link
+                href="#ecosistema"
+                className="px-7 py-3.5 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-xs hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.4)] text-center"
+              >
+                Explorar Servicios
+              </Link>
+              <Link
+                href="#membresia"
+                className="px-7 py-3.5 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-xs hover:border-[#C8A45D] hover:text-[#C8A45D] transition-all text-center hover:bg-[#C8A45D]/5"
+              >
+                Ver Programas Educativos
+              </Link>
               <Link
                 href="/contacto"
-                className="px-8 py-4 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.4)] text-center"
+                className="px-7 py-3.5 rounded-full border border-[#22AEEF]/40 text-[#22AEEF] tracking-widest uppercase text-xs hover:border-[#22AEEF] hover:bg-[#22AEEF]/10 transition-all text-center"
               >
-                Trabajemos Juntos
+                Solicitar Llamada
               </Link>
-              <Link
-                href="/sobre-mi"
-                className="px-8 py-4 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-sm hover:border-[#C8A45D] hover:text-[#C8A45D] transition-all text-center hover:bg-[#C8A45D]/5"
-              >
-                Conoce Mi Historia
-              </Link>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid grid-cols-4 gap-4 mt-14 pt-10 border-t border-[#C8A45D]/20"
-            >
-              {CLIENT.stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="heading-serif text-[#C8A45D] text-3xl sm:text-4xl font-bold">{stat.value}</p>
-                  <p className="text-[#888888] text-xs mt-1 leading-tight">{stat.label}</p>
-                </div>
-              ))}
             </motion.div>
           </div>
 
-          {/* Right: photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -113,9 +100,7 @@ export default function HeroSection() {
             className="relative hidden lg:block"
           >
             <div className="relative w-full aspect-[3/4] max-w-md mx-auto">
-              {/* Warm glow behind photo */}
               <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#C8A45D]/10 to-transparent blur-2xl" />
-              {/* Gold frame */}
               <div className="absolute -inset-4 rounded-[1.75rem] border border-[#C8A45D]/25" />
               <div className="absolute -inset-2 rounded-[1.5rem] border border-[#C8A45D]/10" />
               <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
@@ -127,28 +112,15 @@ export default function HeroSection() {
                   sizes="(max-width: 1024px) 100vw, 448px"
                   className="object-cover"
                 />
-                {/* Subtle warm overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A08]/30 via-transparent to-transparent" />
               </div>
-              {/* Gold accent corners */}
               <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-[#C8A45D] rounded-br-xl" />
               <div className="absolute -top-4 -left-4 w-14 h-14 border-t-2 border-l-2 border-[#C8A45D] rounded-tl-xl" />
             </div>
-
-            {/* Floating badge */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-6 bottom-24 bg-[#10145F] border border-[#22AEEF]/40 px-5 py-4 rounded-2xl shadow-xl backdrop-blur-sm"
-            >
-              <p className="text-[#22AEEF] text-xs tracking-wider uppercase font-semibold">USA · México · Colombia</p>
-              <p className="text-white text-sm font-bold mt-0.5">4 Países de Operación</p>
-            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
