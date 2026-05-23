@@ -107,7 +107,7 @@ export default function TaxDeedSection() {
               del Cazador antes de llegar a tu bandeja.
             </p>
             <div className="flex items-baseline gap-3 mb-8 pb-6 border-b border-[#22AEEF]/15">
-              <span className="heading-serif text-5xl text-[#22AEEF] font-bold">$200</span>
+              <span className="heading-serif text-5xl text-[#22AEEF] font-bold">$197</span>
               <span className="text-[#F7F3EC]/70 text-sm">/ mes por condado</span>
             </div>
             <ul className="space-y-2.5 mb-8">
