@@ -30,12 +30,13 @@ export default function TaxDeedSection() {
             </p>
             <div className="p-5 rounded-2xl border border-[#22AEEF]/20 bg-[#10145F]/10 mb-6">
               <p className="text-[#22AEEF] text-xs tracking-widest uppercase font-semibold mb-2">
-                Sobre el software
+                Tecnología propietaria
               </p>
               <p className="text-[#F7F3EC]/70 text-sm leading-relaxed">
-                El software no está disponible al público por ahora porque se encuentra
-                en construcción. Actualmente se ofrece un servicio mensual de listados
-                curados por condado.
+                Opero el sistema más actualizado del mercado para el análisis de
+                títulos en subastas Tax Deed: cientos de agentes virtuales con
+                inteligencia artificial trabajando 24/7 para rastrear, cruzar
+                registros y filtrar las mejores oportunidades antes de cada subasta.
               </p>
             </div>
           </motion.div>
