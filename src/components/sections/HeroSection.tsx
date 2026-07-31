@@ -14,7 +14,8 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: "linear-gradient(#C8A45D 1px, transparent 1px), linear-gradient(90deg, #C8A45D 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(#C8A45D 1px, transparent 1px), linear-gradient(90deg, #C8A45D 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
@@ -30,7 +31,7 @@ export default function HeroSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D] animate-pulse" />
               <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-                AnaMaria Morrison · The Host Circle
+                Ana Morrison · Real Estate Investor &amp; Strategist
               </span>
             </motion.div>
 
@@ -40,57 +41,50 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="heading-serif text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[#F7F3EC]"
             >
-              Construye, automatiza y escala tu negocio de{" "}
-              <span className="text-gold-gradient italic">alquiler a corto plazo</span>
+              Adquiere propiedades estratégicamente y conviértelas en{" "}
+              <span className="text-gold-gradient italic">activos rentables</span>.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[#F7F3EC]/75 text-lg leading-relaxed mb-6 max-w-xl"
+              className="text-[#F7F3EC]/75 text-lg leading-relaxed mb-10 max-w-xl"
             >
-              Estrategia profesional de hospitalidad, inversión inmobiliaria,
-              automatización con inteligencia artificial y acompañamiento de alto nivel.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-[#888888] text-base leading-relaxed mb-10 max-w-xl"
-            >
-              Ayudo a propietarios, inversionistas y emprendedores a transformar
-              propiedades en activos rentables mediante administración profesional,
-              hospitalidad premium, automatización con IA, educación estratégica
-              y acompañamiento de transformación personal.
+              Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades
+              y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas
+              y operación profesional.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3 flex-wrap"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-3 mb-8"
             >
               <Link
-                href="#ecosistema"
+                href="#trabaja-conmigo"
                 className="px-7 py-3.5 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-xs hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.4)] text-center"
               >
-                Explorar Servicios
+                Explorar cómo trabajar conmigo
               </Link>
               <Link
-                href="#membresia"
+                href="/sobre-mi"
                 className="px-7 py-3.5 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-xs hover:border-[#C8A45D] hover:text-[#C8A45D] transition-all text-center hover:bg-[#C8A45D]/5"
               >
-                Ver Programas Educativos
-              </Link>
-              <Link
-                href="/contacto"
-                className="px-7 py-3.5 rounded-full border border-[#22AEEF]/40 text-[#22AEEF] tracking-widest uppercase text-xs hover:border-[#22AEEF] hover:bg-[#22AEEF]/10 transition-all text-center"
-              >
-                Solicitar Llamada
+                Conocer mi experiencia
               </Link>
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="text-[#888888] text-sm leading-relaxed max-w-xl border-t border-[#C8A45D]/15 pt-6"
+            >
+              9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario
+              multimillonario · Analista certificada en subastas Tax Deed
+            </motion.p>
           </div>
 
           <motion.div
@@ -106,7 +100,7 @@ export default function HeroSection() {
               <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                 <Image
                   src="/images/anamaria-morrison.jpg"
-                  alt="AnaMaria Morrison — Fundadora de The Host Circle"
+                  alt="Ana Morrison — Real Estate Investor &amp; STR / Tax Deed Strategist"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 448px"

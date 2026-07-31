@@ -8,11 +8,11 @@ import { CLIENT } from "@/lib/client-data";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
-  { href: "/sobre-mi", label: "Sobre Mí" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/cursos", label: "Cursos" },
-  { href: "/libros", label: "Libros" },
-  { href: "/blog", label: "Blog" },
+  { href: "/sobre-mi", label: "Sobre Ana" },
+  { href: "/alquileres-a-corto-plazo", label: "Alquileres a Corto Plazo" },
+  { href: "/tax-deed", label: "Tax Deed" },
+  { href: "/casos-de-exito", label: "Casos de Éxito" },
+  { href: "/recursos", label: "Recursos" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -44,7 +44,7 @@ export default function Navbar() {
           <span className="text-[#C8A45D] font-bold text-lg tracking-widest uppercase group-hover:text-[#E2C98A] transition-colors">
             {CLIENT.nameShort}
           </span>
-          <span className="text-[#888888] text-xs tracking-widest uppercase">The Host Circle</span>
+          <span className="text-[#888888] text-xs tracking-widest uppercase">STR &amp; Tax Deed Strategist</span>
         </Link>
 
         {/* Desktop nav */}
@@ -78,7 +78,7 @@ export default function Navbar() {
             href="/contacto"
             className="px-5 py-2 rounded-full bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_20px_rgba(200,164,93,0.35)]"
           >
-            Trabajemos Juntos
+            Trabaja Conmigo
           </Link>
         </div>
 
@@ -123,7 +123,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="block w-full text-center px-5 py-3 rounded-full bg-[#C8A45D] text-black font-semibold tracking-wider uppercase"
                 >
-                  Trabajemos Juntos
+                  Trabaja Conmigo
                 </Link>
               </li>
             </ul>
