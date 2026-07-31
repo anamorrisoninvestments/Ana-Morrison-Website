@@ -68,7 +68,7 @@ export default function AboutSection() {
               mi metodología a través de <strong className="text-[#C8A45D]">The Host Circle</strong>.
             </p>
             <blockquote className="border-l-2 border-[#C8A45D] pl-4 italic text-[#F7F3EC]/60 text-sm mb-8 font-serif">
-              "La riqueza no se improvisa. Se construye con visión, educación, crédito, estrategia, sistemas y acción constante."
+              &ldquo;La riqueza no se improvisa. Se construye con visión, educación, crédito, estrategia, sistemas y acción constante.&rdquo;
             </blockquote>
             <Link
               href="/sobre-mi"

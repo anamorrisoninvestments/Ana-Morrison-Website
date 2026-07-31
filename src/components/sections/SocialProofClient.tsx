@@ -91,7 +91,7 @@ export default function SocialProofClient({ stats, generatedAt }: Props) {
                 transition={{ delay: i * 0.1 }}
                 className="p-8 rounded-2xl border border-[#C8A45D]/15 bg-[#1C1916] relative hover:border-[#C8A45D]/35 transition-all hover:shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
               >
-                <div className="heading-serif text-[#C8A45D] text-6xl leading-none mb-4 opacity-40 select-none">"</div>
+                <div className="heading-serif text-[#C8A45D] text-6xl leading-none mb-4 opacity-40 select-none">&ldquo;</div>
                 <p className="text-[#F7F3EC]/80 text-sm leading-relaxed mb-6 italic font-serif">{t.quote}</p>
                 <div className="border-t border-[#C8A45D]/15 pt-4">
                   <p className="text-[#C8A45D] font-semibold text-sm">{t.name}</p>
