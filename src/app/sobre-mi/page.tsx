@@ -32,44 +32,51 @@ const timeline: TimelineEvent[] = [
   {
     year: "2012–2013",
     publicLabel: "2012–2013",
-    title: "Primera propiedad en Colombia",
+    title: "Primera inversión inmobiliaria",
     description:
-      "Adquisición de la primera propiedad en Colombia, financiada y operada inicialmente bajo modelo de renta tradicional.",
+      "Adquisición de la primera propiedad en Colombia sobre planos, en etapa de preconstrucción, a los 22 años.",
   },
   {
-    year: null,
-    publicLabel: "Transición operativa",
-    title: "De renta tradicional a alquiler a corto plazo",
+    year: "2016",
+    publicLabel: "2016",
+    title: "Entrega de la primera propiedad",
     description:
-      "Conversión de la primera propiedad al modelo STR, triplicando los ingresos del inmueble.",
+      "Tras aproximadamente cuatro años de construcción, la propiedad es entregada y destinada inicialmente al modelo de renta tradicional.",
   },
   {
-    year: null,
-    publicLabel: "Expansión internacional",
-    title: "Expansión de operaciones internacionales",
+    year: "Marzo 2017",
+    publicLabel: "Marzo 2017",
+    title: "Migración a Estados Unidos",
     description:
-      "Desarrollo de operaciones y experiencia en Estados Unidos, México, Colombia y Venezuela.",
+      "Traslado a Estados Unidos mientras la propiedad en Colombia continúa operando bajo renta tradicional.",
   },
   {
-    year: null,
-    publicLabel: "Operaciones en EE.UU.",
-    title: "Inicio de operaciones en Estados Unidos",
+    year: "Junio 2017",
+    publicLabel: "Junio 2017",
+    title: "Transición al alquiler a corto plazo",
     description:
-      "Combinación de propiedades propias, operación en arbitraje y administración de propiedades de inversionistas en el mercado estadounidense.",
+      "Transformación de la propiedad al modelo STR, con administración remota desde Estados Unidos. Punto de partida de la trayectoria profesional en hospitalidad y alquiler a corto plazo.",
   },
   {
-    year: null,
-    publicLabel: "Formación Tax Deed",
-    title: "Formación especializada en análisis de propiedades y subastas Tax Deed",
+    year: "2023",
+    publicLabel: "2023",
+    title: "Expansión internacional de operaciones",
     description:
-      "Formación técnica para identificar y evaluar oportunidades inmobiliarias a través de subastas del condado.",
+      "Administración simultánea de propiedades de alquiler a corto plazo en Estados Unidos, México y Venezuela, además de la operación continuada en Colombia.",
   },
   {
-    year: null,
-    publicLabel: "Marca educativa",
+    year: "2025",
+    publicLabel: "2025",
+    title: "Formación especializada en Tax Deed",
+    description:
+      "Formación especializada en análisis de títulos y oportunidades Tax Deed con Marcos Jacobs, inversionista brasileño radicado en Estados Unidos y especialista en subastas del condado.",
+  },
+  {
+    year: "2025",
+    publicLabel: "2025",
     title: "Fundación de The Host Circle",
     description:
-      "Creación de la marca educativa y operativa enfocada en formar operadores profesionales de alquiler a corto plazo.",
+      "Creación de The Host Circle como plataforma educativa para formar propietarios, inversionistas y operadores en alquileres a corto plazo, hospitalidad y creación de sistemas.",
   },
 ];
 
@@ -193,21 +200,18 @@ export default function SobreMiPage() {
             </h2>
             <div className="space-y-5 text-[#F7F3EC]/80 text-base leading-relaxed">
               <p>
-                Compré mi primera propiedad a los 22 años. Cuando la transformé de renta tradicional
-                a alquiler a corto plazo, tripliqué sus ingresos y entendí que la rentabilidad
-                inmobiliaria no depende solamente de poseer una propiedad, sino de adquirirla,
-                posicionarla y operarla estratégicamente.
+                Compré mi primera propiedad sobre planos a los 22 años. Después de recibirla en
+                2016, la mantuve inicialmente en renta tradicional. En junio de 2017, ya viviendo
+                en Estados Unidos, la transformé en un alquiler a corto plazo y comencé a
+                administrarla remotamente. Esa experiencia se convirtió en el punto de partida de
+                una trayectoria internacional en hospitalidad, administración de propiedades e
+                inversión inmobiliaria.
               </p>
               <p>
-                Durante más de nueve años he desarrollado experiencia en alquileres a corto plazo,
-                administración, automatización y análisis de propiedades para adquisición mediante
-                subastas del condado. Hoy ayudo a propietarios e inversionistas a tomar mejores
-                decisiones y convertir oportunidades inmobiliarias en activos rentables.
-              </p>
-              <p>
-                Combino tres modelos de trabajo: propiedades propias, propiedades operadas en
-                arbitraje, y administración de propiedades de otros inversionistas, con operaciones
-                en Estados Unidos, México, Colombia y Venezuela.
+                Desde 2023 he gestionado operaciones en Estados Unidos, México, Venezuela y
+                Colombia. En 2025 amplié mi formación en análisis de títulos y propiedades Tax
+                Deed y fundé The Host Circle para compartir sistemas, experiencia práctica y
+                estrategias de rentabilidad inmobiliaria.
               </p>
             </div>
           </div>
