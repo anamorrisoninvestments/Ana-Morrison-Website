@@ -10,16 +10,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/casos-de-exito" },
 };
 
-// TODO: reemplazar con casos verificados de Ana. Sin métricas inventadas.
+// Casos con métricas y fotografías verificadas. Los demás casos permanecen ocultos
+// hasta contar con material real proporcionado por Ana.
 const cases = [
   {
     type: "Transformación STR",
     market: "Colombia",
-    situation: "Propiedad en renta tradicional con ingresos moderados y baja ocupación estratégica.",
-    strategy: "Reposicionamiento como alquiler a corto plazo con diseño, listing profesional y automatización.",
-    result: "Incremento significativo de ingresos al pasar del modelo tradicional al modelo STR.",
+    situation:
+      "Primera propiedad de Ana operada inicialmente bajo modelo de renta tradicional.",
+    strategy:
+      "Reposicionamiento al modelo de alquiler a corto plazo: diseño, listing profesional y operación en plataformas STR.",
+    result:
+      "Los ingresos de la propiedad se triplicaron al pasar del modelo de renta tradicional al modelo STR.",
     role: "Estrategia integral y operación",
-    highlight: "De renta tradicional a alquiler a corto plazo",
+    highlight: "De renta tradicional a alquiler a corto plazo: 3× en ingresos",
   },
 ];
 

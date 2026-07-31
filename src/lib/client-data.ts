@@ -5,7 +5,17 @@ export const CLIENT = {
   titleEN: "Founder & CEO | Short-Term Rental Expert, Tax Deed Investments & Real Estate Strategies",
   domain: "anamorrison.com",
   siteUrl: "https://anamorrison.com",
+  // Correo público actualmente en uso (validado y funcional).
   email: "anamorrisoninvestments@gmail.com",
+  // Correos profesionales preparados. NO mostrar públicamente hasta confirmar
+  // que están configurados y recibiendo mensajes. Cuando estén listos, cambiar
+  // `email` arriba y activar `emails.publicVisible = true` donde corresponda.
+  emails: {
+    publicVisible: false,
+    general: "hello@anamorrison.com",
+    investments: "investments@anamorrison.com",
+    properties: "properties@anamorrison.com",
+  },
   whatsapp: "+17865086859",
   whatsappDisplay: "+1 (786) 508-6859",
   brand: "The Host Circle",

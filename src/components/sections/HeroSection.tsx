@@ -83,7 +83,7 @@ export default function HeroSection() {
               className="text-[#888888] text-sm leading-relaxed max-w-xl border-t border-[#C8A45D]/15 pt-6"
             >
               9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario
-              multimillonario · Analista certificada en subastas Tax Deed
+              multimillonario · Formación especializada en análisis Tax Deed
             </motion.p>
           </div>
 

@@ -18,41 +18,56 @@ export const metadata: Metadata = {
   },
 };
 
-// Timeline profesional — sólo datos verificables. TODO: reemplazar años exactos con datos reales cuando estén disponibles.
-const timeline = [
+// Timeline profesional. Solo se muestra públicamente lo que está confirmado.
+// Los eventos sin año calendario documentado se marcan `year: null` en la
+// config interna y se renderizan con etiqueta descriptiva prudente.
+type TimelineEvent = {
+  year: string | null; // año público a mostrar; null si no está confirmado
+  publicLabel: string; // etiqueta que se muestra cuando no hay year
+  title: string;
+  description: string;
+};
+
+const timeline: TimelineEvent[] = [
   {
-    year: "22 años",
-    title: "Primera propiedad adquirida",
+    year: "2012–2013",
+    publicLabel: "2012–2013",
+    title: "Primera propiedad en Colombia",
     description:
-      "Compra de la primera propiedad en Colombia, financiada y operada bajo modelo de renta tradicional.",
+      "Adquisición de la primera propiedad en Colombia, financiada y operada inicialmente bajo modelo de renta tradicional.",
   },
   {
-    year: "Transición",
+    year: null,
+    publicLabel: "Transición operativa",
     title: "De renta tradicional a alquiler a corto plazo",
     description:
       "Conversión de la primera propiedad al modelo STR, triplicando los ingresos del inmueble.",
   },
   {
-    year: "Expansión",
-    title: "Operaciones multi-país",
+    year: null,
+    publicLabel: "Expansión internacional",
+    title: "Expansión de operaciones internacionales",
     description:
       "Desarrollo de operaciones y experiencia en Estados Unidos, México, Colombia y Venezuela.",
   },
   {
-    year: "Portafolio",
-    title: "Modelo de propiedad + administración",
+    year: null,
+    publicLabel: "Operaciones en EE.UU.",
+    title: "Inicio de operaciones en Estados Unidos",
     description:
-      "Combinación de propiedades propias, propiedades en arbitraje y administración de propiedades de inversionistas.",
+      "Combinación de propiedades propias, operación en arbitraje y administración de propiedades de inversionistas en el mercado estadounidense.",
   },
   {
-    year: "Certificación",
-    title: "Analista certificada en subastas del condado",
+    year: null,
+    publicLabel: "Formación Tax Deed",
+    title: "Formación especializada en análisis de propiedades y subastas Tax Deed",
     description:
-      "Formación como analista en subastas Tax Deed para identificar y evaluar oportunidades para inversionistas.",
+      "Formación técnica para identificar y evaluar oportunidades inmobiliarias a través de subastas del condado.",
   },
   {
-    year: "Educación",
-    title: "The Host Circle",
+    year: null,
+    publicLabel: "Marca educativa",
+    title: "Fundación de The Host Circle",
     description:
       "Creación de la marca educativa y operativa enfocada en formar operadores profesionales de alquiler a corto plazo.",
   },
@@ -125,8 +140,8 @@ export default function SobreMiPage() {
                 </h1>
                 <p className="text-[#F7F3EC]/75 text-lg leading-relaxed mb-8 max-w-2xl">
                   9+ años transformando propiedades en activos rentables. Operaciones en 4 países,
-                  portafolio inmobiliario multimillonario y certificación como analista en subastas
-                  del condado.
+                  portafolio inmobiliario multimillonario y formación especializada en análisis de
+                  propiedades y subastas Tax Deed.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -185,9 +200,9 @@ export default function SobreMiPage() {
               </p>
               <p>
                 Durante más de nueve años he desarrollado experiencia en alquileres a corto plazo,
-                administración, automatización y adquisición de propiedades mediante subastas del
-                condado. Hoy ayudo a propietarios e inversionistas a tomar mejores decisiones y
-                convertir oportunidades inmobiliarias en activos rentables.
+                administración, automatización y análisis de propiedades para adquisición mediante
+                subastas del condado. Hoy ayudo a propietarios e inversionistas a tomar mejores
+                decisiones y convertir oportunidades inmobiliarias en activos rentables.
               </p>
               <p>
                 Combino tres modelos de trabajo: propiedades propias, propiedades operadas en
@@ -216,18 +231,13 @@ export default function SobreMiPage() {
                 <li key={t.title} className="pl-8 relative">
                   <span className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#C8A45D] border-4 border-[#0D0A08]" />
                   <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-1">
-                    {t.year}
+                    {t.year ?? t.publicLabel}
                   </p>
                   <h3 className="heading-serif text-2xl text-[#F7F3EC] mb-2">{t.title}</h3>
                   <p className="text-[#F7F3EC]/70 text-sm leading-relaxed">{t.description}</p>
                 </li>
               ))}
             </ol>
-
-            <p className="text-[#888888] text-xs italic mt-12 text-center">
-              Línea de tiempo estructural. Fechas específicas y detalles adicionales se ampliarán
-              con documentación verificable.
-            </p>
           </div>
         </section>
 

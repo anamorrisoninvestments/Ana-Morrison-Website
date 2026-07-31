@@ -64,7 +64,7 @@ export default function AboutSection() {
             </p>
             <p className="text-[#F7F3EC]/70 text-base leading-relaxed mb-6">
               Hoy cuento con un portafolio inmobiliario valorado en varios millones de dólares, opero propiedades en 4 países,
-              estoy certificada como analista de subastas del condado (tax deeds), y ayudo a inversionistas a replicar
+              cuento con formación especializada en análisis de propiedades y subastas Tax Deed, y ayudo a inversionistas a replicar
               mi metodología a través de <strong className="text-[#C8A45D]">The Host Circle</strong>.
             </p>
             <blockquote className="border-l-2 border-[#C8A45D] pl-4 italic text-[#F7F3EC]/60 text-sm mb-8 font-serif">
