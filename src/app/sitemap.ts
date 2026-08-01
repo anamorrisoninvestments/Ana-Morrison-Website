@@ -9,23 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     { url: base, lastModified: now, changeFrequency: "weekly" as const, priority: 1 },
     { url: `${base}/sobre-mi`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${base}/servicios`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${base}/cursos`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${base}/libros`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/conferencias`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${base}/prensa`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
+    { url: `${base}/alquileres-a-corto-plazo`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.95 },
+    { url: `${base}/tax-deed`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.95 },
+    { url: `${base}/casos-de-exito`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.85 },
+    { url: `${base}/recursos`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily" as const, priority: 0.8 },
-    { url: `${base}/contacto`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${base}/recursos/guia-5-rutas`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${base}/en`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/contacto`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.75 },
   ];
-
-  const bookPages = CLIENT.books.map((book) => ({
-    url: `${base}/libros/${book.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
 
   const blogPages = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
@@ -34,5 +24,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...bookPages, ...blogPages];
+  return [...staticPages, ...blogPages];
 }
