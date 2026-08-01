@@ -105,12 +105,6 @@ const schemaOrg = {
         "https://www.linkedin.com/in/anamar%C3%ADa-morrison-07b83b5b",
         "https://www.facebook.com/anamorrisoninvestments",
       ],
-      interactionStatistic: [
-        { "@type": "InteractionCounter", interactionType: "https://schema.org/FollowAction", userInteractionCount: 33200, url: "https://www.instagram.com/anamorrisoninvestments" },
-        { "@type": "InteractionCounter", interactionType: "https://schema.org/FollowAction", userInteractionCount: 7800, url: "https://www.facebook.com/anamorrisoninvestments" },
-        { "@type": "InteractionCounter", interactionType: "https://schema.org/FollowAction", userInteractionCount: 111, url: "https://www.tiktok.com/@anamorrisoninvestments" },
-        { "@type": "InteractionCounter", interactionType: "https://schema.org/FollowAction", userInteractionCount: 111, url: "https://youtube.com/@anamorrisoninvestments" },
-      ],
       knowsAbout: [
         "Alquiler a corto plazo",
         "Airbnb",

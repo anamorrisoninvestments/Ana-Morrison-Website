@@ -7,7 +7,7 @@ import PillarsSection from "@/components/sections/PillarsSection";
 import MethodSection from "@/components/sections/MethodSection";
 import AboutSection from "@/components/sections/AboutSection";
 import WaysToWorkSection from "@/components/sections/WaysToWorkSection";
-import SocialProofSection from "@/components/sections/SocialProofSection";
+import AuthoritySection from "@/components/sections/AuthoritySection";
 import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function HomePage() {
         <MethodSection />
         <AboutSection />
         <WaysToWorkSection />
-        <SocialProofSection />
+        <AuthoritySection />
         <CTASection />
       </main>
       <Footer />
