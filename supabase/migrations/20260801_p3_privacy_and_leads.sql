@@ -18,7 +18,13 @@
 -- ----------------------------------------------------------------------------
 -- 1) TABLA: leads
 --    Fuente de verdad para todo lead capturado desde el sitio.
---    Fuente de datos personales: name, email, whatsapp, payload, consent_ip.
+--    Fuente de datos personales: name, email, whatsapp, payload.
+--    NOTA de privacidad:
+--    - `leads` NO almacena la IP del visitante en ninguna forma.
+--    - Solo guarda booleanos, versión y timestamp del consentimiento.
+--    - La evidencia detallada del acto de consentir (categorías, fuente,
+--      ip_hash, user_agent_summary) vive en la tabla append-only `consents`,
+--      vinculable por lead_id, session_id, consent_version y created_at.
 -- ----------------------------------------------------------------------------
 create table if not exists public.leads (
   id                        uuid primary key default gen_random_uuid(),
@@ -43,12 +49,12 @@ create table if not exists public.leads (
   -- Datos segmentados por tipo de formulario
   payload                   jsonb not null default '{}'::jsonb,
 
-  -- Consentimientos snapshot al submit
+  -- Consentimientos: solo booleanos + versión + timestamp.
+  -- Evidencia detallada (categorías, ip_hash, UA summary) vive en `consents`.
   consent_communications    boolean not null default false,
   consent_marketing         boolean not null default false,
   consent_version           text,
   consent_at                timestamptz,
-  consent_ip                inet,
 
   -- Estado comercial
   status                    text not null default 'new',
