@@ -87,27 +87,63 @@ function ContactFormInner() {
   const [selected, setSelected] = useState<InterestKey | null>(initialSelected);
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [formStartedAt] = useState<number>(() => Date.now());
+  const CONSENT_VERSION = process.env.NEXT_PUBLIC_CONSENT_VERSION || "v1.0";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (state === "loading") return; // evita doble click / doble submit
     setState("loading");
     setErrorMsg("");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
-    data.interest = selected || "otro";
-    data.interestLabel = interests.find((i) => i.key === selected)?.label || "Otro";
+    const raw = Object.fromEntries(new FormData(form));
+
+    const payload = {
+      source: "contact_form" as const,
+      interest: selected || "otro",
+      name: String(raw.name || ""),
+      email: String(raw.email || ""),
+      whatsapp: raw.whatsapp ? String(raw.whatsapp) : undefined,
+      company: raw.company ? String(raw.company) : undefined,
+      location: raw.location ? String(raw.location) : undefined,
+      propertyType: raw.propertyType ? String(raw.propertyType) : undefined,
+      bedrooms: raw.bedrooms ? String(raw.bedrooms) : undefined,
+      platform: raw.platform ? String(raw.platform) : undefined,
+      monthlyIncome: raw.monthlyIncome ? String(raw.monthlyIncome) : undefined,
+      startDate: raw.startDate ? String(raw.startDate) : undefined,
+      experience: raw.experience ? String(raw.experience) : undefined,
+      capital: raw.capital ? String(raw.capital) : undefined,
+      timeframe: raw.timeframe ? String(raw.timeframe) : undefined,
+      eventType: raw.eventType ? String(raw.eventType) : undefined,
+      eventDate: raw.eventDate ? String(raw.eventDate) : undefined,
+      message: String(raw.message || ""),
+      consent_communications: Boolean(raw.consent),
+      consent_marketing: false,
+      consent_version: CONSENT_VERSION,
+      landing_url: typeof window !== "undefined" ? window.location.href : undefined,
+      referrer: typeof document !== "undefined" ? document.referrer : undefined,
+      hp_website: raw.hp_website ? String(raw.hp_website) : undefined,
+      form_started_at: formStartedAt,
+    };
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         setState("success");
         form.reset();
       } else {
-        const json = await res.json().catch(() => ({}));
-        setErrorMsg(json.message || "Ocurrió un error. Intenta de nuevo.");
+        const json = (await res.json().catch(() => ({}))) as { error?: string };
+        if (res.status === 429) {
+          setErrorMsg("Demasiadas solicitudes. Intenta de nuevo en un minuto.");
+        } else if (json.error === "invalid_input") {
+          setErrorMsg("Revisa los campos: algún valor no es válido.");
+        } else {
+          setErrorMsg("Ocurrió un error. Intenta de nuevo en unos minutos.");
+        }
         setState("error");
       }
     } catch {
@@ -184,6 +220,14 @@ function ContactFormInner() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot oculto — un humano no lo ve. Los bots lo rellenan. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: 0 }}>
+        <label>
+          Website
+          <input type="text" name="hp_website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <div className="flex items-start justify-between gap-4 mb-2">
         <div>
           <p
