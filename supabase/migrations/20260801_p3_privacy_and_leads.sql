@@ -66,7 +66,44 @@ create table if not exists public.leads (
   email_confirmation_error  text,
 
   -- Auditoría
-  soft_deleted_at           timestamptz
+  soft_deleted_at           timestamptz,
+
+  -- Integridad: valores válidos garantizados a nivel DB
+  constraint leads_source_ck check (
+    source in (
+      'contact_form',
+      'lead_magnet_str',
+      'lead_magnet_tax_deed',
+      'calculator_str',
+      'checklist_tax_deed',
+      'sql_editor_test'
+    )
+  ),
+  constraint leads_status_ck check (
+    status in (
+      'new', 'contacted', 'in_conversation',
+      'proposal', 'negotiation', 'client', 'discarded'
+    )
+  ),
+  constraint leads_hubspot_sync_status_ck check (
+    hubspot_sync_status in (
+      'pending', 'synced', 'failed', 'dead_letter', 'disabled'
+    )
+  ),
+  constraint leads_email_confirmation_status_ck check (
+    email_confirmation_status in (
+      'pending', 'sent', 'failed', 'skipped'
+    )
+  ),
+  constraint leads_email_format_ck check (
+    email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$'
+  ),
+  constraint leads_email_length_ck check (char_length(email) <= 254),
+  constraint leads_name_length_ck  check (char_length(name)  between 1 and 120),
+  constraint leads_whatsapp_length_ck check (whatsapp is null or char_length(whatsapp) <= 30),
+  constraint leads_company_length_ck  check (company  is null or char_length(company)  <= 200),
+  constraint leads_notes_length_ck    check (notes    is null or char_length(notes)    <= 5000),
+  constraint leads_hubspot_attempts_ck check (hubspot_sync_attempts >= 0)
 );
 
 comment on table public.leads is
@@ -112,7 +149,23 @@ create table if not exists public.lead_events (
   lead_id     uuid not null references public.leads(id) on delete cascade,
   created_at  timestamptz not null default now(),
   type        text not null,
-  payload     jsonb not null default '{}'::jsonb
+  payload     jsonb not null default '{}'::jsonb,
+
+  constraint lead_events_type_ck check (
+    type in (
+      'form_submitted',
+      'email_sent',
+      'email_failed',
+      'email_skipped',
+      'email_opened',
+      'email_clicked',
+      'hubspot_synced',
+      'hubspot_failed',
+      'stage_changed',
+      'note_added',
+      'privacy_request'
+    )
+  )
 );
 
 comment on table public.lead_events is
@@ -144,7 +197,39 @@ create table if not exists public.consents (
   page_url              text,
   source                text,
   ip_hash               text,
-  user_agent_summary    text
+  user_agent_summary    text,
+
+  constraint consents_action_ck check (
+    action in ('accepted', 'rejected', 'updated', 'withdrawn')
+  ),
+  constraint consents_type_ck check (
+    consent_type in ('cookies', 'communications', 'terms', 'marketing')
+  ),
+  constraint consents_source_ck check (
+    source is null or source in (
+      'banner_initial',
+      'preferences_modal',
+      'form_submit',
+      'withdrawal_link',
+      'admin_override'
+    )
+  ),
+  constraint consents_ip_hash_len_ck check (
+    ip_hash is null or char_length(ip_hash) between 8 and 64
+  ),
+  constraint consents_ua_summary_len_ck check (
+    user_agent_summary is null or char_length(user_agent_summary) <= 60
+  ),
+  constraint consents_categories_shape_ck check (
+    categories is null
+    or (
+      jsonb_typeof(categories) = 'object'
+      and jsonb_typeof(categories -> 'necessary') = 'boolean'
+      and (categories -> 'analytics' is null or jsonb_typeof(categories -> 'analytics') = 'boolean')
+      and (categories -> 'marketing' is null or jsonb_typeof(categories -> 'marketing') = 'boolean')
+    )
+  ),
+  constraint consents_version_len_ck check (char_length(consent_version) between 1 and 20)
 );
 
 comment on table public.consents is
@@ -166,17 +251,31 @@ create index if not exists consents_lead_idx    on public.consents (lead_id) whe
 --    Registro de descargas. Creada en PR #2, poblada en PR #8.
 -- ----------------------------------------------------------------------------
 create table if not exists public.lead_magnets_downloads (
-  id             bigserial primary key,
-  lead_id        uuid references public.leads(id) on delete cascade,
-  magnet_slug    text not null,
-  downloaded_at  timestamptz not null default now(),
-  ip             inet,
-  user_agent     text,
-  download_token text
+  id                 bigserial primary key,
+  lead_id            uuid references public.leads(id) on delete cascade,
+  magnet_slug        text not null,
+  downloaded_at      timestamptz not null default now(),
+  ip_hash            text,
+  user_agent_summary text,
+  download_token     text,
+
+  constraint magnets_slug_ck check (
+    magnet_slug in ('str-potencial', 'tax-deed-7-filtros')
+  ),
+  constraint magnets_ip_hash_len_ck check (
+    ip_hash is null or char_length(ip_hash) between 8 and 64
+  ),
+  constraint magnets_ua_summary_len_ck check (
+    user_agent_summary is null or char_length(user_agent_summary) <= 60
+  )
 );
 
 comment on table public.lead_magnets_downloads is
-  'P3: registro de descargas de lead magnets. Poblada por endpoints de PR #8.';
+  'P3: registro de descargas de lead magnets. Poblada por endpoints de PR #8. Datos minimizados: ip_hash y user_agent_summary, sin PII en claro ni fingerprints.';
+comment on column public.lead_magnets_downloads.ip_hash is
+  'SHA-256(ip + CONSENT_IP_HASH_SALT) truncado a 12 chars. Sin IP en claro.';
+comment on column public.lead_magnets_downloads.user_agent_summary is
+  'Resumen de UA: browser family + OS family. Sin versión ni device fingerprint.';
 
 create index if not exists magnets_lead_idx on public.lead_magnets_downloads (lead_id, downloaded_at desc);
 create index if not exists magnets_slug_idx on public.lead_magnets_downloads (magnet_slug, downloaded_at desc);
@@ -192,11 +291,20 @@ create table if not exists public.rate_limit_buckets (
   endpoint     text not null,
   window_start timestamptz not null,
   window_end   timestamptz not null,
-  hit_count    int not null default 1
+  hit_count    int not null default 1,
+
+  constraint rl_endpoint_ck check (
+    endpoint in ('/api/leads', '/api/consent/log')
+  ),
+  constraint rl_ip_hash_len_ck check (
+    char_length(ip_hash) between 8 and 64
+  ),
+  constraint rl_hit_count_ck check (hit_count >= 0),
+  constraint rl_window_order_ck check (window_end > window_start)
 );
 
 comment on table public.rate_limit_buckets is
-  'P3: buckets de rate limiting por IP hash + endpoint + ventana temporal.';
+  'P3: buckets de rate limiting por IP hash + endpoint + ventana temporal. Solo IP hash, sin IP en claro.';
 
 create index if not exists rl_lookup_idx
   on public.rate_limit_buckets (ip_hash, endpoint, window_end desc);

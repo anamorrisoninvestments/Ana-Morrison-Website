@@ -2,9 +2,13 @@
 -- ROLLBACK · 20260801_p3_privacy_and_leads.down.sql
 --
 -- ⚠️  ADVERTENCIA ⚠️
--- Este rollback elimina PERMANENTEMENTE las cinco tablas creadas por la
--- migración P3 (leads, lead_events, consents, lead_magnets_downloads,
--- rate_limit_buckets) y todos los datos que contengan.
+-- Este rollback elimina PERMANENTEMENTE las CINCO tablas creadas por la
+-- migración P3 y todos los datos que contengan:
+--   - rate_limit_buckets
+--   - lead_magnets_downloads
+--   - consents
+--   - lead_events
+--   - leads
 --
 -- OBLIGATORIO antes de ejecutar:
 --   1. Crear un backup manual reciente:
@@ -23,7 +27,13 @@ drop trigger if exists p3_leads_updated_at_trigger on public.leads;
 -- 2. Función exclusiva de esta migración (nombre prefijado p3_leads_)
 drop function if exists public.p3_leads_set_updated_at();
 
--- 3. Tablas creadas por esta migración (orden respeta las FKs)
+-- 3. Las cinco tablas creadas por esta migración
+--    Orden: dependientes primero para respetar las FKs.
+--    - rate_limit_buckets: sin FK, orden libre (primero por seguridad)
+--    - lead_magnets_downloads: FK → leads (ON DELETE CASCADE)
+--    - consents: FK → leads (ON DELETE SET NULL)
+--    - lead_events: FK → leads (ON DELETE CASCADE)
+--    - leads: padre, último
 drop table if exists public.rate_limit_buckets;
 drop table if exists public.lead_magnets_downloads;
 drop table if exists public.consents;

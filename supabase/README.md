@@ -106,8 +106,7 @@ begin;
 rollback;
 
 -- 4.7 · Prueba de INSERT desde backend (service_role):
---     Ejecutar como service_role desde el SQL Editor (el editor usa
---     service_role por defecto). Crear un lead de prueba explícito.
+--     Ejecutar como service_role desde el SQL Editor.
 insert into public.leads (source, name, email, consent_communications, consent_version)
 values ('sql_editor_test', 'MIGRATION TEST', 'migration-test@anamorrison.com', true, 'v1.0')
 returning id, created_at;
@@ -118,6 +117,15 @@ update public.leads set notes='update test' where email='migration-test@anamorri
 select email, created_at, updated_at from public.leads
 where email='migration-test@anamorrison.com';
 -- ↳ updated_at debe ser posterior a created_at
+
+-- 4.8 · Verificar CHECK constraints activos:
+insert into public.leads (source, name, email)
+values ('invalid_source', 'BAD', 'ok@example.com');
+-- ↳ debe fallar con "violates check constraint leads_source_ck"
+
+insert into public.leads (source, name, email)
+values ('contact_form', 'BAD', 'not-an-email');
+-- ↳ debe fallar con "violates check constraint leads_email_format_ck"
 
 -- Limpiar el registro de prueba:
 delete from public.leads where email='migration-test@anamorrison.com';
