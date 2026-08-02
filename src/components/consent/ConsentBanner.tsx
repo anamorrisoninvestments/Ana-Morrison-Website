@@ -47,19 +47,27 @@ async function logConsentToServer(input: {
 }
 
 export default function ConsentBanner() {
+  // Estado inicial: SSR-safe (readConsent lee document.cookie que no existe
+  // en SSR, así que arrancamos sin banner y lo activamos tras montar).
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [prefs, setPrefs] = useState<ConsentCategories>(DEFAULT_CATEGORIES_REJECTED);
 
-  // Al montar: si no hay consent previo → mostrar banner
+  // Al montar: hidratar desde cookie (no accesible en SSR) o mostrar banner.
+  // Lint suprimido intencionalmente: SSR no puede leer document.cookie por lo
+  // que setState post-mount es la única forma correcta.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     const existing = readConsent();
-    if (!existing) {
-      setVisible(true);
-    } else {
+    if (existing) {
       setPrefs(existing.categories);
+    } else {
+      setVisible(true);
     }
+    setMounted(true);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Escuchar evento global para abrir preferencias desde footer
   useEffect(() => {
@@ -114,6 +122,7 @@ export default function ConsentBanner() {
     setVisible(true);
   };
 
+  if (!mounted) return null;
   if (!visible && !modalOpen) return null;
 
   return (
