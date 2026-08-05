@@ -40,7 +40,14 @@ export async function POST(req: NextRequest) {
     if (!result.ok) {
       return NextResponse.json({ message: "Error interno." }, { status: 500 });
     }
-    void sendLeadNotification({ leadId: result.id, payload: parsed.data });
+    try {
+      await sendLeadNotification({ leadId: result.id, payload: parsed.data });
+    } catch (err) {
+      log.error("api.contact.deprecated_stub_email_uncaught", {
+        leadId: result.id,
+        name: (err as Error).name,
+      });
+    }
     return NextResponse.json({ message: "ok" }, { status: 200 });
   } catch (err) {
     log.error("api.contact.deprecated_stub_error", { name: (err as Error).name });

@@ -1,10 +1,39 @@
 import "server-only";
-import { getResend } from "./resend-client";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 import { getSupabaseServer } from "@/lib/supabase-server";
 import { log } from "@/lib/log";
-import { hashEmail } from "@/lib/hash";
 import { CLIENT } from "@/lib/client-data";
 import type { LeadPayload } from "@/lib/leads/schema";
+
+export type SendLeadEmailResult =
+  | { status: "sent"; resendEmailId: string | null }
+  | { status: "failed"; errorName: string; errorCode?: string }
+  | { status: "skipped"; reason: "no_api_key" | "no_from_email" | "no_supabase" | "fallback_id" };
+
+/**
+ * Cliente Resend inyectable por test. Interfaz mínima para no acoplarse al SDK.
+ */
+export type ResendLike = {
+  emails: {
+    send(params: {
+      from: string;
+      to: string;
+      replyTo?: string;
+      subject: string;
+      html: string;
+    }): Promise<{ data: { id: string } | null; error: unknown }>;
+  };
+};
+
+/**
+ * Env vars requeridas para envío de email. Solo server-side.
+ */
+export type EmailEnv = {
+  RESEND_API_KEY?: string;
+  RESEND_FROM_EMAIL?: string;
+  CONTACT_NOTIFICATION_EMAIL?: string;
+};
 
 function esc(v: unknown): string {
   return String(v ?? "")
@@ -14,26 +43,8 @@ function esc(v: unknown): string {
     .replace(/"/g, "&quot;");
 }
 
-/**
- * Envía email de notificación interna a Ana con el detalle del lead.
- * Actualiza `leads.email_confirmation_status` en Supabase con el resultado.
- * Nunca lanza — cualquier fallo se registra y no bloquea la respuesta al cliente.
- */
-export async function sendLeadNotification(input: {
-  leadId: string;
-  payload: LeadPayload;
-}): Promise<void> {
+function buildHtml(input: { leadId: string; payload: LeadPayload }): string {
   const { leadId, payload } = input;
-  const resend = getResend();
-  const supabase = getSupabaseServer();
-
-  if (!resend) {
-    log.info("sendLeadNotification.skipped_no_resend", { leadId });
-    void updateStatus(supabase, leadId, "skipped", null);
-    return;
-  }
-
-  const to = process.env.CONTACT_NOTIFICATION_EMAIL || CLIENT.email;
   const tag = payload.interest || payload.source;
 
   const rows: [string, string][] = [
@@ -64,7 +75,7 @@ export async function sendLeadNotification(input: {
     .map(([k, v]) => `<div class="label">${k}</div><div class="value">${v}</div>`)
     .join("");
 
-  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 body{font-family:Georgia,serif;background:#000;color:#F7F3EC;margin:0;padding:0}
 .c{max-width:600px;margin:0 auto;background:#111}
 .h{background:#000;padding:32px;border-bottom:1px solid #C8A45D}
@@ -83,43 +94,160 @@ body{font-family:Georgia,serif;background:#000;color:#F7F3EC;margin:0;padding:0}
 </div>
 <div class="foot">Lead ID: ${esc(leadId)} · Recibido desde anamorrison.com</div>
 </div></body></html>`;
-
-  try {
-    const { error } = await resend.client.emails.send({
-      from: resend.from,
-      to,
-      replyTo: payload.email,
-      subject: `[Lead] ${tag} — ${payload.name}`,
-      html,
-    });
-    if (error) {
-      log.error("sendLeadNotification.resend_error", { leadId, code: (error as { name?: string }).name });
-      void updateStatus(supabase, leadId, "failed", "resend_error");
-      return;
-    }
-    log.info("sendLeadNotification.ok", { leadId, emailHash: hashEmail(payload.email) });
-    void updateStatus(supabase, leadId, "sent", null);
-  } catch (err) {
-    log.error("sendLeadNotification.exception", { leadId, name: (err as Error).name });
-    void updateStatus(supabase, leadId, "failed", "exception");
-  }
 }
 
-async function updateStatus(
-  supabase: ReturnType<typeof getSupabaseServer>,
+/**
+ * Actualiza email_confirmation_status y registra un lead_event.
+ * Devuelve true si Supabase respondió OK, false si falló. Nunca lanza.
+ */
+async function persistStatus(
+  supabase: SupabaseClient | null,
   leadId: string,
   status: "sent" | "failed" | "skipped",
   error: string | null,
-) {
-  if (!supabase || leadId === "email-fallback") return;
-  await supabase
-    .from("leads")
-    .update({ email_confirmation_status: status, email_confirmation_error: error })
-    .eq("id", leadId);
+): Promise<boolean> {
+  if (!supabase) return false;
+  if (leadId === "email-fallback") return false;
 
-  await supabase.from("lead_events").insert({
-    lead_id: leadId,
-    type: status === "sent" ? "email_sent" : status === "failed" ? "email_failed" : "email_skipped",
-    payload: error ? { error } : {},
-  });
+  try {
+    const { error: upErr } = await supabase
+      .from("leads")
+      .update({ email_confirmation_status: status, email_confirmation_error: error })
+      .eq("id", leadId);
+
+    if (upErr) {
+      log.error("leadEmail.status_update_failed", { leadId, code: upErr.code });
+      return false;
+    }
+
+    const eventType =
+      status === "sent" ? "email_sent" : status === "failed" ? "email_failed" : "email_skipped";
+    const { error: evErr } = await supabase
+      .from("lead_events")
+      .insert({
+        lead_id: leadId,
+        type: eventType,
+        payload: error ? { error } : {},
+      });
+
+    if (evErr) {
+      log.error("leadEmail.event_insert_failed", { leadId, code: evErr.code });
+      return false;
+    }
+    return true;
+  } catch (err) {
+    log.error("leadEmail.persist_exception", { leadId, name: (err as Error).name });
+    return false;
+  }
+}
+
+/**
+ * Wrapper de producción. Resuelve deps y delega a sendLeadNotificationWithDeps.
+ */
+export async function sendLeadNotification(input: {
+  leadId: string;
+  payload: LeadPayload;
+}): Promise<SendLeadEmailResult> {
+  const env: EmailEnv = {
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
+    CONTACT_NOTIFICATION_EMAIL: process.env.CONTACT_NOTIFICATION_EMAIL,
+  };
+  const resendFactory: () => ResendLike | null = () => {
+    if (!env.RESEND_API_KEY) return null;
+    return new Resend(env.RESEND_API_KEY) as unknown as ResendLike;
+  };
+  const supabase = getSupabaseServer();
+  return sendLeadNotificationWithDeps({ ...input, env, resendFactory, supabase });
+}
+
+/**
+ * Lógica principal testable. Recibe deps por inyección.
+ *
+ * Contrato:
+ * - Sin RESEND_API_KEY o RESEND_FROM_EMAIL → skipped, actualiza status='skipped'
+ * - Con Resend OK → sent, actualiza status='sent', log leadEmail.sent
+ * - Con Resend error → failed, actualiza status='failed', log leadEmail.failed
+ *   con solo errorName, errorCode y leadId. Sin API key, email, PII ni stack.
+ * - El lead nunca se borra ni se modifica salvo email_confirmation_status.
+ * - Nunca lanza.
+ */
+export async function sendLeadNotificationWithDeps(input: {
+  leadId: string;
+  payload: LeadPayload;
+  env: EmailEnv;
+  resendFactory: () => ResendLike | null;
+  supabase: SupabaseClient | null;
+}): Promise<SendLeadEmailResult> {
+  const { leadId, payload, env, resendFactory, supabase } = input;
+
+  // Guard 1: fallback path (Supabase caído al guardar el lead)
+  if (leadId === "email-fallback") {
+    log.warn("leadEmail.skipped", { leadId, reason: "fallback_id" });
+    return { status: "skipped", reason: "fallback_id" };
+  }
+
+  // Guard 2: env vars faltantes → skipped
+  if (!env.RESEND_API_KEY) {
+    log.info("leadEmail.skipped", { leadId, reason: "no_api_key" });
+    await persistStatus(supabase, leadId, "skipped", null);
+    return { status: "skipped", reason: "no_api_key" };
+  }
+  if (!env.RESEND_FROM_EMAIL) {
+    log.info("leadEmail.skipped", { leadId, reason: "no_from_email" });
+    await persistStatus(supabase, leadId, "skipped", null);
+    return { status: "skipped", reason: "no_from_email" };
+  }
+
+  const resend = resendFactory();
+  if (!resend) {
+    log.info("leadEmail.skipped", { leadId, reason: "no_api_key" });
+    await persistStatus(supabase, leadId, "skipped", null);
+    return { status: "skipped", reason: "no_api_key" };
+  }
+
+  const to = env.CONTACT_NOTIFICATION_EMAIL || CLIENT.email;
+  const tag = payload.interest || payload.source;
+
+  try {
+    const response = await resend.emails.send({
+      from: env.RESEND_FROM_EMAIL,
+      to,
+      replyTo: payload.email,
+      subject: `[Lead] ${tag} — ${payload.name}`,
+      html: buildHtml({ leadId, payload }),
+    });
+
+    if (response.error) {
+      const errObj = response.error as { name?: string; message?: string };
+      log.error("leadEmail.failed", {
+        leadId,
+        errorName: errObj.name || "resend_error",
+        errorCode: undefined, // Resend no expone códigos numéricos como Postgres
+      });
+      await persistStatus(supabase, leadId, "failed", errObj.name || "resend_error");
+      return {
+        status: "failed",
+        errorName: errObj.name || "resend_error",
+      };
+    }
+
+    const resendEmailId = response.data?.id ?? null;
+    log.info("leadEmail.sent", { leadId, resendEmailId });
+    await persistStatus(supabase, leadId, "sent", null);
+    return { status: "sent", resendEmailId };
+  } catch (err) {
+    const e = err as Error & { code?: string };
+    log.error("leadEmail.failed", {
+      leadId,
+      errorName: e.name || "exception",
+      errorCode: e.code,
+    });
+    await persistStatus(supabase, leadId, "failed", e.name || "exception");
+    return {
+      status: "failed",
+      errorName: e.name || "exception",
+      errorCode: e.code,
+    };
+  }
 }

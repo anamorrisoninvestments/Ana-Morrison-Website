@@ -77,8 +77,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 
-  // 7. Notificación por email (async, no bloquea la respuesta)
-  void sendLeadNotification({ leadId: result.id, payload: input });
+  // 7. Notificación por email AWAITED. Cualquier resultado (sent/failed/skipped)
+  //    queda persistido en email_confirmation_status. El endpoint responde éxito
+  //    aunque el email falle porque el lead sí se guardó.
+  //    Nunca lanza — el catch cubre errores no manejados.
+  try {
+    await sendLeadNotification({ leadId: result.id, payload: input });
+  } catch (err) {
+    log.error("api.leads.email_notification_uncaught", {
+      leadId: result.id,
+      name: (err as Error).name,
+    });
+  }
 
   return NextResponse.json({ ok: true, id: result.id }, { status: 200 });
 }
