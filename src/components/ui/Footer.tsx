@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CLIENT } from "@/lib/client-data";
 import NewsletterForm from "@/components/ui/NewsletterForm";
+import ConsentPreferencesLink from "@/components/consent/ConsentPreferencesLink";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -49,12 +50,12 @@ export default function Footer() {
             <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-4">Navegación</p>
             <ul className="space-y-2">
               {[
-                ["Sobre Mí", "/sobre-mi"],
-                ["Servicios", "/servicios"],
-                ["Cursos", "/cursos"],
-                ["Libros", "/libros"],
+                ["Sobre Ana", "/sobre-mi"],
+                ["Alquileres STR", "/alquileres-a-corto-plazo"],
+                ["Tax Deed", "/tax-deed"],
+                ["Casos de Éxito", "/casos-de-exito"],
+                ["Recursos", "/recursos"],
                 ["Blog", "/blog"],
-                ["Prensa", "/prensa"],
                 ["Contacto", "/contacto"],
               ].map(([label, href]) => (
                 <li key={href}>
@@ -97,12 +98,24 @@ export default function Footer() {
 
         <div className="divider-gold mt-12 mb-6" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[#888888] text-xs">
-          <p>© {year} {CLIENT.name} · The Host Circle · Todos los derechos reservados.</p>
-          <div className="flex gap-4">
-            <Link href="/en" className="hover:text-[#C8A45D] transition-colors uppercase tracking-wider">English</Link>
-            <span>·</span>
-            <Link href="/" className="hover:text-[#C8A45D] transition-colors uppercase tracking-wider">Español</Link>
+        <div className="flex flex-col gap-4 text-[#888888] text-xs">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start">
+            <Link href="/politica-de-privacidad" className="hover:text-[#C8A45D] transition-colors">
+              Política de Privacidad
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/politica-de-cookies" className="hover:text-[#C8A45D] transition-colors">
+              Política de Cookies
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terminos-de-uso" className="hover:text-[#C8A45D] transition-colors">
+              Términos de Uso
+            </Link>
+            <span aria-hidden="true">·</span>
+            <ConsentPreferencesLink className="hover:text-[#C8A45D] transition-colors" />
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p>© {year} {CLIENT.name} · The Host Circle · Todos los derechos reservados.</p>
           </div>
         </div>
       </div>

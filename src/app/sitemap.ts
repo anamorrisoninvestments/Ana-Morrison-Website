@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/recursos`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily" as const, priority: 0.8 },
     { url: `${base}/contacto`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.75 },
+    { url: `${base}/politica-de-privacidad`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${base}/politica-de-cookies`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${base}/terminos-de-uso`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
 
   const blogPages = blogPosts.map((post) => ({
