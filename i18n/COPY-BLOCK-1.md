@@ -30,7 +30,7 @@ Formato por sección:
 | 1 | `Inicio` | `Home` | `/` | `/en` |
 | 2 | `Sobre Ana` | `About Ana` | `/sobre-mi` | `/en/about` |
 | 3 | `Alquileres a Corto Plazo` | `Short-Term Rentals` | `/alquileres-a-corto-plazo` | `/en/short-term-rentals` |
-| 4 | `Tax Deed` | `Tax Deed` | `/tax-deed` | `/en/tax-deed` |
+| 4 | `Tax Deed` | `Tax Deed Investing` | `/tax-deed` | `/en/tax-deed-investing` |
 | 5 | `Casos de Éxito` | `Case Studies` | `/casos-de-exito` | `/en/case-studies` |
 | 6 | `Recursos` | `Resources` | `/recursos` | `/en/resources` |
 | 7 | `Contacto` | `Contact` | `/contacto` | `/en/contact` |
@@ -40,6 +40,13 @@ Formato por sección:
 | ES actual | Propuesta EN | Acción |
 |---|---|---|
 | `Trabaja Conmigo` | `Work With Me` | Link a `/contacto` / `/en/contact` |
+
+**Aria-label del CTA (explícito, no depende del texto visible):**
+
+| Idioma | aria-label |
+|---|---|
+| ES | `Trabaja conmigo` |
+| EN | `Work with Ana Morrison` |
 
 ### 1.1.4 · Selector de idioma dentro del Navbar
 
@@ -80,7 +87,7 @@ Sección aparece en todas las páginas. Estructura actual:
 |---|---|---|---|
 | `Sobre Ana` | `About Ana` | `/sobre-mi` | `/en/about` |
 | `Alquileres STR` | `Short-Term Rentals` | `/alquileres-a-corto-plazo` | `/en/short-term-rentals` |
-| `Tax Deed` | `Tax Deed` | `/tax-deed` | `/en/tax-deed` |
+| `Tax Deed` | `Tax Deed Investing` | `/tax-deed` | `/en/tax-deed-investing` |
 | `Casos de Éxito` | `Case Studies` | `/casos-de-exito` | `/en/case-studies` |
 | `Recursos` | `Resources` | `/recursos` | `/en/resources` |
 | `Blog` | `Blog` | `/blog` | `/en/blog` |
@@ -118,13 +125,80 @@ Ver §1.4 (LocaleSwitcher). Aparece como fila propia arriba del copyright.
 
 ## 1.3 · Home (`/` · `/en`)
 
+### 1.3.0 · Metadatos globales del Home (revisado)
+
 **Rutas:** ES `/` · EN `/en`
-**SEO title ES actual:** `Ana Morrison | Alquileres a Corto Plazo y Tax Deed`
-**SEO title EN propuesto:** `Ana Morrison | Short-Term Rentals and Tax Deed`
-**SEO meta description ES actual:** `Ana Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.`
-**SEO meta description EN propuesta:** `Ana Morrison helps investors and property owners acquire, transform and monetize real estate through Tax Deed, short-term rentals, automation and professional management.`
-**OG title EN:** igual que SEO title EN
-**OG description EN:** `Acquire, transform and monetize properties with strategy, systems and professional operations.`
+
+**SEO title**
+- ES actual: `Ana Morrison | Alquileres a Corto Plazo y Tax Deed`
+- EN aprobado: `Ana Morrison | Short-Term Rentals & Tax Deed Investing`
+
+**SEO meta description**
+- ES actual: `Ana Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.`
+- EN aprobado: `Ana Morrison helps investors and property owners acquire, transform, and monetize real estate through tax deeds, short-term rentals, automation, and professional management.`
+
+**Canonical + hreflang (regla que aplica también a cada par de páginas)**
+
+| Elemento | Página ES | Página EN |
+|---|---|---|
+| `<link rel="canonical">` | `https://anamorrison.com/` | `https://anamorrison.com/en` |
+| `<link rel="alternate" hreflang="es-US">` | `https://anamorrison.com/` | `https://anamorrison.com/` |
+| `<link rel="alternate" hreflang="en-US">` | `https://anamorrison.com/en` | `https://anamorrison.com/en` |
+| `<link rel="alternate" hreflang="x-default">` | `https://anamorrison.com/` | `https://anamorrison.com/` |
+
+**Open Graph (regla que aplica también a cada par de páginas)**
+
+| Campo | Página ES | Página EN |
+|---|---|---|
+| `og:type` | `website` | `website` |
+| `og:locale` | `es_US` | `en_US` |
+| `og:alternateLocale` | `en_US` | `es_US` |
+| `og:url` | `https://anamorrison.com/` | `https://anamorrison.com/en` |
+| `og:site_name` | `Ana Morrison` | `Ana Morrison` |
+| `og:title` | SEO title ES | SEO title EN |
+| `og:description` | `Adquiere, transforma y rentabiliza propiedades con estrategia, sistemas y operación profesional.` | `Acquire, transform and monetize properties with strategy, systems and professional operations.` |
+| `og:image` | Ver §1.3.0.1 sobre asset por idioma | Ver §1.3.0.1 sobre asset por idioma |
+| `og:image:alt` | `Ana Morrison` | `Ana Morrison` |
+
+**Twitter cards** (equivalente a Open Graph)
+
+| Campo | Página ES | Página EN |
+|---|---|---|
+| `twitter:card` | `summary_large_image` | `summary_large_image` |
+| `twitter:title` | SEO title ES | SEO title EN |
+| `twitter:description` | igual a `og:description` ES | igual a `og:description` EN |
+| `twitter:image` | igual a `og:image` ES | igual a `og:image` EN |
+
+### 1.3.0.1 · Regla de asset para Open Graph image
+
+**Asset actual:** `/images/og-image.jpg` (1200×630).
+
+Regla obligatoria antes de publicar EN:
+
+- **Si el asset no contiene texto en español** → puede utilizarse el mismo asset provisionalmente en ambas versiones (`/` y `/en`).
+- **Si el asset contiene texto en español** → obligatorio antes de F8:
+  1. Crear versión ES `/images/og-image-es.jpg` (1200×630)
+  2. Crear versión EN `/images/og-image-en.jpg` (1200×630) con texto traducido
+  3. Cada página referencia el asset correspondiente a su idioma
+- **Bajo ningún concepto** se publica la versión EN con texto en español visible.
+
+**Acción pendiente antes de F8:** verificar el contenido textual del asset actual y decidir. Documentar la decisión en `i18n/PARITY-MATRIX.md`.
+
+### 1.3.0.2 · Schema.org JSON-LD
+
+En el `<head>` de cada versión del Home:
+
+**Página ES `/`:**
+- `WebPage` con `inLanguage: "es-US"`, `url: "https://anamorrison.com/"`, `name`, `description` (ES), `isPartOf` → `WebSite`
+- `WebSite` con `inLanguage: "es-US"`, `url`, `name: "Ana Morrison"`, `potentialAction` SearchAction
+- `Person` (Ana) con `description` en ES
+- `Organization` (The Host Circle) con `description` en ES
+
+**Página EN `/en`:**
+- `WebPage` con `inLanguage: "en-US"`, `url: "https://anamorrison.com/en"`, `description` EN
+- `WebSite` clonado con `inLanguage: "en-US"`
+- `Person` con `description` EN
+- `Organization` con `description` EN
 
 ### 1.3.1 · Hero
 
@@ -290,105 +364,147 @@ Ver §1.4 (LocaleSwitcher). Aparece como fila propia arriba del copyright.
 
 Componente reusable que aparece en Navbar (desktop + mobile menu) y Footer.
 
-### 1.4.1 · Presentación visual
+### 1.4.1 · Presentación visual y semántica
 
-**Formato:** dos labels con separador visual. La opción actual aparece en color apagado (no clickable). La opción del otro idioma en color dorado (clickable).
+**Formato:** dos labels con separador visual `|`. Ambos labels siempre en su idioma nativo (`Español` y `English`), independientemente del idioma de la página.
 
-**Ejemplo en ES actual (en `/`):**
+**Ejemplo en ES (en `/`):**
 ```
-Español · [English]
+Español | English
 ```
-El primero apagado (estás en ES), el segundo con color de acción.
+- `Español` = idioma **actual** · claramente seleccionado (ver §1.4.3) · **no clicable** · `aria-current="page"`
+- `English` = idioma **alternativo** · clicable · color dorado · sin `aria-current`
 
 **Ejemplo en EN (en `/en`):**
 ```
-[Español] · English
+Español | English
 ```
+- `Español` = idioma alternativo · clicable · color dorado
+- `English` = idioma **actual** · claramente seleccionado · **no clicable** · `aria-current="page"`
 
 ### 1.4.2 · Copy exacto
 
-| Elemento | ES | EN |
+Ambos labels aparecen **en su idioma nativo**, independientemente del idioma de la página. Estándar UX internacional.
+
+| Elemento | ES (en `/`) | EN (en `/en`) |
 |---|---|---|
-| Label español | `Español` | `Spanish` |
-| Label english | `English` | `English` |
-| Título accesible (aria-label) del botón/link | `Cambiar idioma a inglés` | `Change language to Spanish` |
-| Título accesible del container | `Selector de idioma` | `Language selector` |
+| Label idioma español | `Español` | `Español` |
+| Label idioma inglés | `English` | `English` |
+| Aria-label del container | `Selector de idioma` | `Language selector` |
+| Aria-label del link al otro idioma | `Cambiar idioma a inglés` | `Switch language to Spanish` |
+| Atributo del elemento activo | `aria-current="page"` | `aria-current="page"` |
 
-**Nota sobre "Spanish" vs "Español"**: la convención UX estándar es mostrar cada idioma en su nombre nativo. Recomiendo:
-- En ES: `Español · English`
-- En EN: `Español · English` (idéntico)
-- El indicador de idioma actual se maneja visualmente (color + underline) sin cambiar el label textual.
+### 1.4.3 · Indicador visual del idioma activo (no depende solo de color)
 
-**Ambos labels quedan en su idioma nativo. Independiente del idioma de la página.** Esto es lo más claro internacionalmente.
+El idioma actual **no** se muestra "apagado". Se distingue por **múltiples señales redundantes** que cumplen WCAG 1.4.1 (Uso del color):
 
-### 1.4.3 · Comportamiento al hacer clic
+1. **Peso de fuente:** activo `font-weight: 600`; inactivo `font-weight: 400`
+2. **Color:** activo `#F7F3EC` (marfil brillante); inactivo `#C8A45D` (dorado, indica interactividad)
+3. **Subrayado dorado bajo el activo:** `border-bottom: 2px solid #C8A45D` con `padding-bottom: 2px`
+4. **Cursor:** activo `cursor: default`; inactivo `cursor: pointer`
+5. **Semántica ARIA:** activo lleva `aria-current="page"`; inactivo es un `<Link>` normal
+6. **Elemento HTML:** activo es un `<span>` no interactivo; inactivo es `<Link>`
 
-1. Determinar la ruta equivalente en el otro idioma via `LOCALE_ROUTE_MAP`
-2. Si existe, `router.push(equivalentPath)`
-3. Si no existe (ej. blog post sin traducción EN), redirigir a la landing del blog del otro idioma con toast: `Este artículo aún no está disponible en inglés. Te llevamos al blog.` / `This article isn't available in Spanish yet. Taking you to the blog.`
+Con estas 6 señales, un usuario con daltonismo o baja visión distingue el estado incluso ignorando el color.
+
+### 1.4.4 · Comportamiento al hacer clic
+
+1. Determinar la ruta equivalente en el otro idioma via `LOCALE_ROUTE_MAP` (§5.4 del PLAN.md)
+2. Si existe la equivalencia → `router.push(equivalentPath)`
+3. **Fallback (safety net):** si no existe la equivalencia (ej. después de F8 no debería ocurrir, pero se implementa por robustez), redirigir a la landing más cercana del otro idioma con toast **genérico** (no habla de "artículos"):
+
+   | Idioma destino | Copy toast |
+   |---|---|
+   | EN | `This page is not available in Spanish yet. We'll take you to the closest available page.` |
+   | ES | `Esta página aún no está disponible en inglés. Te llevaremos a la página disponible más cercana.` |
+
+   Estrategia de "página más cercana": subir en el árbol de rutas hasta encontrar equivalencia. Ejemplos:
+   - `/en/blog/some-slug` sin equivalencia → `/blog`
+   - `/en/resources/some-guide` sin equivalencia → `/recursos`
+   - `/en/some-orphan` sin equivalencia → `/` (home)
+
 4. Escribir cookie `amc_lang=<locale>` con TTL 12 meses (hint para futuras visitas)
 
-### 1.4.4 · Ubicaciones
+### 1.4.5 · Ubicaciones
 
-- **Navbar desktop:** al lado derecho del CTA "Trabaja Conmigo / Work With Me"
-- **Navbar mobile (menú abierto):** debajo del CTA, fila propia
+- **Navbar desktop:** entre los links del menú y el CTA "Trabaja Conmigo / Work With Me"
+- **Navbar mobile (menú desplegado):** fila propia debajo del CTA, arriba del último separador
 - **Footer:** fila propia entre los enlaces legales y el copyright
 
 ---
 
 ## 1.5 · BilingualSuggestionBanner
 
-Sugerencia no intrusiva de cambio de idioma.
+Sugerencia no intrusiva de cambio de idioma. **Nunca redirige automáticamente.**
 
 ### 1.5.1 · Condiciones de aparición
 
-- Detectar `Accept-Language` del navegador (server-side, primera visita)
-- Si visitante está en `/` (ES) y `Accept-Language` empieza con `en-*`, **Y** no existe cookie `amc_lang` ni cookie `amc_lang_suggestion_dismissed` → mostrar banner
-- Simétrico: visitante en `/en` con `Accept-Language` empezando con `es-*`, sin cookie `amc_lang` ni cookie de dismiss → mostrar banner
-- **Nunca redirige automáticamente.** Solo sugiere.
+Se muestra si se cumplen **todas** estas condiciones simultáneamente:
 
-### 1.5.2 · Aparición y persistencia
+1. La URL actual tiene equivalente en el otro idioma según `LOCALE_ROUTE_MAP`
+2. `Accept-Language` del navegador coincide con el otro idioma (ES en `/en/*` o EN en `/*` no-EN)
+3. **NO** existe cookie `amc_lang` (el usuario aún no eligió idioma manualmente)
+4. **NO** existe cookie `amc_lang_suggestion_dismissed` (no cerró la sugerencia previamente)
+5. La ruta actual **NO** está en la lista de exclusiones (§1.5.2)
 
-- Aparece como card pequeña en la esquina superior derecha (o parte superior del viewport en móvil)
-- Se cierra por: (a) elegir uno de los dos botones, (b) botón X, (c) navegar a otra página
-- Al cerrarse por cualquier vía, escribe cookie `amc_lang_suggestion_dismissed=1` con TTL de sesión (o 30 días)
-- **Una sola vez por sesión.** No reaparece hasta que el usuario decide manualmente o expira el TTL
+**Aparece en cualquier ruta pública** que tenga equivalente, no solo en `/` o `/en`.
 
-### 1.5.3 · Copy exacto
+### 1.5.2 · Rutas excluidas (donde nunca aparece)
 
-**Cuando aparece en `/` (visitante con `Accept-Language: en-*`)**
+- `/contacto` y `/en/contact`
+- Cualquier ruta con un formulario abierto o flujo transaccional (futuras `/checkout`, `/apply`, etc.)
+- Cualquier página con un modal crítico activo (detección: si el DOM contiene un elemento con `role="dialog"` y `aria-modal="true"` distinto del propio banner, el banner se suprime)
+
+### 1.5.3 · Comportamiento de los botones
+
+| Acción del usuario | Efecto | Cookie escrita | TTL |
+|---|---|---|---|
+| Click "View in English" / "Ver en español" | Navegar a la ruta equivalente en el otro idioma | `amc_lang=<idioma-elegido>` | 12 meses |
+| Click "Continue in Spanish" / "Continuar en inglés" | Permanecer en la página actual · no sugerir cambio otra vez | `amc_lang=<idioma-actual>` | 12 meses |
+| Click en la X del banner | Cerrar banner sin registrar preferencia de idioma | `amc_lang_suggestion_dismissed=1` | 30 días |
+| Tecla `Escape` | Cerrar banner sin registrar preferencia de idioma | `amc_lang_suggestion_dismissed=1` | 30 días |
+
+**Regla clave:** solo la interacción con los dos botones principales registra `amc_lang`. El cierre neutro (X o Escape) solo suprime la sugerencia por 30 días sin afectar la preferencia de idioma.
+
+**El banner nunca redirige automáticamente.** El cambio de idioma requiere click explícito del usuario en el botón primario.
+
+### 1.5.4 · Copy exacto
+
+**En rutas ES (visitante con `Accept-Language: en-*`)**
 
 | Elemento | Copy EN |
 |---|---|
 | Texto principal | `This site is also available in English.` |
 | Botón primario | `View in English` |
 | Botón secundario | `Continue in Spanish` |
-| Aria-label cerrar | `Dismiss language suggestion` |
+| Aria-label cerrar (X) | `Close language suggestion` |
 
-**Cuando aparece en `/en` (visitante con `Accept-Language: es-*`)**
+**En rutas EN (visitante con `Accept-Language: es-*`)**
 
 | Elemento | Copy ES |
 |---|---|
 | Texto principal | `Este sitio también está disponible en español.` |
 | Botón primario | `Ver en español` |
 | Botón secundario | `Continuar en inglés` |
-| Aria-label cerrar | `Descartar sugerencia de idioma` |
+| Aria-label cerrar (X) | `Cerrar sugerencia de idioma` |
 
-### 1.5.4 · Accesibilidad
+### 1.5.5 · Accesibilidad
 
-- `role="dialog"` `aria-labelledby` sobre el texto principal
-- Focus trap NO se aplica (banner no bloquea contenido)
-- Cierra con Escape
+- `role="dialog"` con `aria-labelledby` apuntando al texto principal
+- Focus **NO** se atrapa dentro del banner (no bloquea navegación)
+- Cierra con tecla `Escape`
 - Botones con área tocable ≥ 44×44 px en móvil
 - Contraste AA verificado sobre el fondo espresso
-- Se posiciona con `z-index` alto pero por debajo del `ConsentBanner` (que tiene prioridad legal)
+- `z-index` alto pero **inferior** al `ConsentBanner` (que tiene prioridad legal)
+- Al aparecer, no roba el focus (evita interrumpir tecleado o navegación con teclado)
 
-### 1.5.5 · No bloquea
+### 1.5.6 · No bloquea
 
 - No cubre el CTA principal del hero
-- No cubre el ConsentBanner (si ambos aparecen simultáneamente, ConsentBanner tiene prioridad de layout)
+- No cubre el ConsentBanner (si ambos aparecen simultáneamente, ConsentBanner tiene prioridad de layout y semántica)
 - No bloquea scroll ni clicks fuera de la card
 - Cero cambios en el formulario, checkout futuro o cualquier flujo transaccional
+- Se oculta automáticamente si el usuario abre un modal en la página (según §1.5.2)
 
 ---
 
