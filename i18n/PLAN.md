@@ -57,6 +57,7 @@ Ya están en `next.config.ts` redirigidas hacia rutas nuevas o home:
 | `/prensa` → `/sobre-mi` | 301 permanent | añadir `/en/press → /en/about` |
 | `/en` → `/` | 307 temporary | **eliminar** este redirect cuando PR #3 se apruebe |
 | `/en/:path*` → `/` | 307 temporary | **eliminar** este redirect cuando PR #3 se apruebe |
+| `/en/tax-deed` → `/en/tax-deed-investing` | 301 permanent · defensivo | Añadir tras eliminar los 307. Cubre visitantes que infieran el slug desde ES. |
 
 ### 1.3 API routes (no requieren i18n de URL, sí de mensajes)
 
@@ -76,7 +77,7 @@ Ya están en `next.config.ts` redirigidas hacia rutas nuevas o home:
 | 1 | `/` | `/en` | Homepage. `/en/page.tsx` ya existe, se reescribe con posicionamiento nuevo. |
 | 2 | `/sobre-mi` | `/en/about` | About page. |
 | 3 | `/alquileres-a-corto-plazo` | `/en/short-term-rentals` | STR service. |
-| 4 | `/tax-deed` | `/en/tax-deed` | Se mantiene "tax-deed" porque es término técnico anglosajón. |
+| 4 | `/tax-deed` | `/en/tax-deed-investing` | **Cambiado tras revisión SEO.** Ver justificación en `i18n/BLOG-SLUGS.md`. Añade "investing" para filtrar la audiencia correcta y refuerza el clúster semántico con el post `florida-tax-deed-investing-beginners-guide`. Redirect defensivo `/en/tax-deed → /en/tax-deed-investing` (301). |
 | 5 | `/casos-de-exito` | `/en/case-studies` | Case studies. |
 | 6 | `/recursos` | `/en/resources` | Resources hub. |
 | 7 | `/recursos/guia-5-rutas` | `/en/resources/5-wealth-paths-guide` | Sub-recurso. |
@@ -155,7 +156,7 @@ src/app/
     page.tsx                           EN home (existe, reescribir)
     about/page.tsx                     EN
     short-term-rentals/page.tsx        EN
-    tax-deed/page.tsx                  EN
+    tax-deed-investing/page.tsx        EN (renombrado tras revisión SEO — ver BLOG-SLUGS.md)
     case-studies/page.tsx              EN
     resources/page.tsx                 EN
     resources/5-wealth-paths-guide/page.tsx  EN
@@ -205,7 +206,7 @@ export const LOCALE_ROUTE_MAP = {
   "/": "/en",
   "/sobre-mi": "/en/about",
   "/alquileres-a-corto-plazo": "/en/short-term-rentals",
-  "/tax-deed": "/en/tax-deed",
+  "/tax-deed": "/en/tax-deed-investing",
   "/casos-de-exito": "/en/case-studies",
   "/recursos": "/en/resources",
   "/recursos/guia-5-rutas": "/en/resources/5-wealth-paths-guide",
