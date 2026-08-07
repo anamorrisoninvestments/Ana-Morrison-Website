@@ -474,7 +474,7 @@ footer.copyright           = "© {year} {name} · The Host Circle · All rights 
 
 **Hero**
 ```
-hero.badge     = "Ana Morrison · Real Estate Investor & Strategist"
+hero.badge     = "AnaMaría Morrison · Real Estate Investor & Strategist"
 hero.title     = "Acquire properties strategically and turn them into"
 hero.titleGold = "profitable assets."
 hero.subtitle  = "I help you spot Tax Deed opportunities, transform properties and monetize them through short-term rentals with strategy, systems and professional operations."
@@ -603,7 +603,7 @@ cta.buttonTaxDeed = "I want to explore Tax Deed"
 **Hero**
 ```
 about.breadcrumb  = "About Ana"
-about.badge       = "Ana Morrison · Real Estate Investor & Strategist"
+about.badge       = "AnaMaría Morrison · Real Estate Investor & Strategist"
 about.title.a     = "Real estate investor and strategist in"
 about.titleAccent1 = "short-term rentals"
 about.title.and   = "and"
@@ -942,7 +942,7 @@ form.fields.messagePlaceholderInvestor = "Tell me what you're looking for: learn
 form.fields.messagePlaceholderInterview = "Tell me about the format, audience, date and topics you'd like to cover."
 form.fields.messagePlaceholderOther = "Tell me how I can help."
 
-form.consent = "I agree that Ana Morrison may contact me by email, WhatsApp or phone regarding this inquiry. No spam, ever."
+form.consent = "I agree that AnaMaría Morrison may contact me by email, WhatsApp or phone regarding this inquiry. No spam, ever."
 
 form.submit         = "Send Message"
 form.submitLoading  = "Sending..."
@@ -1003,7 +1003,7 @@ legal.privacy.version     = "Version:"
 legal.privacy.sections = [
   {
     heading: "1. Data controller",
-    body: "The site anamorrison.com is operated by Ana Maria Morrison. For inquiries related to this policy: {email}.",
+    body: "The site anamorrison.com is operated by AnaMaría Morrison. For inquiries related to this policy: {email}.",
   },
   {
     heading: "2. Data we collect",
@@ -1137,7 +1137,7 @@ legal.terms.sections = [
   },
   {
     heading: "3. Intellectual property",
-    body: "All content (text, images, \"The Host Circle\" brand, downloadable materials) is the property of Ana Morrison or their respective authors and is protected by copyright. You may not copy, redistribute, resell or create derivative works without express written authorization.",
+    body: "All content (text, images, \"The Host Circle\" brand, downloadable materials) is the property of AnaMaría Morrison or their respective authors and is protected by copyright. You may not copy, redistribute, resell or create derivative works without express written authorization.",
   },
   {
     heading: "4. Nature of the content",
@@ -1149,11 +1149,11 @@ legal.terms.sections = [
   },
   {
     heading: "6. Tax Deed specific disclaimer",
-    body: "Content related to Tax Deed is exclusively educational. It does not constitute legal, financial or tax advice. Tax Deed auctions are regulated by the law of the applicable state and county, and their rules may vary significantly. Every Tax Deed investment involves risks, including legal, title, physical condition, occupancy and market risks. Before participating in an auction you must conduct independent due diligence and, where appropriate, consult with a real estate attorney licensed in the applicable state. Ana Morrison does not provide legal, tax or fiduciary services.",
+    body: "Content related to Tax Deed is exclusively educational. It does not constitute legal, financial or tax advice. Tax Deed auctions are regulated by the law of the applicable state and county, and their rules may vary significantly. Every Tax Deed investment involves risks, including legal, title, physical condition, occupancy and market risks. Before participating in an auction you must conduct independent due diligence and, where appropriate, consult with a real estate attorney licensed in the applicable state. AnaMaría Morrison does not provide legal, tax or fiduciary services.",
   },
   {
     heading: "7. Limitation of liability",
-    body: "To the maximum extent permitted by applicable law, Ana Morrison will not be liable for decisions made based on the site's content.",
+    body: "To the maximum extent permitted by applicable law, AnaMaría Morrison will not be liable for decisions made based on the site's content.",
   },
   {
     heading: "8. Third-party links",

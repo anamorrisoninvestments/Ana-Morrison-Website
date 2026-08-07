@@ -20,7 +20,7 @@ Formato por sección:
 
 | Elemento | ES actual | Propuesta EN |
 |---|---|---|
-| Nombre visible | `Ana Morrison` | `Ana Morrison` (nombre propio, no traducir) |
+| Nombre visible | `AnaMaría Morrison` | `AnaMaría Morrison` (nombre propio, no traducir) |
 | Descriptor | `STR & Tax Deed Strategist` | `STR & Tax Deed Strategist` (bilingüe intencional, se conserva) |
 
 ### 1.1.2 · Enlaces de menú
@@ -46,7 +46,7 @@ Formato por sección:
 | Idioma | aria-label |
 |---|---|
 | ES | `Trabaja conmigo` |
-| EN | `Work with Ana Morrison` |
+| EN | `Work with AnaMaría Morrison` |
 
 ### 1.1.4 · Selector de idioma dentro del Navbar
 
@@ -130,12 +130,12 @@ Ver §1.4 (LocaleSwitcher). Aparece como fila propia arriba del copyright.
 **Rutas:** ES `/` · EN `/en`
 
 **SEO title**
-- ES actual: `Ana Morrison | Alquileres a Corto Plazo y Tax Deed`
-- EN aprobado: `Ana Morrison | Short-Term Rentals & Tax Deed Investing`
+- ES actual: `AnaMaría Morrison | Alquileres a Corto Plazo y Tax Deed`
+- EN aprobado: `AnaMaría Morrison | Short-Term Rentals & Tax Deed Investing`
 
 **SEO meta description**
-- ES actual: `Ana Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.`
-- EN aprobado: `Ana Morrison helps investors and property owners acquire, transform, and monetize real estate through tax deeds, short-term rentals, automation, and professional management.`
+- ES actual: `AnaMaría Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.`
+- EN aprobado: `AnaMaría Morrison helps investors and property owners acquire, transform, and monetize real estate through tax deeds, short-term rentals, automation, and professional management.`
 
 **Canonical + hreflang (regla que aplica también a cada par de páginas)**
 
@@ -154,11 +154,11 @@ Ver §1.4 (LocaleSwitcher). Aparece como fila propia arriba del copyright.
 | `og:locale` | `es_US` | `en_US` |
 | `og:alternateLocale` | `en_US` | `es_US` |
 | `og:url` | `https://anamorrison.com/` | `https://anamorrison.com/en` |
-| `og:site_name` | `Ana Morrison` | `Ana Morrison` |
+| `og:site_name` | `AnaMaría Morrison` | `AnaMaría Morrison` |
 | `og:title` | SEO title ES | SEO title EN |
 | `og:description` | `Adquiere, transforma y rentabiliza propiedades con estrategia, sistemas y operación profesional.` | `Acquire, transform and monetize properties with strategy, systems and professional operations.` |
 | `og:image` | Ver §1.3.0.1 sobre asset por idioma | Ver §1.3.0.1 sobre asset por idioma |
-| `og:image:alt` | `Ana Morrison` | `Ana Morrison` |
+| `og:image:alt` | `AnaMaría Morrison` | `AnaMaría Morrison` |
 
 **Twitter cards** (equivalente a Open Graph)
 
@@ -190,7 +190,7 @@ En el `<head>` de cada versión del Home:
 
 **Página ES `/`:**
 - `WebPage` con `inLanguage: "es-US"`, `url: "https://anamorrison.com/"`, `name`, `description` (ES), `isPartOf` → `WebSite`
-- `WebSite` con `inLanguage: "es-US"`, `url`, `name: "Ana Morrison"`, `potentialAction` SearchAction
+- `WebSite` con `inLanguage: "es-US"`, `url`, `name: "AnaMaría Morrison"`, `potentialAction` SearchAction
 - `Person` (Ana) con `description` en ES
 - `Organization` (The Host Circle) con `description` en ES
 
@@ -204,14 +204,14 @@ En el `<head>` de cada versión del Home:
 
 | Elemento | ES actual | EN aprobado |
 |---|---|---|
-| Badge | `Ana Morrison · Real Estate Investor & Strategist` | `Ana Morrison · Real Estate Investor & Strategist` |
+| Badge | `AnaMaría Morrison · Real Estate Investor & Strategist` | `AnaMaría Morrison · Real Estate Investor & Strategist` |
 | Título | `Adquiere propiedades estratégicamente y conviértelas en activos rentables.` | `Acquire real estate strategically — and turn it into high-performing assets.` |
 | Palabra destacada dorada + itálica | `activos rentables` | `high-performing assets` |
 | Subtítulo | `Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas y operación profesional.` | `I help investors and property owners identify Tax Deed opportunities, transform properties, and build stronger short-term rental performance through strategy, systems, and professional operations.` |
 | CTA primario | `Explorar cómo trabajar conmigo` | `Explore How We Can Work Together` |
 | CTA secundario | `Conocer mi experiencia` | `See My Track Record` |
 | Credenciales | `9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario multimillonario · Formación especializada en análisis Tax Deed` | `9+ years of experience · Operations across 4 countries · Multi-million-dollar real estate portfolio · Specialized training in Tax Deed analysis` |
-| Alt foto | `Ana Morrison — Real Estate Investor & STR / Tax Deed Strategist` | `Ana Morrison — Real Estate Investor & STR / Tax Deed Strategist` |
+| Alt foto | `AnaMaría Morrison — Real Estate Investor & STR / Tax Deed Strategist` | `AnaMaría Morrison — Real Estate Investor & STR / Tax Deed Strategist` |
 | Scroll indicator | `Scroll` | `Scroll` |
 
 **Regla preservada:** formulación prudente `Specialized training in Tax Deed analysis`. No se inventan certificaciones ni claims.
