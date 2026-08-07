@@ -200,59 +200,61 @@ En el `<head>` de cada versión del Home:
 - `Person` con `description` EN
 - `Organization` con `description` EN
 
-### 1.3.1 · Hero
+### 1.3.1 · Hero — APROBADO
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
-| Badge | `Ana Morrison · Real Estate Investor & Strategist` | `Ana Morrison · Real Estate Investor & Strategist` (mismo, ya está en inglés) |
-| Título | `Adquiere propiedades estratégicamente y conviértelas en activos rentables.` | `Acquire properties strategically and turn them into profitable assets.` |
-| Palabra destacada | `activos rentables` (dorado, itálica) | `profitable assets` (dorado, itálica) |
-| Subtítulo | `Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas y operación profesional.` | `I help you spot Tax Deed opportunities, transform properties and monetize them through short-term rentals with strategy, systems and professional operations.` |
-| CTA primario | `Explorar cómo trabajar conmigo` | `Explore how to work with me` |
-| CTA secundario | `Conocer mi experiencia` | `Learn about my experience` |
-| Credenciales | `9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario multimillonario · Formación especializada en análisis Tax Deed` | `9+ years of experience · Operations in 4 countries · Multi-million real estate portfolio · Specialized training in Tax Deed analysis` |
-| Alt foto | `Ana Morrison — Real Estate Investor & STR / Tax Deed Strategist` | Igual (ya en inglés) |
+| Badge | `Ana Morrison · Real Estate Investor & Strategist` | `Ana Morrison · Real Estate Investor & Strategist` |
+| Título | `Adquiere propiedades estratégicamente y conviértelas en activos rentables.` | `Acquire real estate strategically — and turn it into high-performing assets.` |
+| Palabra destacada dorada + itálica | `activos rentables` | `high-performing assets` |
+| Subtítulo | `Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas y operación profesional.` | `I help investors and property owners identify Tax Deed opportunities, transform properties, and build stronger short-term rental performance through strategy, systems, and professional operations.` |
+| CTA primario | `Explorar cómo trabajar conmigo` | `Explore How We Can Work Together` |
+| CTA secundario | `Conocer mi experiencia` | `See My Track Record` |
+| Credenciales | `9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario multimillonario · Formación especializada en análisis Tax Deed` | `9+ years of experience · Operations across 4 countries · Multi-million-dollar real estate portfolio · Specialized training in Tax Deed analysis` |
+| Alt foto | `Ana Morrison — Real Estate Investor & STR / Tax Deed Strategist` | `Ana Morrison — Real Estate Investor & STR / Tax Deed Strategist` |
 | Scroll indicator | `Scroll` | `Scroll` |
 
-### 1.3.2 · ValueProp (Propuesta única)
+**Regla preservada:** formulación prudente `Specialized training in Tax Deed analysis`. No se inventan certificaciones ni claims.
 
-| Elemento | ES actual | Propuesta EN |
+### 1.3.2 · ValueProp (Propuesta única) — APROBADO
+
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Eyebrow | `Mi Propuesta` | `My Approach` |
-| Título completo | `No se trata solamente de comprar una propiedad. Se trata de comprar correctamente y saber cómo rentabilizarla.` | `It's not just about buying a property. It's about buying correctly and knowing how to monetize it.` |
-| Palabras destacadas (itálica dorada) | `comprar` / `rentabilizarla` | `buying` / `monetize it` |
-| Body | `Muchas personas adquieren propiedades sin analizar las variables que determinan si el activo será realmente rentable:` | `Many people acquire properties without analyzing the variables that determine whether the asset will actually be profitable:` |
-| Pills de riesgos | 1. Riesgos del título<br>2. Estado físico<br>3. Costos de rehabilitación<br>4. Regulaciones locales<br>5. Demanda del mercado<br>6. Estrategia de monetización<br>7. Operación posterior | 1. `Title risks`<br>2. `Physical condition`<br>3. `Rehabilitation costs`<br>4. `Local regulations`<br>5. `Market demand`<br>6. `Monetization strategy`<br>7. `Ongoing operations` |
-| Cierre | `Mi enfoque conecta el análisis de adquisición con la estrategia de rentabilidad del activo.` | `My approach connects acquisition analysis with the asset's profitability strategy.` |
+| Título completo | `No se trata solamente de comprar una propiedad. Se trata de comprar correctamente y saber cómo rentabilizarla.` | `Buying real estate isn't the hard part. Buying the right property — and knowing how to make it perform — is.` |
+| Palabras destacadas dorado + itálica | `comprar` / `rentabilizarla` | `hard part` / `make it perform` |
+| Body | `Muchas personas adquieren propiedades sin analizar las variables que determinan si el activo será realmente rentable:` | `Many investors acquire properties without fully pressure-testing the variables that determine whether the investment can actually perform:` |
+| Pills de riesgos | 1. Riesgos del título<br>2. Estado físico<br>3. Costos de rehabilitación<br>4. Regulaciones locales<br>5. Demanda del mercado<br>6. Estrategia de monetización<br>7. Operación posterior | 1. `Title risks`<br>2. `Physical condition`<br>3. `Rehab costs`<br>4. `Local regulations`<br>5. `Market demand`<br>6. `Income strategy`<br>7. `Ongoing operations` |
+| Cierre | `Mi enfoque conecta el análisis de adquisición con la estrategia de rentabilidad del activo.` | `My approach connects acquisition strategy with the operating and revenue strategy behind every property.` |
 
-### 1.3.3 · Pillars (Dos Pilares)
+### 1.3.3 · Pillars (Dos Pilares) — APROBADO
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Eyebrow | `Dos Pilares · Un Ecosistema Inmobiliario` | `Two Pillars · One Real Estate Ecosystem` |
-| Título | `Adquisición estratégica y operación profesional` | `Strategic acquisition and professional operation` |
-| Destacado | `operación profesional` | `professional operation` |
-| Subtítulo | `Todo lo que hago se conecta a dos disciplinas complementarias: comprar correctamente y operar con excelencia.` | `Everything I do connects to two complementary disciplines: buying correctly and operating with excellence.` |
+| Título | `Adquisición estratégica y operación profesional` | `Strategic Acquisition. Professional Operations.` |
+| Destacado dorado + itálica | `operación profesional` | `Professional Operations.` |
+| Subtítulo | `Todo lo que hago se conecta a dos disciplinas complementarias: comprar correctamente y operar con excelencia.` | `Everything I do connects two complementary disciplines: acquiring with intention and operating for performance.` |
 
 **Pilar 1 (azul, Tax Deed)**
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Tag | `Pilar 01 · Para Inversionistas` | `Pillar 01 · For Investors` |
-| Título | `Tax Deed & Acquisition Intelligence` | Igual |
-| Descripción | `Investigación, análisis y estrategia para adquirir propiedades por debajo de valor a través de subastas del condado.` | `Research, analysis and strategy to acquire properties below market value through county auctions.` |
-| Items | 1. Investigación de oportunidades<br>2. Filtros de títulos<br>3. Análisis preliminar<br>4. Identificación de riesgos<br>5. Estrategia de adquisición<br>6. Educación para inversionistas<br>7. Evaluación de estrategias de salida | 1. `Opportunity research`<br>2. `Title filtering`<br>3. `Preliminary analysis`<br>4. `Risk identification`<br>5. `Acquisition strategy`<br>6. `Investor education`<br>7. `Exit strategy evaluation` |
-| CTA | `Explorar Tax Deed` | `Explore Tax Deed` |
+| Título | `Tax Deed & Acquisition Intelligence` | `Tax Deed & Strategic Acquisition` |
+| Descripción | `Investigación, análisis y estrategia para adquirir propiedades por debajo de valor a través de subastas del condado.` | `Research, due diligence, and strategy to identify and evaluate below-market real estate opportunities through county Tax Deed auctions.` |
+| Items | 1. Investigación de oportunidades<br>2. Filtros de títulos<br>3. Análisis preliminar<br>4. Identificación de riesgos<br>5. Estrategia de adquisición<br>6. Educación para inversionistas<br>7. Evaluación de estrategias de salida | 1. `Opportunity sourcing`<br>2. `Title screening`<br>3. `Pre-auction analysis`<br>4. `Risk assessment`<br>5. `Acquisition strategy`<br>6. `Investor education`<br>7. `Exit strategy analysis` |
+| CTA | `Explorar Tax Deed` | `Explore Tax Deed Investing` |
 
 **Pilar 2 (dorado, STR)**
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Tag | `Pilar 02 · Para Propietarios` | `Pillar 02 · For Property Owners` |
-| Título | `Short-Term Rental Strategy` | Igual |
-| Descripción | `Diagnóstico, transformación, lanzamiento y operación profesional de tu propiedad como activo de alquiler a corto plazo.` | `Diagnosis, transformation, launch and professional operation of your property as a short-term rental asset.` |
-| Items | 1. Análisis de viabilidad<br>2. Estrategia del activo<br>3. Diseño y preparación<br>4. Lanzamiento en plataformas<br>5. Optimización del listing<br>6. Automatización<br>7. Revenue management<br>8. Administración profesional | 1. `Viability analysis`<br>2. `Asset strategy`<br>3. `Design and preparation`<br>4. `Platform launch`<br>5. `Listing optimization`<br>6. `Automation`<br>7. `Revenue management`<br>8. `Professional management` |
-| CTA | `Explorar alquileres a corto plazo` | `Explore short-term rentals` |
+| Título | `Short-Term Rental Strategy` | `Short-Term Rental Strategy` |
+| Descripción | `Diagnóstico, transformación, lanzamiento y operación profesional de tu propiedad como activo de alquiler a corto plazo.` | `Property assessment, transformation, launch, optimization, and professional management designed to position your property for stronger short-term rental performance.` |
+| Items | 1. Análisis de viabilidad<br>2. Estrategia del activo<br>3. Diseño y preparación<br>4. Lanzamiento en plataformas<br>5. Optimización del listing<br>6. Automatización<br>7. Revenue management<br>8. Administración profesional | 1. `Viability analysis`<br>2. `Asset positioning`<br>3. `Design & setup`<br>4. `Multi-platform launch`<br>5. `Listing optimization`<br>6. `Automation`<br>7. `Revenue management`<br>8. `Professional property management` |
+| CTA | `Explorar alquileres a corto plazo` | `Explore Short-Term Rentals` |
 
 ### 1.3.4 · Method — Adquirir, Transformar y Rentabilizar™
 
