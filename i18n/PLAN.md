@@ -6,6 +6,22 @@
 
 ---
 
+## ⚠️ CORRECCIONES v2 · Requisitos obligatorios de Ana
+
+Esta versión incorpora las 7 correcciones aprobadas antes de F2. Prevalecen sobre cualquier redacción anterior del documento:
+
+1. **Sitio 100% bilingüe pre-merge.** No se autoriza publicar, activar el selector ni hacer merge final con páginas o contenidos públicos disponibles solo en español.
+2. **Los 20 posts del blog** (no 21 — el conteo previo incluía la definición de tipo `slug: string;`) deben tener versión completa EN antes de activar el flag: título, cuerpo completo, excerpt, meta title, meta description, Open Graph, canonical, hreflang bidireccional, enlaces internos equivalentes, imágenes con alt traducido.
+3. **Cero `/en/blog` vacío o placeholder "Coming soon".** El blog EN se entrega completo o el flag no sube.
+4. **Slugs EN naturales** (no reutilizar slug ES por defecto). Tabla completa en `i18n/BLOG-SLUGS.md`.
+5. **Copy dividido en bloques manejables** (5 bloques + N para posts). Bloque 1 entregado en `i18n/COPY-BLOCK-1.md`. Cada bloque requiere aprobación explícita antes de continuar al siguiente.
+6. **BilingualSuggestionBanner autorizado** solo como sugerencia no intrusiva: detección Accept-Language, cero redirect automático, una vez por sesión, botones "View in English" / "Continue in Spanish", respeta preferencia guardada, no bloquea contenido ni formularios, accesible y funcional en móvil.
+7. **Matriz de paridad total** con 10 criterios por ruta antes del merge. Detalle en `i18n/F8-EXIT-CRITERIA.md`. Ninguna celda puede quedar en `pending`, `placeholder`, `Spanish-only` o `post-merge`. Cero excepciones.
+
+---
+
+---
+
 ## 1 · Inventario total de rutas públicas
 
 ### 1.1 Rutas activas (deben tener versión EN)
@@ -86,7 +102,7 @@ Lo redacto yo dentro del plan como propuesta para tu aprobación línea por lín
 | Fotos con captions bilingües de la homepage | Usa `alt` traducido genérico basado en el existente |
 | Traducciones legales revisadas por abogado FL | Se mantiene el banner "Provisional draft pending legal review" |
 | Casos verificables adicionales | Solo el caso existente (3× ingresos) se traduce |
-| Blog posts individuales (21) | Fase 2 diferida — el blog landing EN muestra "Coming soon" para los posts EN o enlaza a los ES con badge de idioma |
+| Blog posts EN (20) | **Bloquea el merge.** Los 20 posts deben tener versión completa EN (título, cuerpo, excerpt, meta, OG, canonical, hreflang) antes de activar el flag. Aprobación por lotes de 3 posts por bloque de copy (Bloques 5+). |
 
 ---
 
@@ -379,35 +395,39 @@ src/app/page.tsx                        (usa content/home/es.ts)
 
 ## 6 · Estrategia de rollout
 
-### 6.1 Filosofía: "no publicar bilingüe parcial"
+### 6.1 Filosofía: "cero bilingüe parcial en producción"
 
-Por tu instrucción: el selector EN solo se activa cuando **todas las páginas principales** de la Opción B están completas y verificadas. Hasta entonces:
-- Los archivos EN se van creando pero el `next.config.ts` mantiene el redirect `/en/:path* → /`
-- El selector EN en Navbar/Footer queda **oculto por feature flag** `NEXT_PUBLIC_I18N_ENABLED=false`
-- Un test de smoke verifica que ninguna ruta EN es alcanzable en preview mientras el flag esté OFF
+Por instrucción explícita de Ana: el selector EN solo se activa cuando **todas** las páginas públicas ES tienen su equivalente EN completo y verificado, incluyendo los 20 blog posts. No hay excepciones, ni placeholders, ni "coming soon".
 
-Cuando toda la Opción B esté aprobada:
-- Se elimina el redirect `/en → /`
-- Se cambia `NEXT_PUBLIC_I18N_ENABLED=true` en Vercel
-- Se hace merge final del PR #3
+Durante toda F2–F7:
+- `NEXT_PUBLIC_I18N_ENABLED=false` en Preview y Production
+- `next.config.ts` mantiene el redirect `/en/:path* → /` como respaldo (el flag ya bloquea el selector visual)
+- Un test de smoke verifica que ninguna ruta EN es alcanzable con flag OFF
+- El código EN se acumula en el repo sin exposición pública
 
-### 6.2 Fases dentro del PR #3
+Cuando la matriz de paridad (`i18n/F8-EXIT-CRITERIA.md`) esté completa con **cero** ❌:
+- Se activa `NEXT_PUBLIC_I18N_ENABLED=true` primero en Preview para verificación integral
+- Ana ejecuta las pruebas integrales en Preview
+- Con OK explícito, se elimina el redirect `/en → /` en `next.config.ts`
+- Se activa el flag en Production y se mergea PR #3
 
-| Fase | Alcance | Requiere aprobación tuya antes |
+### 6.2 Fases dentro del PR #3 (revisadas)
+
+| Fase | Alcance | Requiere aprobación tuya antes de continuar |
 |---|---|---|
-| **F1** | Este documento + copy completo (§7) | Empezar F2 |
-| **F2** | Andamio técnico: `content/*`, `lib/i18n/*`, feature flag, tests, sin páginas EN todavía | Empezar F3 |
-| **F3** | Páginas EN: about, short-term-rentals, tax-deed, contact | Empezar F4 |
-| **F4** | Páginas EN: case-studies, resources, blog (landing) | Empezar F5 |
-| **F5** | Páginas EN legales: privacy-policy, cookie-policy, terms-of-use | Empezar F6 |
-| **F6** | Navbar + Footer + LocaleSwitcher + ContactForm bilingüe + Consent banner bilingüe | Empezar F7 |
-| **F7** | Sitemap bilingüe + metadata + schema.org + hreflang + tests i18n | Empezar F8 |
-| **F8** | Pruebas integrales en Preview con feature flag ON temporal | Merge final |
-| **Post-merge** | Blog posts individuales, uno por uno, tras revisión de cada traducción | — |
+| **F1** | Este documento + tabla slugs + Bloque 1 copy + criterios F8 | Empezar F2 |
+| **F2** | Andamio técnico: `content/*`, `lib/i18n/*`, feature flag OFF, tests unitarios básicos. Cero páginas EN. | Aprobar Bloque 2 copy antes de F3 |
+| **F3** | Páginas EN: about, short-term-rentals, tax-deed (Bloque 2 aprobado) | Aprobar Bloque 3 copy antes de F4 |
+| **F4** | Páginas EN: case-studies, resources, contact, blog landing (Bloque 3 aprobado) | Aprobar Bloque 4 copy antes de F5 |
+| **F5** | Páginas EN legales: privacy-policy, cookie-policy, terms-of-use (Bloque 4 aprobado) | Aprobar primer sub-bloque de posts (3 posts) antes de F6 |
+| **F6** | Navbar + Footer + LocaleSwitcher + BilingualSuggestionBanner + ContactForm bilingüe + Consent bilingüe | Aprobar sub-bloques restantes de posts en paralelo |
+| **F7-blog** | **Todos los 20 blog posts** EN con contenido completo (traducción, meta, canonical, hreflang, alt). Se ejecuta en paralelo a F6-F7 técnico. Cada sub-bloque de 3 posts requiere aprobación tuya. | Continuar solo con posts aprobados |
+| **F7-tech** | Sitemap bilingüe + metadata + schema.org + hreflang + tests i18n + matriz de paridad | Empezar F8 |
+| **F8** | Activación del flag en Preview + pruebas integrales bilingües + aprobación tuya para producción | Merge final |
 
-### 6.3 Cada fase = 1 commit atómico
+### 6.3 Cada fase = commits atómicos
 
-Cada fase produce un commit con nombre `feat(i18n-fN): ...`. Total estimado: 8-9 commits en la rama. PR se abre en draft desde F2 y se marca ready al final de F7.
+Cada fase produce uno o varios commits atómicos con prefijo `feat(i18n-fN):`. Estimación revisada: **~25-35 commits** en total (crece por los 20 posts que van en sub-bloques). PR se abre en draft desde F2 y se marca ready al final de F7-tech (después de F7-blog).
 
 ---
 
@@ -808,6 +828,8 @@ resources.ctaButton = "See all resources"
 
 ### 7.9 Blog landing (`src/content/blog-landing/en.ts`)
 
+**Corrección v2:** cero "Coming soon". La landing EN muestra los 20 posts traducidos igual que la ES. Si algún post aún no está aprobado durante F5-F7-blog, se filtra internamente y NO aparece en la landing hasta que su traducción esté aprobada — pero al activar el flag en F8, todos los 20 deben estar visibles.
+
 ```
 blog.badge     = "Resources & Education"
 blog.title.a   = "Real Estate"
@@ -1165,39 +1187,55 @@ Body rows (bilingual labels):
 
 The rest of the email HTML stays as is (already contains `escape()` for all values).
 
-### 7.15 Blog posts (fase 2 diferida)
+### 7.15 Blog posts (dentro del scope de PR #3, NO diferido)
 
-**21 posts existentes.** Propuesta: en la fase de merge de PR #3, la landing `/en/blog` muestra solo posts marcados como `has_en: true` en `blog-posts.ts`. Al inicio, 0 posts tienen esa flag → landing EN muestra el mensaje `"English posts coming soon. Meanwhile, browse the [Spanish blog →]"`.
+**20 posts existentes** (corrección: el count 21 anterior incluía el `slug: string` del type definition).
 
-Traducción de los 21 posts se hace **uno a uno tras aprobación individual** en PRs siguientes (`p3-pr3-i18n-blog-post-<slug>`), no dentro del scope de este PR.
+**Los 20 posts EN se entregan como parte del scope de este PR.** Sin ellos, el flag no se activa.
 
-Título + descripción de cada post traducidos aquí para tu aprobación:
+**Mapa de slugs EN naturales aprobado en `i18n/BLOG-SLUGS.md`.** No se reutiliza el slug ES por defecto.
 
-| # | Slug ES | Título EN | Descripción EN |
-|---|---|---|---|
-| 1 | que-es-el-alquiler-a-corto-plazo | What is a Short-Term Rental and Why It's the Most Powerful Vehicle for Passive Income? | Learn how short-term rentals work, how much you can earn with Airbnb and Booking, and why thousands of investors prefer this over traditional rentals. |
-| 2 | tax-deed-que-es | Tax Deed: What It Is and How to Buy County Properties at Auction Prices | Complete guide to tax deeds: what they are, how county auctions work, the risks, and how Ana Morrison uses them to acquire properties at a fraction of market value. |
-| 3 | 5-rutas-riqueza-alquiler-corto-plazo | 5 Paths to Wealth Through Short-Term Rentals | The five proven models to build wealth without owning multiple properties: co-hosting, arbitrage, co-living, buy, build. |
-| 4 | como-empezar-airbnb-sin-propiedad | How to Start with Airbnb Without Owning a Property | Rental arbitrage explained: legally sublet properties as short-term rentals and generate income without ownership. |
-| 5 | diferencia-renta-tradicional-airbnb | Traditional Rental vs. Airbnb: Which Generates More Income? | A side-by-side comparison of both models — pros, cons, real numbers, and how to decide which fits your goals. |
-| 6 | libertad-financiera-bienes-raices | Financial Freedom Through Real Estate: Beyond Rental Cash Flow | The three real-estate levers that build durable wealth: cash flow, appreciation, and tax leverage. |
-| 7 | co-hosting-guia-completa | Co-Hosting: The Complete Guide to Managing Airbnb Properties for Others | How to build a co-hosting business managing properties you don't own, and earn 15–30% per booking. |
-| 8 | mujer-latina-inversion-inmobiliaria | Latina Women in Real Estate Investing: Breaking Barriers | Practical strategies and mindset shifts for Latina women stepping into real estate investing. |
-| 9 | optimizar-listing-airbnb | How to Optimize Your Airbnb Listing to Rank #1 in Your City | Photography, title, description, pricing and reviews — the levers that move your listing up the search ranking. |
-| 10 | credito-e-inversiones-inmobiliarias | Credit and Real Estate Investments: The Financial Strategy Behind Wealth | Why credit is a real estate investor's first tool and how to structure it correctly. |
-| 11 | automatizacion-airbnb | Airbnb Automation: The Systems That Turn Your STR into Passive Income | AI and automation to reduce operational load: messaging, cleaning, pricing, reviews. |
-| 12 | diseño-interior-airbnb | Airbnb Interior Design: How to Convert Guests into 5-Star Reviews | Functional design decisions for premium guest experience without inflating budget. |
-| 13 | mercados-airbnb-florida | The Best Florida Markets for Investing in Airbnb in 2026 | Miami, Orlando, Tampa, and the emerging Florida markets with the highest ROI potential. |
-| 14 | estrategia-brrrr-inmobiliaria | The BRRRR Strategy: Buy, Renovate, Rent, Refinance, Repeat | The classic real estate scaling method, applied specifically to short-term rentals. |
-| 15 | errores-inversionista-principiante | The 10 Most Common Mistakes of Beginner Real Estate Investors | Lessons from a decade of investing that will save you tens of thousands. |
-| 16 | como-usar-el-credito-para-invertir-en-bienes-raices | How to Use Credit to Invest in Real Estate Without Personal Capital | Practical tactics to leverage credit lines, business credit, and other structures for property investing. |
-| 17 | airbnb-vs-booking-vs-vrbo-cual-plataforma-usar | Airbnb vs. Booking vs. VRBO: Which Platform to Use? | Side-by-side breakdown of the top STR platforms with fees, audiences and best-use cases. |
-| 18 | caso-real-primera-propiedad-co-hosting-miami | Real Case: My First Co-Hosting Property in Miami | Full narrative of a real co-hosting project including expenses, revenue and lessons learned. |
-| 19 | tax-deed-florida-guia-completa-principiantes | Tax Deed in Florida: The Complete Beginner's Guide | Everything you need to know to participate in Florida's county Tax Deed auctions. |
-| 20 | mentalidad-inversionista-latina-como-vencer-el-miedo | Latina Investor Mindset: How to Overcome Fear and Take Action | Mental barriers Latina investors face and how to move past them. |
-| 21 | (post 21) | (title EN) | (desc EN) |
+**Traducción de cada post debe incluir:**
+- Título EN natural (no traducción literal)
+- Cuerpo completo traducido y adaptado culturalmente
+- Excerpt EN
+- Meta title EN
+- Meta description EN (≤160 chars)
+- Open Graph completo EN
+- Canonical propia (`https://anamorrison.com/en/blog/<slug-en>`)
+- hreflang bidireccional con la versión ES
+- Enlaces internos actualizados al equivalente EN (o marcados con nota si el destino aún no tiene traducción — pero como todo debe estar traducido pre-merge, esto no aplicará)
+- Imágenes con alt EN cuando el original es en español
 
-**Slugs EN propuestos** = mismo slug ES (no traducir slug para preservar SEO histórico de compartidos). Alternativa: traducir todos los slugs y mantener redirects internos. **Recomendación: mismo slug** para no fragmentar la autoridad SEO acumulada.
+**Estructura de datos revisada en `blog-posts.ts`:**
+```ts
+type BlogPost = {
+  // existentes...
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  readTime: string;
+  keywords: string[];
+  content: string;
+
+  // Nuevos, opcionales al principio, obligatorios al final de F7-blog:
+  en?: {
+    slug: string;         // slug natural EN de i18n/BLOG-SLUGS.md
+    title: string;
+    description: string;
+    keywords: string[];
+    content: string;
+    readTime?: string;    // Recalculado si difiere significativamente
+    metaTitle?: string;   // Si difiere del title
+    ogTitle?: string;     // Si difiere del title
+    ogDescription?: string; // Si difiere de description
+  };
+};
+```
+
+**Aprobación por lotes de 3 posts** en Bloques 5, 6, 7 del copy. Cada sub-bloque requiere OK explícito antes de commitear los siguientes. El componente `/en/blog` y `/en/blog/[slug]` solo se marca listo cuando los 20 posts están aprobados y sus datos EN presentes.
 
 ---
 
@@ -1316,18 +1354,23 @@ NEXT_PUBLIC_I18N_ENABLED    (default "false")
 
 ---
 
-## 11 · Acción concreta que requiere tu autorización
+## 11 · Acción concreta que requiere tu autorización (revisada)
 
 Antes de que empiece F2, necesito de ti:
 
-1. **Aprobación general del plan** (§1-6, §8-10)
-2. **Aprobación del copy en inglés** (§7 completo) — puedes marcar cambios línea por línea si prefieres
-3. **Aprobación de slugs EN**: mismo slug para blog posts (no traducir slug)
-4. **Decisión sobre BilingualSuggestionBanner** (§5.3): ¿lo incluimos o preferís sin auto-sugerencia?
-5. **Confirmación del feature flag** `NEXT_PUBLIC_I18N_ENABLED` (default false)
+1. **Aprobación de los 20 slugs EN** en `i18n/BLOG-SLUGS.md` (o cambios línea por línea)
+2. **Aprobación del Bloque 1 del copy** en `i18n/COPY-BLOCK-1.md` (Navbar, Footer, Home completa, LocaleSwitcher, BilingualSuggestionBanner)
+3. **Aprobación de los criterios F8** en `i18n/F8-EXIT-CRITERIA.md` (matriz de paridad con 10 criterios)
+4. **Confirmación del feature flag** `NEXT_PUBLIC_I18N_ENABLED=false` durante F2–F7
+5. **Confirmación explícita:** blog completo (20 posts) forma parte del alcance pre-merge; nada se activa con placeholders
 
-Cuando escribas **"Apruebo el plan y el copy. Inicia F2."** empiezo a implementar el andamio técnico. Los cambios se harán en commits atómicos por fase y ninguna ruta EN será alcanzable en producción hasta F8 aprobada por ti.
+Cuando escribas **"Bloque 1 aprobado. Inicia F2."** empiezo el andamio técnico. Bloques 2–4+ se irán presentando por separado. El scope de blog posts se irá presentando en sub-bloques de 3 posts a partir del Bloque 5.
 
 ---
 
-**Estado actual:** Documentación entregada. Cero código de implementación. Rama `claude/p3-pr3-i18n-complete` creada desde `main` @ `7e70e4b`. Solo este archivo `i18n/PLAN.md` presente.
+**Estado actual:** Documentación revisada con las 7 correcciones. Cero código de implementación. Rama `claude/p3-pr3-i18n-complete` creada desde `main` @ `7e70e4b`. Archivos presentes:
+
+- `i18n/PLAN.md` (este archivo, actualizado)
+- `i18n/BLOG-SLUGS.md` (tabla de 20 slugs para aprobación)
+- `i18n/COPY-BLOCK-1.md` (Bloque 1 completo del copy)
+- `i18n/F8-EXIT-CRITERIA.md` (criterios de salida F8)
