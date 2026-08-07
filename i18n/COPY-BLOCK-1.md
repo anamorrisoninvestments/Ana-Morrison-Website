@@ -256,109 +256,125 @@ En el `<head>` de cada versión del Home:
 | Items | 1. Análisis de viabilidad<br>2. Estrategia del activo<br>3. Diseño y preparación<br>4. Lanzamiento en plataformas<br>5. Optimización del listing<br>6. Automatización<br>7. Revenue management<br>8. Administración profesional | 1. `Viability analysis`<br>2. `Asset positioning`<br>3. `Design & setup`<br>4. `Multi-platform launch`<br>5. `Listing optimization`<br>6. `Automation`<br>7. `Revenue management`<br>8. `Professional property management` |
 | CTA | `Explorar alquileres a corto plazo` | `Explore Short-Term Rentals` |
 
-### 1.3.4 · Method — Adquirir, Transformar y Rentabilizar™
+### 1.3.4 · Method — Acquire, Transform & Monetize™ — APROBADO
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
-| Eyebrow | `Método Propietario` | `Proprietary Method` |
-| Título | `Método Adquirir, Transformar y Rentabilizar™` | `The Acquire, Transform & Monetize Method™` |
-| Palabra destacada (dorado itálica) | `Adquirir, Transformar y Rentabilizar` | `Acquire, Transform & Monetize` |
-| Subtítulo | `Un proceso de seis etapas que convierte una oportunidad inmobiliaria en un activo rentable y operable.` | `A six-stage process that turns a real estate opportunity into a profitable, operable asset.` |
+| Eyebrow (chip) | `Método Propietario` | `Signature Method` |
+| Título línea 1 (marfil) | `Método` | `The` |
+| Título línea 2 (dorado + itálica) | `Adquirir, Transformar y Rentabilizar` | `Acquire, Transform & Monetize` |
+| Sufijo trademark | `™` | `™` |
+| Título compuesto completo | `Método Adquirir, Transformar y Rentabilizar™` | `The Acquire, Transform & Monetize™ Method` |
+| Subtítulo | `Un proceso de seis etapas que convierte una oportunidad inmobiliaria en un activo rentable y operable.` | `A six-stage process that turns a real estate opportunity into an operating, income-producing asset.` |
 
 **6 etapas**
 
-| # | ES actual | Propuesta EN |
-|---|---|---|
-| 01 · Analizar | `Estudiar mercado, título, riesgos, regulaciones y demanda antes de mover capital.` | `Analyze` · `Study market, title, risks, regulations and demand before deploying capital.` |
-| 02 · Adquirir | `Comprar correctamente vía subasta Tax Deed, adquisición directa o modelos alternativos.` | `Acquire` · `Buy correctly via Tax Deed auction, direct acquisition or alternative models.` |
-| 03 · Transformar | `Rehabilitar, diseñar y preparar la propiedad para maximizar valor percibido y rentabilidad.` | `Transform` · `Rehab, design and prepare the property to maximize perceived value and profitability.` |
-| 04 · Lanzar | `Publicar en plataformas con listing optimizado, fotografía profesional y pricing estratégico.` | `Launch` · `Publish on platforms with an optimized listing, professional photography and strategic pricing.` |
-| 05 · Automatizar | `Sistemas, IA y procesos que sostienen la operación con mínima carga humana.` | `Automate` · `Systems, AI and processes that sustain operations with minimal human load.` |
-| 06 · Rentabilizar | `Revenue management, optimización continua y escalamiento del portafolio.` | `Monetize` · `Revenue management, continuous optimization and portfolio scaling.` |
+| # | ES `title` | EN `title` | ES `description` | EN `description` |
+|---|---|---|---|---|
+| 01 | `Analizar` | `Analyze` | `Estudiar mercado, título, riesgos, regulaciones y demanda antes de mover capital.` | `Study the market, title, risks, regulations, and demand before capital moves.` |
+| 02 | `Adquirir` | `Acquire` | `Comprar correctamente vía subasta Tax Deed, adquisición directa o modelos alternativos.` | `Buy the right way — through a Tax Deed auction, direct acquisition, or an alternative model.` |
+| 03 | `Transformar` | `Transform` | `Rehabilitar, diseñar y preparar la propiedad para maximizar valor percibido y rentabilidad.` | `Rehab, design, and stage the property to maximize perceived value and income potential.` |
+| 04 | `Lanzar` | `Launch` | `Publicar en plataformas con listing optimizado, fotografía profesional y pricing estratégico.` | `Go live on the right platforms with an optimized listing, professional photography, and strategic pricing.` |
+| 05 | `Automatizar` | `Automate` | `Sistemas, IA y procesos que sostienen la operación con mínima carga humana.` | `Systems, AI, and processes that keep operations running with minimal human load.` |
+| 06 | `Rentabilizar` | `Scale` | `Revenue management, optimización continua y escalamiento del portafolio.` | `Revenue management, continuous optimization, and portfolio growth.` |
+
+**Nota de nomenclatura:** el nombre del método completo se conserva como `Acquire, Transform & Monetize™`. El paso 06 se llama `Scale` porque su contenido describe portfolio growth (revenue management + optimización continua + escalamiento) y evita redundancia con `Monetize` del nombre del método.
 
 **Trademark note:** el símbolo `™` se preserva en EN. Si registras la marca en USPTO en algún momento, actualizar a `®` cuando corresponda.
 
-### 1.3.5 · AboutSection (bloque About en home)
+### 1.3.5 · AboutSection (bloque About en home) — APROBADO
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Eyebrow | `Mi Historia` | `My Story` |
-| Título | `Más que administrar propiedades, construyo oportunidades.` | `More than managing properties, I build opportunities.` |
-| Palabras destacadas | `construyo oportunidades` | `build opportunities` |
-| Párrafo 1 | `A los 22 años, adquirí mi primera propiedad en Colombia y la transformé de una renta tradicional a un modelo Airbnb, triplicando los ingresos. Ese momento cambió mi vida —y me mostró el poder real del alquiler a corto plazo.` | `At 22, I acquired my first property in Colombia and transformed it from a traditional long-term rental into an Airbnb model, tripling the income. That moment changed my life — and showed me the real power of short-term rentals.` |
-| Párrafo 2 | `Hoy cuento con un portafolio inmobiliario valorado en varios millones de dólares, opero propiedades en 4 países, cuento con formación especializada en análisis de propiedades y subastas Tax Deed, y ayudo a inversionistas a replicar mi metodología a través de The Host Circle.` | `Today I have a multi-million dollar real estate portfolio, operate properties in 4 countries, hold specialized training in Tax Deed property and title analysis, and help investors replicate my methodology through The Host Circle.` |
-| Quote | `"La riqueza no se improvisa. Se construye con visión, educación, crédito, estrategia, sistemas y acción constante."` | `"Wealth isn't improvised. It's built with vision, education, credit, strategy, systems and consistent action."` |
+| Título línea 1 (marfil) | `Más que administrar propiedades,` | `More than managing properties —` |
+| Título línea 2 (dorado) | `construyo oportunidades.` | `I build opportunities.` |
+| Palabra destacada dorado | `construyo oportunidades.` | `I build opportunities.` |
+| Párrafo 1 (cronología corregida) | `A los 22 años, adquirí mi primera propiedad en Colombia y la transformé de una renta tradicional a un modelo Airbnb, triplicando los ingresos. Ese momento cambió mi vida —y me mostró el poder real del alquiler a corto plazo.` | `At 22, I bought my first property in Colombia — off-plan, in pre-construction. Years later, once it was delivered, I first operated it as a long-term rental. When I transitioned it to Airbnb, the income tripled. That experience showed me how dramatically the right operating strategy can change what a real estate asset produces.` |
+| Párrafo 2 | `Hoy cuento con un portafolio inmobiliario valorado en varios millones de dólares, opero propiedades en 4 países, cuento con formación especializada en análisis de propiedades y subastas Tax Deed, y ayudo a inversionistas a replicar mi metodología a través de The Host Circle.` | `Today I hold a multi-million-dollar real estate portfolio, operate properties across 4 countries, have specialized training in Tax Deed property and title analysis, and help investors replicate my methodology through The Host Circle.` |
+| Quote | `"La riqueza no se improvisa. Se construye con visión, educación, crédito, estrategia, sistemas y acción constante."` | `"Wealth isn't improvised. It's built with vision, education, credit, strategy, systems, and consistent action."` |
 | Link "Lee mi historia" | `Lee mi historia completa →` | `Read my full story →` |
-| Milestone 1 | `22 años` · `Primera propiedad adquirida en Colombia` | `Age 22` · `First property acquired in Colombia` |
-| Milestone 2 | `Triplicó` · `Ingresos al pasar de renta tradicional a Airbnb` | `Tripled` · `Income by moving from traditional rental to Airbnb` |
+| Milestone 1 (con nota cronológica) | `22 años` · `Primera propiedad adquirida en Colombia` | `Age 22` · `First property acquired in Colombia (pre-construction)` |
+| Milestone 2 | `Triplicó` · `Ingresos al pasar de renta tradicional a Airbnb` | `Tripled` · `Income after moving from long-term rental to Airbnb` |
 | Milestone 3 | `9+ años` · `De experiencia en alquiler a corto plazo` | `9+ years` · `Of experience in short-term rentals` |
-| Milestone 4 | `4 países` · `Operaciones en EE.UU., México, Colombia y Venezuela` | `4 countries` · `Operations in US, Mexico, Colombia and Venezuela` |
+| Milestone 4 | `4 países` · `Operaciones en EE.UU., México, Colombia y Venezuela` | `4 countries` · `Operations in the US, Mexico, Colombia, and Venezuela` |
 | Countries eyebrow | `Operaciones en` | `Operations in` |
 | Country names | `Estados Unidos`, `México`, `Colombia`, `Venezuela` | `United States`, `Mexico`, `Colombia`, `Venezuela` |
 
-### 1.3.6 · WaysToWork (Formas de Trabajar Conmigo)
+**Cronología preservada:** compra a los 22 en pre-construction → entrega años después → operada primero como long-term rental → transición posterior a Airbnb → income tripled tras la transición. Ninguna fase implica que "Age 22 = Airbnb".
 
-| Elemento | ES actual | Propuesta EN |
+### 1.3.6 · WaysToWork (Formas de Trabajar Conmigo) — APROBADO
+
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Eyebrow | `Formas de Trabajar Conmigo` | `Ways to Work With Me` |
-| Título | `Tres caminos claros según tu momento` | `Three clear paths based on your moment` |
-| Destacado | `tu momento` | `your moment` |
+| Título | `Tres caminos claros según tu momento` | `Three clear paths, depending on where you are` |
+| Destacado dorado + itálica | `tu momento` | `where you are` |
 
-**Camino A · Inversionistas**
+**Camino A · Inversionistas (card azul)**
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Audiencia | `Para inversionistas` | `For investors` |
-| Título | `Tax Deed Intelligence` | Igual |
-| Descripción | `Educación, análisis y herramientas para identificar oportunidades y evaluar propiedades antes de participar en subastas del condado.` | `Education, analysis and tools to identify opportunities and evaluate properties before participating in county auctions.` |
-| CTA | `Quiero explorar Tax Deed` | `I want to explore Tax Deed` |
+| Título | `Tax Deed Intelligence` | `Tax Deed Investing` |
+| Descripción | `Educación, análisis y herramientas para identificar oportunidades y evaluar propiedades antes de participar en subastas del condado.` | `Education, analysis, and tools to identify opportunities and evaluate properties before you bid at a county auction.` |
+| CTA (botón azul) | `Quiero explorar Tax Deed` | `Explore Tax Deed Investing` |
 
-**Camino B · Propietarios (destacado)**
+**Camino B · Propietarios (card dorada · destacado)**
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Audiencia | `Para propietarios` | `For property owners` |
-| Título | `STR Strategy & Management` | Igual |
-| Descripción | `Diagnóstico, transformación, lanzamiento, automatización y administración profesional de propiedades de alquiler a corto plazo.` | `Diagnosis, transformation, launch, automation and professional management of short-term rental properties.` |
-| CTA | `Quiero rentabilizar mi propiedad` | `I want to monetize my property` |
+| Título | `STR Strategy & Management` | `Short-Term Rental Strategy & Management` |
+| Descripción | `Diagnóstico, transformación, lanzamiento, automatización y administración profesional de propiedades de alquiler a corto plazo.` | `Property assessment, transformation, launch, automation, and professional property management for short-term rentals.` |
+| CTA (botón dorado) | `Quiero rentabilizar mi propiedad` | `Improve My Property's Performance` |
 
-**Camino C · Educación**
+**Camino C · Educación (card sutil)**
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Audiencia | `Para quienes desean aprender` | `For those who want to learn` |
-| Título | `The Host Circle` | Igual |
+| Título | `The Host Circle` | `The Host Circle` |
 | Descripción | `Formación práctica para construir y operar un negocio profesional de alquileres a corto plazo.` | `Practical training to build and operate a professional short-term rental business.` |
-| CTA | `Conocer The Host Circle` | `Discover The Host Circle` |
+| CTA (botón sutil) | `Conocer The Host Circle` | `Discover The Host Circle` |
 
-### 1.3.7 · AuthoritySection (Autoridad Verificada)
+### 1.3.7 · AuthoritySection — APROBADO
 
-| Elemento | ES actual | Propuesta EN |
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
-| Eyebrow | `Autoridad Verificada` | `Verified Expertise` |
-| Título | `Experiencia real en inversión y operación inmobiliaria` | `Real experience in real estate investing and operations` |
-| Destacado | `inversión y operación inmobiliaria` | `real estate investing and operations` |
+| Eyebrow | `Autoridad Verificada` | `Real-World Experience` |
+| Título línea 1 (marfil) | `Experiencia real en` | `Real experience in` |
+| Título línea 2 (dorado + itálica) | `inversión y operación inmobiliaria` | `real estate investing and operations` |
+
+**Nota:** eyebrow `Real-World Experience` reemplaza `Verified Expertise` para evitar cualquier lectura de verificación externa o certificación implícita. Cero claims nuevos, cero certificaciones sugeridas.
 
 **4 pilares numéricos**
 
-| # | ES actual | Propuesta EN |
-|---|---|---|
-| P1 | `9+` · `Años de experiencia` · `en alquileres a corto plazo` | `9+` · `Years of experience` · `in short-term rentals` |
-| P2 | `4` · `Países` · `US · MX · CO · VE` | `4` · `Countries` · `US · MX · CO · VE` |
-| P3 | `3` · `Roles` · `propietaria · administradora · inversionista` | `3` · `Roles` · `owner · operator · investor` |
-| P4 | `Tax Deed` · `Formación especializada` · `análisis de títulos y oportunidades` | `Tax Deed` · `Specialized training` · `title and opportunity analysis` |
+| # | ES `value` | ES `label` | ES `detail` | EN `value` | EN `label` | EN `detail` |
+|---|---|---|---|---|---|---|
+| P1 | `9+` | `Años de experiencia` | `en alquileres a corto plazo` | `9+` | `Years of Experience` | `in short-term rentals` |
+| P2 | `4` | `Países` | `US · MX · CO · VE` | `4` | `Countries` | `US · MX · CO · VE` |
+| P3 | `3` | `Roles` | `propietaria · administradora · inversionista` | `3` | `Roles` | `owner · operator · investor` |
+| P4 | `Tax Deed` | `Formación especializada` | `análisis de títulos y oportunidades` | `Tax Deed` | `Specialized Training` | `title and opportunity analysis` |
 
-### 1.3.8 · CTASection final
+**Cero credenciales nuevas. Se preserva `Specialized Training` (formulación prudente P1).**
 
-| Elemento | ES actual | Propuesta EN |
+### 1.3.8 · CTASection final — APROBADO
+
+| Elemento | ES actual | EN aprobado |
 |---|---|---|
 | Eyebrow | `Tu Próximo Paso` | `Your Next Step` |
-| Título línea 1 | `¿Tienes una propiedad` | `Do you own a property` |
-| Título línea 2 | `o buscas tu próxima oportunidad de inversión?` | `or are you looking for your next investment opportunity?` |
-| Destacado | `oportunidad de inversión?` | `investment opportunity?` |
-| Subtítulo | `Elige el camino que corresponde a tu momento y hablemos.` | `Choose the path that matches your moment and let's talk.` |
-| CTA 1 (dorado) | `Quiero rentabilizar una propiedad` | `I want to monetize a property` |
-| CTA 2 (azul) | `Quiero explorar Tax Deed` | `I want to explore Tax Deed` |
+| Título línea 1 (marfil) | `¿Tienes una propiedad` | `Do you own a property,` |
+| Título línea 2 (marfil) | `o buscas tu próxima` | `or are you looking for your next` |
+| Título línea 3 (dorado + itálica) | `oportunidad de inversión?` | `investment opportunity?` |
+| Destacado dorado + itálica | `oportunidad de inversión?` | `investment opportunity?` |
+| Subtítulo | `Elige el camino que corresponde a tu momento y hablemos.` | `Pick the path that fits where you are — and let's talk.` |
+| CTA 1 (dorado) | `Quiero rentabilizar una propiedad` | `Improve My Property's Performance` |
+| CTA 2 (azul) | `Quiero explorar Tax Deed` | `Explore Tax Deed Investing` |
+
+**Nota de consistencia:** el CTA 1 usa exactamente el mismo texto que el CTA de Ways to Work · Camino B (Propietarios). Destinos:
+- CTA 1 → `/en/contact?interes=str-rentabilizar`
+- CTA 2 → `/en/contact?interes=tax-deed-oportunidades`
 
 ---
 
