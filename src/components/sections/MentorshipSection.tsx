@@ -35,7 +35,7 @@ const pillars = [
   {
     title: "Acompañamiento Semanal",
     items: [
-      "Reuniones grupales semanales durante un año con AnaMaria Morrison",
+      "Reuniones grupales semanales durante un año con AnaMaría Morrison",
       "Actualizaciones de inversión y generación de ingresos",
       "Reuniones semanales con experto financiero para crédito y adquisición de capital",
     ],

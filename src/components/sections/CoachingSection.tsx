@@ -26,7 +26,7 @@ export default function CoachingSection() {
             transformación personal, emocional, espiritual, financiera y de propósito.
           </p>
           <p className="text-[#22AEEF] text-sm tracking-wide italic">
-            AnaMaria Morrison está certificada como Coach en Amor Consciente.
+            AnaMaría Morrison está certificada como Coach en Amor Consciente.
           </p>
         </motion.div>
 

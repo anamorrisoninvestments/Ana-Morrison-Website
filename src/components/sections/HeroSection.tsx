@@ -31,7 +31,7 @@ export default function HeroSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D] animate-pulse" />
               <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-                Ana Morrison · Real Estate Investor &amp; Strategist
+                AnaMaría Morrison · Real Estate Investor &amp; Strategist
               </span>
             </motion.div>
 
@@ -100,7 +100,7 @@ export default function HeroSection() {
               <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                 <Image
                   src="/images/anamaria-morrison.jpg"
-                  alt="Ana Morrison — Real Estate Investor &amp; STR / Tax Deed Strategist"
+                  alt="AnaMaría Morrison — Real Estate Investor &amp; STR / Tax Deed Strategist"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 448px"

@@ -10,7 +10,7 @@ import { classifyPost } from "@/lib/blog-taxonomy";
 export const metadata: Metadata = {
   title: "Blog | Alquileres a Corto Plazo y Tax Deed",
   description:
-    "Artículos y guías sobre alquiler a corto plazo, administración STR, Tax Deed y adquisición inmobiliaria. Contenido educativo por Ana Morrison.",
+    "Artículos y guías sobre alquiler a corto plazo, administración STR, Tax Deed y adquisición inmobiliaria. Contenido educativo por AnaMaría Morrison.",
   alternates: { canonical: "/blog" },
 };
 

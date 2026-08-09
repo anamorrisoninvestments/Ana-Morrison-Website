@@ -33,7 +33,7 @@ export default function AboutSection() {
                 <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                   <Image
                     src="/images/anamaria-about.jpg"
-                    alt="AnaMaria Morrison"
+                    alt="AnaMaría Morrison"
                     fill
                     sizes="(max-width: 1024px) 100vw, 500px"
                     className="object-cover"

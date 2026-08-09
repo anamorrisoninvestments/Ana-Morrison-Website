@@ -31,7 +31,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-10">
-          <p className="text-[#C8A45D] font-bold text-lg tracking-widest uppercase">Ana Morrison</p>
+          <p className="text-[#C8A45D] font-bold text-lg tracking-widest uppercase">AnaMaría Morrison</p>
           <p className="text-[#888888] text-xs tracking-widest uppercase mt-1">PR Auto-Pilot</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">

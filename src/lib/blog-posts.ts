@@ -49,7 +49,7 @@ Si tienes una propiedad que no estás maximizando, si quieres comenzar sin capit
   {
     slug: "tax-deed-que-es",
     title: "Tax Deed: Qué Es y Cómo Comprar Propiedades al Condado a Precio de Subasta",
-    description: "Guía completa sobre los tax deeds: qué son, cómo funcionan las subastas del condado, los riesgos y cómo AnaMaria Morrison los usa para adquirir propiedades a fracción de su precio de mercado.",
+    description: "Guía completa sobre los tax deeds: qué son, cómo funcionan las subastas del condado, los riesgos y cómo AnaMaría Morrison los usa para adquirir propiedades a fracción de su precio de mercado.",
     date: "2026-04-20",
     category: "Inversión Avanzada",
     readTime: "10 min",
@@ -97,7 +97,7 @@ Sí. Muchos de mis clientes son latinoamericanos que invierten remotamente en co
     category: "Estrategia",
     readTime: "9 min",
     keywords: ["rutas para crear riqueza", "co-hosting", "arbitraje Airbnb", "co-living", "inversión STR"],
-    content: `Una de las preguntas que más me hacen es: "AnaMaria, no tengo una propiedad, ¿puedo empezar igual?" La respuesta es sí. Hay cinco rutas para crear riqueza con el alquiler a corto plazo, y solo una de ellas requiere que seas dueño de una propiedad desde el inicio.
+    content: `Una de las preguntas que más me hacen es: "AnaMaría, no tengo una propiedad, ¿puedo empezar igual?" La respuesta es sí. Hay cinco rutas para crear riqueza con el alquiler a corto plazo, y solo una de ellas requiere que seas dueño de una propiedad desde el inicio.
 
 ## Ruta 1: Co-Hosting
 
@@ -323,7 +323,7 @@ La clave para escalar es la sistematización:
   {
     slug: "mujer-latina-inversion-inmobiliaria",
     title: "Mujer Latina e Inversión Inmobiliaria: Rompiendo las Barreras para Construir Riqueza",
-    description: "Por qué las mujeres latinas tienen una oportunidad histórica en el mercado inmobiliario, y cómo AnaMaria Morrison está liderando ese camino.",
+    description: "Por qué las mujeres latinas tienen una oportunidad histórica en el mercado inmobiliario, y cómo AnaMaría Morrison está liderando ese camino.",
     date: "2026-02-10",
     category: "Inspiración",
     readTime: "7 min",
@@ -443,7 +443,7 @@ Con un score de 700+ puedes calificar para préstamos convencionales. Con 760+ a
   {
     slug: "automatizacion-airbnb",
     title: "Automatización para Anfitriones: Cómo Gestionar 10 Propiedades en 2 Horas al Día",
-    description: "Las herramientas y sistemas de automatización que usa AnaMaria Morrison para gestionar múltiples propiedades de forma eficiente y sin presencia física constante.",
+    description: "Las herramientas y sistemas de automatización que usa AnaMaría Morrison para gestionar múltiples propiedades de forma eficiente y sin presencia física constante.",
     date: "2025-12-20",
     category: "Operaciones",
     readTime: "9 min",

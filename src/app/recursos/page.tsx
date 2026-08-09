@@ -4,7 +4,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Recursos | Alquileres a Corto Plazo y Tax Deed | Ana Morrison",
+  title: "Recursos | Alquileres a Corto Plazo y Tax Deed | AnaMaría Morrison",
   description:
     "Guías, artículos, herramientas y formación sobre alquiler a corto plazo y Tax Deed. Contenido educativo para inversionistas y propietarios.",
   alternates: { canonical: "/recursos" },

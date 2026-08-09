@@ -11,9 +11,9 @@ import AuthoritySection from "@/components/sections/AuthoritySection";
 import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ana Morrison | Alquileres a Corto Plazo y Tax Deed",
+  title: "AnaMaría Morrison | Alquileres a Corto Plazo y Tax Deed",
   description:
-    "Ana Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.",
+    "AnaMaría Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.",
   alternates: { canonical: "/" },
 };
 

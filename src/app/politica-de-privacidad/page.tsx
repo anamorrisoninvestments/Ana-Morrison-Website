@@ -37,7 +37,7 @@ export default function PoliticaPrivacidadPage() {
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">1. Responsable</h2>
               <p>
-                El sitio <strong>anamorrison.com</strong> es operado por Ana Maria Morrison.
+                El sitio <strong>anamorrison.com</strong> es operado por AnaMaría Morrison.
                 Para consultas relacionadas con esta política: <a href={`mailto:${CLIENT.email}`} className="text-[#C8A45D] underline">{CLIENT.email}</a>.
               </p>
             </div>

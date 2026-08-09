@@ -90,7 +90,7 @@ export default function PRDashboardClient({ queries, stats, user }: Props) {
       <div className="border-b border-[#C8A45D]/20 px-6 py-4 flex items-center justify-between">
         <div>
           <p className="text-[#C8A45D] font-bold tracking-widest uppercase text-sm">PR Auto-Pilot</p>
-          <p className="text-[#888888] text-xs">Ana Morrison · The Host Circle</p>
+          <p className="text-[#888888] text-xs">AnaMaría Morrison · The Host Circle</p>
         </div>
         <div className="text-right">
           <p className="text-[#F7F3EC]/70 text-sm">{user.email}</p>

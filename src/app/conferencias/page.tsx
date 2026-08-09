@@ -52,7 +52,7 @@ export default function ConferenciasPage() {
                 <span className="text-gold-gradient">transforman perspectivas.</span>
               </h1>
               <p className="text-[#F7F3EC]/70 text-xl leading-relaxed mb-8">
-                AnaMaria Morrison lleva su experiencia real en inversión inmobiliaria y alquileres a corto plazo
+                AnaMaría Morrison lleva su experiencia real en inversión inmobiliaria y alquileres a corto plazo
                 a escenarios corporativos, congresos y eventos de emprendimiento en toda Latinoamérica y Estados Unidos.
               </p>
               <Link

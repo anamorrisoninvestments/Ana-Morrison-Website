@@ -5,13 +5,13 @@ import Footer from "@/components/ui/Footer";
 import { CLIENT } from "@/lib/client-data";
 
 export const metadata: Metadata = {
-  title: "Cursos & Mentoría | AnaMaria Morrison — The Host Circle",
+  title: "Cursos & Mentoría | AnaMaría Morrison — The Host Circle",
   description:
-    "Programas de mentoría y cursos de inversión inmobiliaria con AnaMaria Morrison. Co-hosting, alquiler a corto plazo, tax deeds y estrategias para crear riqueza.",
+    "Programas de mentoría y cursos de inversión inmobiliaria con AnaMaría Morrison. Co-hosting, alquiler a corto plazo, tax deeds y estrategias para crear riqueza.",
   openGraph: {
-    title: "Cursos & Mentoría | AnaMaria Morrison",
+    title: "Cursos & Mentoría | AnaMaría Morrison",
     description:
-      "Aprende directamente con AnaMaria. Programas diseñados para inversionistas que quieren resultados reales.",
+      "Aprende directamente con AnaMaría. Programas diseñados para inversionistas que quieren resultados reales.",
     url: `${CLIENT.siteUrl}/cursos`,
   },
 };
@@ -135,7 +135,7 @@ export default function CursosPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Programas de Mentoría — AnaMaria Morrison",
+    "name": "Programas de Mentoría — AnaMaría Morrison",
     "description": "Cursos y mentoría de inversión inmobiliaria y alquiler a corto plazo",
     "url": `${CLIENT.siteUrl}/cursos`,
     "itemListElement": PROGRAMS.map((p, i) => ({

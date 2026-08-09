@@ -6,12 +6,12 @@ import Footer from "@/components/ui/Footer";
 import { CLIENT } from "@/lib/client-data";
 
 export const metadata: Metadata = {
-  title: "Sobre Ana Morrison",
+  title: "Sobre AnaMaría Morrison",
   description:
-    "Ana Morrison — Real Estate Investor & Strategist. 9+ años transformando propiedades en activos rentables a través de alquiler a corto plazo y Tax Deed. Operaciones en 4 países.",
+    "AnaMaría Morrison — Real Estate Investor & Strategist. 9+ años transformando propiedades en activos rentables a través de alquiler a corto plazo y Tax Deed. Operaciones en 4 países.",
   alternates: { canonical: "/sobre-mi" },
   openGraph: {
-    title: "Sobre Ana Morrison",
+    title: "Sobre AnaMaría Morrison",
     description:
       "9+ años en alquileres a corto plazo, administración profesional y Tax Deed. Operaciones en 4 países.",
     url: `${CLIENT.siteUrl}/sobre-mi`,
@@ -138,7 +138,7 @@ export default function SobreMiPage() {
             <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
               <div>
                 <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-                  Ana Morrison · Real Estate Investor &amp; Strategist
+                  AnaMaría Morrison · Real Estate Investor &amp; Strategist
                 </span>
                 <h1 className="heading-serif text-5xl sm:text-6xl mt-4 mb-6 leading-[1.02] text-[#F7F3EC]">
                   Inversionista inmobiliaria y estratega en{" "}
@@ -173,7 +173,7 @@ export default function SobreMiPage() {
                   <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                     <Image
                       src="/images/anamaria-about.jpg"
-                      alt="Ana Morrison — Real Estate Investor &amp; Strategist"
+                      alt="AnaMaría Morrison — Real Estate Investor &amp; Strategist"
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 448px"

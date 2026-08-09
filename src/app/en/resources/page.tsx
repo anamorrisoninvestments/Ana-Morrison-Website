@@ -5,9 +5,9 @@ import Footer from "@/components/ui/Footer";
 import { CLIENT } from "@/lib/client-data";
 
 export const metadata: Metadata = {
-  title: "Resources | AnaMaría Morrison",
+  title: "Resources | Short-Term Rentals and Tax Deed | AnaMaría Morrison",
   description:
-    "Educational resources on short-term rentals, Tax Deed investing, credit, and building a real estate business — from operations to strategy.",
+    "Guides, articles, tools, and education on short-term rentals and Tax Deed. Educational content for investors and property owners.",
   alternates: {
     canonical: "/en/resources",
     languages: { "es-US": "/recursos", "en-US": "/en/resources", "x-default": "/recursos" },
@@ -21,42 +21,69 @@ export const metadata: Metadata = {
   },
 };
 
-const resources = [
-  { title: "The 5 Paths to Building a Short-Term Rental Business", href: "/en/blog/5-paths-to-wealth-with-short-term-rentals", tag: "Strategy" },
-  { title: "What Is a Tax Deed", href: "/en/blog/what-is-a-tax-deed", tag: "Tax Deed" },
-  { title: "What Is a Short-Term Rental", href: "/en/blog/what-is-a-short-term-rental", tag: "Basics" },
-  { title: "Tax Deed Investing in Florida · Beginner's Guide", href: "/en/blog/florida-tax-deed-investing-beginners-guide", tag: "Tax Deed" },
-  { title: "Airbnb Co-Hosting Complete Guide", href: "/en/blog/airbnb-co-hosting-complete-guide", tag: "Operations" },
-  { title: "Best Florida Airbnb Markets", href: "/en/blog/best-florida-airbnb-markets", tag: "Market" },
+const categories = [
+  {
+    title: "Short-Term Rentals",
+    description: "Guides, strategies, and tools for property owners and operators.",
+    href: "/en/blog?categoria=str",
+    accent: "text-[#C8A45D]",
+    border: "border-[#C8A45D]/25",
+  },
+  {
+    title: "Tax Deed",
+    description: "Education on county auctions, title analysis, and due diligence.",
+    href: "/en/blog?categoria=tax-deed",
+    accent: "text-[#22AEEF]",
+    border: "border-[#22AEEF]/25",
+  },
+  {
+    title: "The Host Circle",
+    description: "Practical training to build and operate a professional short-term rental business.",
+    href: "/en/contact?interes=host-circle",
+    accent: "text-[#F0E4C8]",
+    border: "border-[#C8A45D]/15",
+  },
 ];
 
 export default function ResourcesEN() {
   return (
     <>
       <Navbar locale="en" />
-      <main className="pt-20 bg-[#0D0A08]">
-        <section className="py-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">Resources</span>
-            <h1 className="heading-serif text-5xl sm:text-6xl text-[#F7F3EC] mt-4 mb-6 leading-[1.02]">
-              Learn the <span className="text-gold-gradient italic">strategy</span>.
+      <main className="bg-[#0D0A08]">
+        <section className="pt-40 pb-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">Resources &amp; Education</span>
+            <h1 className="heading-serif text-5xl sm:text-6xl mt-4 mb-6 leading-[1.02] text-[#F7F3EC]">
+              Content to <span className="text-gold-gradient italic">decide better</span>.
             </h1>
-            <p className="text-[#F7F3EC]/70 text-lg max-w-3xl mb-12">
-              A curated selection of articles and guides on short-term rentals, Tax Deed investing, credit, and the systems that make growth sustainable.
+            <p className="text-[#F7F3EC]/70 text-lg leading-relaxed max-w-3xl">
+              Guides, articles, and tools focused exclusively on short-term rentals and Tax Deed.
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {resources.map((r) => (
-                <Link key={r.href} href={r.href} className="p-6 rounded-2xl border border-[#C8A45D]/15 bg-[#141210] hover:border-[#C8A45D]/50 transition-colors block">
-                  <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">{r.tag}</p>
-                  <p className="text-[#F7F3EC] font-medium leading-snug">{r.title}</p>
-                </Link>
-              ))}
-            </div>
-            <div className="mt-12">
-              <Link href="/en/blog" className="inline-block px-6 py-3 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] font-semibold tracking-wider uppercase text-sm hover:border-[#C8A45D] hover:text-[#C8A45D]">
-                See the full blog
+          </div>
+        </section>
+
+        <section className="py-16 bg-[#141210]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-6">
+            {categories.map((c) => (
+              <Link key={c.title} href={c.href} className={`p-8 rounded-2xl border ${c.border} bg-[#1C1916] hover:bg-[#1C1916]/70 transition-all block`}>
+                <span className={`${c.accent} text-xs tracking-widest uppercase font-semibold`}>Category</span>
+                <h2 className="heading-serif text-2xl text-[#F7F3EC] mt-3 mb-4">{c.title}</h2>
+                <p className="text-[#F7F3EC]/70 text-sm leading-relaxed mb-6">{c.description}</p>
+                <span className={`${c.accent} text-sm tracking-widest uppercase font-semibold`}>Explore →</span>
               </Link>
-            </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="py-20 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="heading-serif text-3xl sm:text-4xl text-[#F7F3EC] mb-6">Explore the full blog</h2>
+            <Link
+              href="/en/blog"
+              className="inline-block px-8 py-4 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-sm hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_40px_rgba(200,164,93,0.45)]"
+            >
+              See all resources
+            </Link>
           </div>
         </section>
       </main>

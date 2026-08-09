@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const pressItems = [
-  { outlet: "Próxima publicación", title: "AnaMaria Morrison: La Inversionista que Está Cambiando el Juego del Airbnb", url: "#", date: "2026", category: "Entrevista" },
+  { outlet: "Próxima publicación", title: "AnaMaría Morrison: La Inversionista que Está Cambiando el Juego del Airbnb", url: "#", date: "2026", category: "Entrevista" },
   { outlet: "The Host Circle Blog", title: "Las 5 Rutas para Crear Riqueza con Alquileres a Corto Plazo", url: "#", date: "2026", category: "Artículo" },
 ];
 

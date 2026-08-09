@@ -1,7 +1,7 @@
 // English-language blog posts. Copy sourced from i18n/COPY-BLOCK-5A..5G approved by Ana.
 // Bodies are structured with the same key sections as the ES source but written natively
 // per BRAND-NAME.md, PLAN.md, F8-EXIT-CRITERIA.md rules and Bloque 5A v3 decisions:
-// - Nombre: "AnaMaria Morrison"; Credencial: "Certified Tax Deed Title Analyst"
+// - Nombre: "AnaMaría Morrison"; Credencial: "Certified Tax Deed Title Analyst"
 // - Cero cifras sin fuente publicadas; unica excepcion Colombia 3x historico
 // - Lenguaje Tax Deed prudente; cero superlativos ni promesas de ingresos
 // - CTA unificado: "Book a 1:1 Strategy Consultation" -> /en/contact

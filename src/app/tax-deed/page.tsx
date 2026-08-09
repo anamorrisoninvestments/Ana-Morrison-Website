@@ -4,7 +4,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Tax Deed | Inversión Inmobiliaria vía Subastas | Ana Morrison",
+  title: "Tax Deed | Inversión Inmobiliaria vía Subastas | AnaMaría Morrison",
   description:
     "Educación, análisis y herramientas para identificar oportunidades Tax Deed. Aprende a evaluar propiedades antes de participar en subastas del condado.",
   alternates: { canonical: "/tax-deed" },
@@ -101,7 +101,7 @@ export default function TaxDeedPage() {
                 Riesgos que debes considerar
               </span>
               <h3 className="heading-serif text-3xl text-[#F7F3EC] mt-3 mb-6">
-                Debida diligencia obligatoria
+                La debida diligencia es esencial
               </h3>
               <ul className="space-y-3">
                 {risks.map((r) => (
@@ -141,7 +141,7 @@ export default function TaxDeedPage() {
               <span className="text-blue-gradient italic">reales</span>?
             </h2>
             <p className="text-[#F7F3EC]/70 text-lg mb-10">
-              Solicita el listado curado por condado o agenda una conversación estratégica.
+              Agenda una consulta estratégica 1:1 para analizar tu caso específico.
             </p>
             <Link
               href="/contacto?interes=tax-deed"

@@ -6,13 +6,13 @@ import Footer from "@/components/ui/Footer";
 import { CLIENT } from "@/lib/client-data";
 
 export const metadata: Metadata = {
-  title: "Guía Gratuita: Las 5 Rutas Hacia la Riqueza | Ana Morrison",
+  title: "Guía Gratuita: Las 5 Rutas Hacia la Riqueza | AnaMaría Morrison",
   description:
-    "Descarga gratis la guía de AnaMaria Morrison con las 5 rutas para crear riqueza con alquileres a corto plazo: co-hosting, co-living, arbitraje, compra y construcción.",
+    "Descarga gratis la guía de AnaMaría Morrison con las 5 rutas para crear riqueza con alquileres a corto plazo: co-hosting, co-living, arbitraje, compra y construcción.",
   openGraph: {
     title: "Guía Gratuita: Las 5 Rutas Hacia la Riqueza con Alquileres a Corto Plazo",
     description:
-      "Las estrategias que AnaMaria Morrison usó para construir un portafolio de varios millones. Descárgalas gratis.",
+      "Las estrategias que AnaMaría Morrison usó para construir un portafolio de varios millones. Descárgalas gratis.",
     url: `${CLIENT.siteUrl}/recursos/guia-5-rutas`,
   },
 };
@@ -67,7 +67,7 @@ export default function Guia5RutasPage() {
               con el alquiler a corto plazo
             </p>
             <p className="text-text-muted max-w-xl mx-auto leading-relaxed mb-12">
-              Las estrategias exactas que AnaMaria Morrison aplicó para construir un portafolio
+              Las estrategias exactas que AnaMaría Morrison aplicó para construir un portafolio
               inmobiliario de varios millones de dólares en 4 países. Ahora disponibles para ti,
               sin costo.
             </p>
@@ -144,7 +144,7 @@ export default function Guia5RutasPage() {
               href="/sobre-mi"
               className="text-gold/70 text-sm hover:text-gold transition-colors underline underline-offset-4"
             >
-              Conoce la historia de AnaMaria →
+              Conoce la historia de AnaMaría →
             </Link>
           </div>
         </section>

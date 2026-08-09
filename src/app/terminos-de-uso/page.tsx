@@ -45,7 +45,7 @@ export default function TerminosPage() {
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">3. Propiedad intelectual</h2>
               <p>
-                Todo el contenido (textos, imágenes, marca &ldquo;The Host Circle&rdquo;, materiales descargables) es propiedad de Ana Morrison o de sus respectivos autores y está protegido por derechos de autor. No puedes copiar, redistribuir, revender ni crear obras derivadas sin autorización expresa por escrito.
+                Todo el contenido (textos, imágenes, marca &ldquo;The Host Circle&rdquo;, materiales descargables) es propiedad de AnaMaría Morrison o de sus respectivos autores y está protegido por derechos de autor. No puedes copiar, redistribuir, revender ni crear obras derivadas sin autorización expresa por escrito.
               </p>
             </div>
 
@@ -66,14 +66,14 @@ export default function TerminosPage() {
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">6. Disclaimer específico Tax Deed</h2>
               <p>
-                El contenido relacionado con Tax Deed es exclusivamente educativo. No constituye asesoría legal, financiera ni tributaria. Las subastas Tax Deed están reguladas por la ley del estado y del condado correspondiente, y sus reglas pueden variar significativamente. Toda inversión en subastas Tax Deed implica riesgos, incluidos riesgos legales, de título, de estado físico, de ocupación y de mercado. Antes de participar en una subasta debes realizar debida diligencia independiente y, cuando corresponda, consultar con un abogado especializado en bienes raíces del estado aplicable. Ana Morrison no ofrece servicios legales, tributarios ni de asesoría fiduciaria.
+                El contenido relacionado con Tax Deed es exclusivamente educativo. No constituye asesoría legal, financiera ni tributaria. Las subastas Tax Deed están reguladas por la ley del estado y del condado correspondiente, y sus reglas pueden variar significativamente. Toda inversión en subastas Tax Deed implica riesgos, incluidos riesgos legales, de título, de estado físico, de ocupación y de mercado. Antes de participar en una subasta debes realizar debida diligencia independiente y, cuando corresponda, consultar con un abogado especializado en bienes raíces del estado aplicable. AnaMaría Morrison no ofrece servicios legales, tributarios ni de asesoría fiduciaria.
               </p>
             </div>
 
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">7. Limitación de responsabilidad</h2>
               <p>
-                En la máxima medida permitida por la ley aplicable, Ana Morrison no será responsable por decisiones tomadas con base en el contenido del sitio.
+                En la máxima medida permitida por la ley aplicable, AnaMaría Morrison no será responsable por decisiones tomadas con base en el contenido del sitio.
               </p>
             </div>
 

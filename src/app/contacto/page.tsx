@@ -8,7 +8,7 @@ import { CLIENT } from "@/lib/client-data";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Habla directamente con Ana Morrison sobre alquileres a corto plazo, administración STR, preparación de propiedad o inversión Tax Deed. Respuesta en menos de 24 horas hábiles.",
+    "Habla directamente con AnaMaría Morrison sobre alquileres a corto plazo, administración STR, preparación de propiedad o inversión Tax Deed. Respuesta en menos de 24 horas hábiles.",
   alternates: { canonical: "/contacto" },
 };
 

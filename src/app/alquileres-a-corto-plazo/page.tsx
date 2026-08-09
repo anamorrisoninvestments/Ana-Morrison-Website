@@ -4,7 +4,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Alquileres a Corto Plazo | Ana Morrison",
+  title: "Alquileres a Corto Plazo | AnaMaría Morrison",
   description:
     "Diagnóstico, transformación, lanzamiento y administración profesional de propiedades de alquiler a corto plazo. Estrategia, sistemas y operación de alto nivel.",
   alternates: { canonical: "/alquileres-a-corto-plazo" },

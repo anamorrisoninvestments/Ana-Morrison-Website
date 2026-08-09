@@ -4,7 +4,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Casos de Éxito | Ana Morrison",
+  title: "Casos de Éxito | AnaMaría Morrison",
   description:
     "Transformaciones reales de propiedades y estrategias de adquisición. Casos verificables de alquiler a corto plazo, administración y Tax Deed.",
   alternates: { canonical: "/casos-de-exito" },

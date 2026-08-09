@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 
     // Notification to Ana
     await resend.emails.send({
-      from: "AnaMaria Morrison <noreply@anamorrison.com>",
+      from: "AnaMaría Morrison <noreply@anamorrison.com>",
       to: CLIENT.email,
       subject: `[Newsletter] Nueva suscripción${leadMagnet ? ` — ${leadMagnet}` : ""}`,
       html: `
@@ -45,7 +45,7 @@ ${leadMagnet ? `<div style="color:#888;font-size:11px;letter-spacing:2px;text-tr
     // Welcome email to subscriber
     const welcomeHtml = buildWelcomeEmail(name || email.split("@")[0], leadMagnet);
     await resend.emails.send({
-      from: "AnaMaria Morrison <ana@anamorrison.com>",
+      from: "AnaMaría Morrison <ana@anamorrison.com>",
       to: email,
       subject: leadMagnet
         ? `¡Tu guía gratuita está aquí! 🎯 — ${leadMagnet}`
@@ -81,7 +81,7 @@ p{color:#ccc;line-height:1.8;margin:0 0 18px;font-size:15px}
 <body>
 <div class="wrap">
   <div class="header">
-    <div class="logo">Ana Morrison · The Host Circle</div>
+    <div class="logo">AnaMaría Morrison · The Host Circle</div>
   </div>
   <div class="content">
     <h1>Hola, <span style="color:#C8A45D">${name}</span>.</h1>
@@ -106,7 +106,7 @@ p{color:#ccc;line-height:1.8;margin:0 0 18px;font-size:15px}
     <a href="https://anamorrison.com/contacto" class="cta">Conversemos →</a>
     <div class="divider"></div>
     <p>Con propósito,</p>
-    <p style="color:#C8A45D;font-size:17px">AnaMaria Morrison</p>
+    <p style="color:#C8A45D;font-size:17px">AnaMaría Morrison</p>
     <p style="color:#666;font-size:13px">Fundadora · The Host Circle</p>
   </div>
   <div class="footer">

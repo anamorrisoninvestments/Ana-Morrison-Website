@@ -88,7 +88,7 @@ body{font-family:Georgia,serif;background:#000;color:#F7F3EC;margin:0;padding:0}
 .tag{display:inline-block;background:#C8A45D22;color:#C8A45D;padding:4px 10px;font-size:12px;border:1px solid #C8A45D44}
 .foot{padding:20px 32px;border-top:1px solid #333;color:#555;font-size:12px}
 </style></head><body><div class="c">
-<div class="h"><div class="logo">Ana Morrison · Nuevo Lead</div></div>
+<div class="h"><div class="logo">AnaMaría Morrison · Nuevo Lead</div></div>
 <div class="b"><div class="tag">${esc(tag)}</div><br><br>${rowsHtml}
 <div class="label">Mensaje</div>
 <div class="msg">${esc(payload.message).replace(/\n/g, "<br>")}</div>
