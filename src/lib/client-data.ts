@@ -1,6 +1,6 @@
 export const CLIENT = {
-  name: "AnaMaria Morrison",
-  nameShort: "Ana Morrison",
+  name: "AnaMaría Morrison",
+  nameShort: "AnaMaría Morrison",
   title: "Founder & CEO | Experta en Alquileres a Corto Plazo, Tax Deed e Inversiones Inmobiliarias",
   titleEN: "Founder & CEO | Short-Term Rental Expert, Tax Deed Investments & Real Estate Strategies",
   domain: "anamorrison.com",
@@ -27,19 +27,19 @@ export const CLIENT = {
   bio: {
     short: "Empresaria, inversionista inmobiliaria y fundadora de The Host Circle. Más de 9 años transformando propiedades en activos rentables a través del alquiler a corto plazo, tax deeds y estrategias de inversión inteligente.",
     shortEN: "Entrepreneur, real estate investor, and founder of The Host Circle. Over 9 years turning properties into profitable assets through short-term rentals, tax deeds, and smart investment strategies.",
-    long: `AnaMaria Morrison es empresaria, inversionista inmobiliaria, estratega de alquileres a corto plazo y fundadora de The Host Circle, una marca creada para enseñar, administrar y transformar propiedades en activos rentables a través de modelos como Airbnb, Booking, Expedia y otras plataformas de hospedaje.
+    long: `AnaMaría Morrison es empresaria, inversionista inmobiliaria, estratega de alquileres a corto plazo y fundadora de The Host Circle, una marca creada para enseñar, administrar y transformar propiedades en activos rentables a través de modelos como Airbnb, Booking, Expedia y otras plataformas de hospedaje.
 
-Con más de nueve años de experiencia en el mundo del alquiler a corto plazo, AnaMaria ha construido un camino propio dentro del sector inmobiliario, combinando visión, estrategia, diseño, automatización, hospitalidad y educación financiera. Posee propiedades propias, opera propiedades bajo modelos de arbitraje, administra propiedades de inversionistas y ha desarrollado operaciones en diferentes mercados, incluyendo Estados Unidos, México, Colombia y Venezuela.
+Con más de nueve años de experiencia en el mundo del alquiler a corto plazo, AnaMaría ha construido un camino propio dentro del sector inmobiliario, combinando visión, estrategia, diseño, automatización, hospitalidad y educación financiera. Posee propiedades propias, opera propiedades bajo modelos de arbitraje, administra propiedades de inversionistas y ha desarrollado operaciones en diferentes mercados, incluyendo Estados Unidos, México, Colombia y Venezuela.
 
 Su historia comenzó desde muy joven, cuando entendió que el dinero, el crédito y los activos podían convertirse en herramientas de libertad. A los 22 años adquirió su primera propiedad en Colombia, enfrentando los retos de financiar, amoblar, rentar y operar un inmueble incluso desde la distancia. Después de pasar de una renta tradicional a un modelo de Airbnb, logró triplicar los ingresos de esa propiedad, descubriendo así el poder del alquiler a corto plazo como vehículo de crecimiento financiero.
 
-Hoy, AnaMaria cuenta con un portafolio inmobiliario valorado en varios millones de dólares, en constante expansión, y ayuda a inversionistas a crear estrategias para crecer su patrimonio a través de propiedades, tax deeds, alquiler a corto plazo y estructuras inteligentes de inversión. Está certificada como analista de subastas del condado, acompañando a inversionistas en la identificación de oportunidades mediante títulos comprados directamente al condado.
+Hoy, AnaMaría cuenta con un portafolio inmobiliario valorado en varios millones de dólares, en constante expansión, y ayuda a inversionistas a crear estrategias para crecer su patrimonio a través de propiedades, tax deeds, alquiler a corto plazo y estructuras inteligentes de inversión. Está certificada como analista de subastas del condado, acompañando a inversionistas en la identificación de oportunidades mediante títulos comprados directamente al condado.
 
-Además de su trabajo como inversionista y administradora de propiedades, AnaMaria es mentora y educadora. A través de sus programas, enseña las cinco rutas para crear riqueza con alquileres a corto plazo: co-hosting, co-living, arbitraje, compra y construcción.
+Además de su trabajo como inversionista y administradora de propiedades, AnaMaría es mentora y educadora. A través de sus programas, enseña las cinco rutas para crear riqueza con alquileres a corto plazo: co-hosting, co-living, arbitraje, compra y construcción.
 
-Actualmente, AnaMaria se encuentra terminando de escribir dos libros: "La Ruta de la riqueza con el alquiler a corto plazo" y "Crea tu suerte", escrito en coautoría con Spencer Hoffmann.
+Actualmente, AnaMaría se encuentra terminando de escribir dos libros: "La Ruta de la riqueza con el alquiler a corto plazo" y "Crea tu suerte", escrito en coautoría con Spencer Hoffmann.
 
-AnaMaria Morrison representa una nueva generación de mujeres empresarias latinas: visionarias, estratégicas, elegantes y decididas a crear riqueza con propósito.`,
+AnaMaría Morrison representa una nueva generación de mujeres empresarias latinas: visionarias, estratégicas, elegantes y decididas a crear riqueza con propósito.`,
   },
 
   stats: [
@@ -111,34 +111,34 @@ AnaMaria Morrison representa una nueva generación de mujeres empresarias latina
 
   social: {
     instagram: { url: "https://www.instagram.com/anamorrisoninvestments", handle: "@anamorrisoninvestments", followers: 33200 },
-    facebook: { url: "https://www.facebook.com/anamorrisoninvestments", handle: "Ana Morrison Investments", followers: 7800 },
+    facebook: { url: "https://www.facebook.com/anamorrisoninvestments", handle: "AnaMaría Morrison Investments", followers: 7800 },
     tiktok: { url: "https://www.tiktok.com/@anamorrisoninvestments", handle: "@anamorrisoninvestments", followers: 111 },
     youtube: { url: "https://youtube.com/@anamorrisoninvestments", handle: "@anamorrisoninvestments", followers: 111 },
-    linkedin: { url: "https://www.linkedin.com/in/anamar%C3%ADa-morrison-07b83b5b", handle: "AnaMaria Morrison", followers: 111 },
+    linkedin: { url: "https://www.linkedin.com/in/anamar%C3%ADa-morrison-07b83b5b", handle: "AnaMaría Morrison", followers: 111 },
   },
 
   faq: {
     conferencias: [
       {
-        q: "¿Sobre qué temas habla AnaMaria Morrison en sus conferencias?",
-        a: "AnaMaria habla sobre alquileres a corto plazo, inversión en tax deeds, libertad financiera a través del inmobiliario, las cinco rutas hacia la riqueza con Airbnb, mentalidad emprendedora y estrategias para mujeres inversionistas latinas.",
+        q: "¿Sobre qué temas habla AnaMaría Morrison en sus conferencias?",
+        a: "AnaMaría habla sobre alquileres a corto plazo, inversión en tax deeds, libertad financiera a través del inmobiliario, las cinco rutas hacia la riqueza con Airbnb, mentalidad emprendedora y estrategias para mujeres inversionistas latinas.",
       },
       {
         q: "¿En qué países ha dado conferencias y talleres?",
-        a: "AnaMaria ha operado y compartido su conocimiento en Estados Unidos, México, Colombia y Venezuela, adaptando sus estrategias a cada mercado inmobiliario.",
+        a: "AnaMaría ha operado y compartido su conocimiento en Estados Unidos, México, Colombia y Venezuela, adaptando sus estrategias a cada mercado inmobiliario.",
       },
       {
-        q: "¿Cómo contratar a AnaMaria Morrison para un evento?",
+        q: "¿Cómo contratar a AnaMaría Morrison para un evento?",
         a: "Puedes contactarla directamente a través del formulario de esta página o por WhatsApp al +1 (786) 508-6859. El equipo responde en menos de 24 horas.",
       },
       {
         q: "¿Da conferencias virtuales?",
-        a: "Sí, AnaMaria ofrece conferencias tanto presenciales como virtuales, adaptadas a las necesidades del evento y la audiencia.",
+        a: "Sí, AnaMaría ofrece conferencias tanto presenciales como virtuales, adaptadas a las necesidades del evento y la audiencia.",
       },
     ],
     libros: [
       {
-        q: "¿Cuándo se publican los libros de AnaMaria Morrison?",
+        q: "¿Cuándo se publican los libros de AnaMaría Morrison?",
         a: "Ambos libros están actualmente en proceso de publicación. Suscríbete al newsletter para ser el primero en saber cuándo están disponibles.",
       },
       {
@@ -152,20 +152,20 @@ AnaMaria Morrison representa una nueva generación de mujeres empresarias latina
     ],
     sobreMi: [
       {
-        q: "¿Cómo comenzó AnaMaria Morrison en el mundo inmobiliario?",
-        a: "A los 22 años, AnaMaria adquirió su primera propiedad en Colombia. Al transformarla de renta tradicional a Airbnb, triplicó sus ingresos. Ese fue el punto de partida de una carrera de más de 9 años en el sector.",
+        q: "¿Cómo comenzó AnaMaría Morrison en el mundo inmobiliario?",
+        a: "A los 22 años, AnaMaría adquirió su primera propiedad en Colombia. Al transformarla de renta tradicional a Airbnb, triplicó sus ingresos. Ese fue el punto de partida de una carrera de más de 9 años en el sector.",
       },
       {
         q: "¿Qué es The Host Circle?",
-        a: "The Host Circle es la marca educativa y operativa de AnaMaria Morrison, enfocada en enseñar, administrar y transformar propiedades en activos rentables a través del alquiler a corto plazo y estrategias de inversión inteligente.",
+        a: "The Host Circle es la marca educativa y operativa de AnaMaría Morrison, enfocada en enseñar, administrar y transformar propiedades en activos rentables a través del alquiler a corto plazo y estrategias de inversión inteligente.",
       },
       {
-        q: "¿AnaMaria trabaja con inversionistas que recién comienzan?",
+        q: "¿AnaMaría trabaja con inversionistas que recién comienzan?",
         a: "Sí. Sus programas están diseñados tanto para principiantes que quieren dar su primer paso en el inmobiliario, como para inversionistas experimentados que buscan escalar su portafolio.",
       },
       {
         q: "¿Qué es una Tax Deed y cómo se relaciona con sus inversiones?",
-        a: "Una tax deed es un título de propiedad adquirido en una subasta del condado cuando el dueño original no pagó sus impuestos. AnaMaria está certificada como analista de subastas del condado y guía a inversionistas en identificar y adquirir estas oportunidades.",
+        a: "Una tax deed es un título de propiedad adquirido en una subasta del condado cuando el dueño original no pagó sus impuestos. AnaMaría está certificada como analista de subastas del condado y guía a inversionistas en identificar y adquirir estas oportunidades.",
       },
     ],
   },
