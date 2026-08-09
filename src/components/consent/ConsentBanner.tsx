@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import type { ConsentCategories, ConsentAction, ConsentSource } from "@/lib/consent/types";
 import {
   readConsent,
@@ -49,6 +50,50 @@ async function logConsentToServer(input: {
 export default function ConsentBanner() {
   // Estado inicial: SSR-safe (readConsent lee document.cookie que no existe
   // en SSR, así que arrancamos sin banner y lo activamos tras montar).
+  const pathname = usePathname() || "/";
+  const isEN = pathname === "/en" || pathname.startsWith("/en/");
+  const L = isEN
+    ? {
+        title: "We use cookies",
+        body: "Cookies necessary to operate the site, and optional cookies for analytics and marketing. You can accept all, reject non-essential ones, or configure your preferences.",
+        seePolicy: "See policy",
+        policyHref: "/en/cookie-policy",
+        acceptAll: "Accept all",
+        reject: "Reject",
+        manage: "Manage",
+        prefsTitle: "Cookie preferences",
+        prefsBody: "Choose which categories you allow. Necessary cookies cannot be disabled.",
+        catNecessary: "Necessary",
+        catNecessaryDesc: "Essential cookies for consent, session, and security. Always active.",
+        catAnalytics: "Analytics",
+        catAnalyticsDesc: "Measurement of site usage subject to Google Analytics settings and policies.",
+        catMarketing: "Marketing",
+        catMarketingDesc: "Personalization of messages and audiences for advertising campaigns.",
+        save: "Save preferences",
+        withdraw: "Withdraw consent",
+        close: "Close",
+      }
+    : {
+        title: "Usamos cookies",
+        body: "Cookies necesarias para operar el sitio, y opcionales para analítica y marketing. Puedes aceptar todas, rechazar las no necesarias o configurar tus preferencias.",
+        seePolicy: "Ver política",
+        policyHref: "/politica-de-cookies",
+        acceptAll: "Aceptar todas",
+        reject: "Rechazar",
+        manage: "Configurar",
+        prefsTitle: "Preferencias de cookies",
+        prefsBody: "Elige qué categorías permites. Las necesarias no pueden desactivarse.",
+        catNecessary: "Necesarias",
+        catNecessaryDesc: "Cookies imprescindibles para el consentimiento, la sesión y la seguridad. Siempre activas.",
+        catAnalytics: "Analíticas",
+        catAnalyticsDesc: "Medición del uso del sitio sujeta a la configuración y políticas de Google Analytics.",
+        catMarketing: "Marketing",
+        catMarketingDesc: "Personalización de mensajes y audiencias para campañas publicitarias.",
+        save: "Guardar preferencias",
+        withdraw: "Retirar consentimiento",
+        close: "Cerrar",
+      };
+
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -135,15 +180,13 @@ export default function ConsentBanner() {
           className="fixed bottom-4 left-4 right-4 md:left-6 md:right-6 lg:left-auto lg:right-6 lg:max-w-md z-[100] rounded-2xl border border-[#C8A45D]/30 bg-[#141210]/98 backdrop-blur-md p-6 shadow-2xl"
         >
           <h2 id="amc-consent-title" className="heading-serif text-lg text-[#F7F3EC] mb-2">
-            Usamos cookies
+            {L.title}
           </h2>
           <p className="text-[#F7F3EC]/70 text-sm leading-relaxed mb-5">
-            Cookies necesarias para operar el sitio, y opcionales para analítica
-            y marketing. Puedes aceptar todas, rechazar las no necesarias o configurar
-            tus preferencias.
+            {L.body}
             {" "}
-            <a href="/politica-de-cookies" className="text-[#C8A45D] underline hover:text-[#E2C98A]">
-              Ver política
+            <a href={L.policyHref} className="text-[#C8A45D] underline hover:text-[#E2C98A]">
+              {L.seePolicy}
             </a>
           </p>
           <div className="flex flex-col sm:flex-row gap-2">
@@ -151,19 +194,19 @@ export default function ConsentBanner() {
               onClick={acceptAll}
               className="px-5 py-2.5 rounded-full bg-[#C8A45D] text-black text-xs tracking-widest uppercase font-bold hover:bg-[#E2C98A] transition-all"
             >
-              Aceptar todas
+              {L.acceptAll}
             </button>
             <button
               onClick={rejectAll}
               className="px-5 py-2.5 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] text-xs tracking-widest uppercase hover:border-[#C8A45D] hover:bg-[#C8A45D]/5 transition-all"
             >
-              Rechazar
+              {L.reject}
             </button>
             <button
               onClick={() => setModalOpen(true)}
               className="px-5 py-2.5 rounded-full border border-[#C8A45D]/25 text-[#F7F3EC]/80 text-xs tracking-widest uppercase hover:text-[#C8A45D] transition-all"
             >
-              Configurar
+              {L.manage}
             </button>
           </div>
         </div>
@@ -182,29 +225,29 @@ export default function ConsentBanner() {
         >
           <div className="relative max-w-lg w-full max-h-[85vh] overflow-y-auto rounded-2xl border border-[#C8A45D]/30 bg-[#141210] p-8 shadow-2xl">
             <h2 id="amc-prefs-title" className="heading-serif text-2xl text-[#F7F3EC] mb-2">
-              Preferencias de cookies
+              {L.prefsTitle}
             </h2>
             <p className="text-[#F7F3EC]/60 text-sm mb-6">
-              Elige qué categorías permites. Las necesarias no pueden desactivarse.
+              {L.prefsBody}
             </p>
 
             <div className="space-y-4 mb-6">
               <CategoryRow
-                title="Necesarias"
-                description="Cookies imprescindibles para el consentimiento, la sesión y la seguridad. Siempre activas."
+                title={L.catNecessary}
+                description={L.catNecessaryDesc}
                 checked={true}
                 disabled
                 onChange={() => {}}
               />
               <CategoryRow
-                title="Analíticas"
-                description="Medición anónima de uso del sitio para mejorar contenido y navegación."
+                title={L.catAnalytics}
+                description={L.catAnalyticsDesc}
                 checked={prefs.analytics}
                 onChange={(v) => setPrefs({ ...prefs, analytics: v })}
               />
               <CategoryRow
-                title="Marketing"
-                description="Personalización de mensajes y audiencias para campañas publicitarias."
+                title={L.catMarketing}
+                description={L.catMarketingDesc}
                 checked={prefs.marketing}
                 onChange={(v) => setPrefs({ ...prefs, marketing: v })}
               />
@@ -215,13 +258,13 @@ export default function ConsentBanner() {
                 onClick={saveCustom}
                 className="flex-1 px-5 py-3 rounded-full bg-[#C8A45D] text-black text-xs tracking-widest uppercase font-bold hover:bg-[#E2C98A] transition-all"
               >
-                Guardar preferencias
+                {L.save}
               </button>
               <button
                 onClick={acceptAll}
                 className="flex-1 px-5 py-3 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] text-xs tracking-widest uppercase hover:border-[#C8A45D] hover:bg-[#C8A45D]/5 transition-all"
               >
-                Aceptar todas
+                {L.acceptAll}
               </button>
             </div>
 
@@ -230,13 +273,13 @@ export default function ConsentBanner() {
                 onClick={withdraw}
                 className="w-full text-[#888888] text-xs underline hover:text-[#F7F3EC] transition-colors"
               >
-                Retirar consentimiento
+                {L.withdraw}
               </button>
             )}
 
             <button
               onClick={() => setModalOpen(false)}
-              aria-label="Cerrar"
+              aria-label={L.close}
               className="absolute top-4 right-4 w-8 h-8 rounded-full border border-[#C8A45D]/25 text-[#F7F3EC] hover:border-[#C8A45D] flex items-center justify-center"
             >
               ×
