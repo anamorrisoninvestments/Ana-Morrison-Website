@@ -20,10 +20,9 @@ export const metadata: Metadata = {
     template: `%s | ${CLIENT.nameShort}`,
   },
   description:
-    "Ana Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.",
+    "AnaMaría Morrison ayuda a inversionistas y propietarios a adquirir, transformar y rentabilizar propiedades mediante Tax Deed, alquileres a corto plazo, automatización y administración profesional.",
   keywords: [
-    "Ana Morrison",
-    "AnaMaria Morrison",
+    "AnaMaría Morrison",
     "alquiler a corto plazo",
     "short term rental",
     "STR strategist",
@@ -87,7 +86,7 @@ const schemaOrg = {
       "@type": "Person",
       "@id": `${CLIENT.siteUrl}/#person`,
       name: CLIENT.name,
-      givenName: "AnaMaria",
+      givenName: "AnaMaría",
       familyName: "Morrison",
       gender: "Female",
       nationality: { "@type": "Country", name: "Venezuela" },
