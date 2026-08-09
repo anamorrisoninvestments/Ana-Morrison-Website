@@ -157,3 +157,12 @@ Constantes, keys, propiedades de objetos donde el string es un valor técnico qu
 - ✅ Cero identificadores técnicos (categoría F) modificados
 - ✅ Se documenta la regla y el plan · se aplica progresivamente en F2–F7
 - ✅ Autorización explícita se solicitará para cualquier renombrado que caiga en categoría E/F que no esté en este plan
+
+---
+
+## Excepción documentada · Credencial `Certified` aprobada
+
+- **`certified` / `certificada` NO está prohibido universalmente.** Es admisible únicamente cuando refiere específicamente a la credencial real aprobada (`Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`).
+- Auditorías automáticas de la palabra `certified` deben preservar esta excepción y no eliminarla ni degradarla a `specialized training`.
+- Detalle completo (formas oficiales, alcance NO implicado, datos NO documentados) en `i18n/BRAND-NAME.md` §"Credencial oficial aprobada — Category B".
+- Este bullet forma parte del criterio de fact-check en cada bloque futuro de copy.

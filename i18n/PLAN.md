@@ -18,6 +18,16 @@ Esta versión incorpora las 7 correcciones aprobadas antes de F2. Prevalecen sob
 6. **BilingualSuggestionBanner autorizado** solo como sugerencia no intrusiva: detección Accept-Language, cero redirect automático, una vez por sesión, botones "View in English" / "Continue in Spanish", respeta preferencia guardada, no bloquea contenido ni formularios, accesible y funcional en móvil.
 7. **Matriz de paridad total** con 10 criterios por ruta antes del merge. Detalle en `i18n/F8-EXIT-CRITERIA.md`. Ninguna celda puede quedar en `pending`, `placeholder`, `Spanish-only` o `post-merge`. Cero excepciones.
 
+8. **Credencial oficial aprobada** — `certified`/`certificada` **no** está prohibido universalmente. Admisible únicamente para la credencial real aprobada:
+   - **ES:** `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`
+   - **EN:** `Certified Tax Deed Title Analyst`
+   Regla completa (formas oficiales, diferenciación vs. `specialized training`, alcance NO implicado, datos NO documentados) en `i18n/BRAND-NAME.md` §"Credencial oficial aprobada — Category B".
+
+9. **Notas F7 · decisiones técnicas pendientes.**
+   - **Schema.org `publisher` en Article/BlogPosting.** El publisher del blog es la marca personal AnaMaría Morrison, no una organización. Preferencia: `"publisher": { "@type": "Person", "name": "AnaMaría Morrison" }`. Si el validador exige `Organization`, **NO inventar** una organización. Alternativas admisibles: (a) omitir `publisher` y dejar sólo `author: Person`; (b) esperar hasta que exista una entidad legal real aprobada por Ana antes de declarar `Organization`. Documentar la decisión final en el commit de F7 con evidencia del validador.
+   - **`datePublished` en traducciones.** Las versiones EN preservan el `datePublished` original de la versión ES. No cambiar `datePublished` únicamente porque el contenido fue traducido. *"If a separate English publication/update date needs to be represented later, evaluate `dateModified` or an explicit editorial translation/update field during implementation rather than changing the original `datePublished` without justification."*
+   - **Ejemplo `Ana Maria Morrison` en Privacy Policy.** Confirmar reemplazo por `AnaMaría Morrison` en la implementación F5 (según `NAME-AUDIT-REPORT.md` categoría A).
+
 ---
 
 ---

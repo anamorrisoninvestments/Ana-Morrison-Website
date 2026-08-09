@@ -98,7 +98,7 @@ Cero cambios técnicos al pipeline validado en PR #2. El ContactForm bilingüe r
 | Label `Rol de AnaMaría` | `Rol de AnaMaría` | `AnaMaría's role` |
 | Rol body | `Estrategia integral y operación` | `Full strategy and operations` |
 
-**Cero cifras nuevas, cero certificaciones nuevas.** Preservada exclusivamente la métrica 3× ya aprobada.
+**Cero cifras nuevas, cero certificaciones inventadas.** Preservada exclusivamente la métrica 3× ya aprobada. La credencial real `Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)` (Category B aprobada en `i18n/BRAND-NAME.md`) permanece admisible en cualquier sección que refiera específicamente a la credencial.
 
 ## 3.1.S2 · Card estructural "Más casos próximamente"
 
@@ -411,8 +411,8 @@ Solo se preserva. El flujo bilingüe se logra únicamente:
 ## Cero credenciales / cifras / claims nuevos
 
 Verificado:
-- Cero certificaciones nuevas
-- Cero uso de `certified` como credencial
+- Cero certificaciones inventadas. La única credencial admisible es la real aprobada (`Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`), Category B en `i18n/BRAND-NAME.md`.
+- La palabra `certified` no se usa como credencial genérica; se admite sólo cuando refiere específicamente a la credencial real aprobada.
 - Cero cifras de ROI, rentabilidad, ocupación
 - Cero garantías de resultados
 - Cero promesas de listados de títulos por condado sin soporte real de producto

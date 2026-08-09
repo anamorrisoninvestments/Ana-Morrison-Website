@@ -128,7 +128,7 @@ Antes de esa activación deben existir y haber pasado la matriz de paridad (10 c
 | 6 | `2025` | `2025` | `Formación especializada en Tax Deed` | `Specialized training in Tax Deed` | `Formación especializada en análisis de títulos y oportunidades Tax Deed con Marcos Jacobs, inversionista brasileño radicado en Estados Unidos y especialista en subastas del condado.` | `Specialized training in Tax Deed title and opportunity analysis with Marcos Jacobs, a Brazilian investor based in the United States who specializes in county auctions.` |
 | 7 | `2025` | `2025` | `Fundación de The Host Circle` | `Founding of The Host Circle` | `Creación de The Host Circle como plataforma educativa para formar propietarios, inversionistas y operadores en alquileres a corto plazo, hospitalidad y creación de sistemas.` | `Launch of The Host Circle as an educational platform to train property owners, investors, and operators in short-term rentals, hospitality, and systems building.` |
 
-**Formulación prudente Tax Deed preservada:** "Specialized training" — no "certified".
+**Formulación preservada:** `Specialized training` refiere a la formación específica de 2025 (mentoría con Marcos Jacobs). Adicionalmente, Ana posee la credencial formal `Certified Tax Deed Title Analyst` (ES: `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`), documentada como Category B aprobada en `i18n/BRAND-NAME.md` §"Credencial oficial aprobada". La credencial se comunica en secciones que refieren específicamente a ella (ej. Post 2 del blog, Authority en Tax Deed page si Ana lo aprueba). No mezclar ambos conceptos: `specialized training` describe la formación · `Certified Tax Deed Title Analyst` describe la credencial.
 
 ## 2.1.S3 · Áreas de Experiencia (6 cards)
 
@@ -381,8 +381,9 @@ Antes de esa activación deben existir y haber pasado la matriz de paridad (10 c
 ## Cero credenciales / cifras / claims nuevos
 
 Verificado en las 3 páginas:
-- Ninguna certificación nueva mencionada
-- Ninguna palabra `certified` usada como credencial
+- Cero certificaciones nuevas inventadas. La única credencial admisible es `Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`, Category B aprobada en `i18n/BRAND-NAME.md`.
+- La palabra `certified` no se usa como credencial genérica; se usa **solamente** cuando refiere específicamente a la credencial real aprobada.
+- No se degrada la credencial a `specialized training` cuando la sección refiere específicamente a la credencial.
 - Cero cifras de ROI, rentabilidad, ocupación, ingresos esperados
 - Cero garantías de resultados
 - Cero promesas de productos o listados curados que no existen

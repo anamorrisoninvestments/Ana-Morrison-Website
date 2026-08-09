@@ -583,7 +583,7 @@ Idéntico al banner de Privacy Policy y Cookie Policy · sin mención de "Florid
 - ✅ `AnaMaría Morrison` en todo el copy (Privacy §1, §7, §11; Cookie Policy sin menciones directas del nombre; Terms §3, §6, §7)
 - ✅ `The Host Circle` (Terms §3) preservado como nombre propio sin traducir
 - ✅ Disclaimer Tax Deed idéntico en página Tax Deed (Bloque 2 §2.3.S3) y Terms §6
-- ✅ Cero cifras nuevas · cero certificaciones · cero claims financieros
+- ✅ Cero cifras nuevas · cero certificaciones inventadas · cero claims financieros (la credencial real `Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)` permanece admisible cuando aplique, según `i18n/BRAND-NAME.md` §"Credencial oficial aprobada — Category B")
 - ✅ Sin mención de "Florida" en documento visible o LegalDraftBanner
 - ✅ Sin plazo universal de 30 días
 - ✅ Sin palabra "anónima / anonymous" en Analytics

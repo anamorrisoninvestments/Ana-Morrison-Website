@@ -175,3 +175,16 @@ Si **cualquier** celda está en `❌`, el merge queda bloqueado.
 - No se activa si la Preview no aprobó pruebas integrales
 
 Si en la Preview aparece un problema no anticipado, se corrige antes de activar. Nunca se activa con problemas conocidos.
+
+---
+
+## Excepción de vocabulario · Credencial aprobada
+
+Los criterios de prudencia legal y editorial de esta matriz **no** prohíben la palabra `certified` / `certificada` en términos absolutos. Existe una excepción documentada:
+
+- **EN:** `Certified Tax Deed Title Analyst`
+- **ES:** `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`
+
+Esta credencial está registrada como Category B aprobada en `i18n/BRAND-NAME.md` §"Credencial oficial aprobada". Cualquier chequeo automático (grep, lint de contenido, auditoría F8) debe preservarla y no marcarla como bloqueante.
+
+Todo otro uso de `certified`/`certificada` sigue prohibido sin evidencia aprobada por Ana. Ampliar la credencial a otras profesiones (abogada, title attorney, title agent, broker, CPA, financial advisor) queda prohibido.

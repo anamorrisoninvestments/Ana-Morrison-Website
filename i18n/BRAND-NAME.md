@@ -72,3 +72,95 @@ Los siguientes son **identificadores técnicos** o **contenido externo** donde r
 ## Reporte de variantes al momento de esta auditoría
 
 Ver `i18n/NAME-AUDIT-REPORT.md` para el listado completo clasificado A–F.
+
+---
+
+## Credencial oficial aprobada — Category B
+
+Ana posee una credencial real y aprobada que debe registrarse en la documentación maestra. Esta credencial es la **única** excepción a la regla de prudencia sobre la palabra `certified`/`certificada` en el sitio.
+
+### Forma oficial pública
+
+| Idioma | Formulación exacta |
+|---|---|
+| **ES** | `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)` |
+| **EN** | `Certified Tax Deed Title Analyst` |
+
+Ambas formulaciones comunican la **misma** credencial. Registrar como equivalencia oficial.
+
+### Justificación de la formulación ES
+
+Gran parte de la audiencia hispanohablante puede no conocer completamente el término "Tax Deed". Por eso la forma ES presenta primero el concepto en español (`Analista de Títulos en Subastas del Condado`) y luego el término técnico entre paréntesis (`(Tax Deed)`).
+
+### Adaptación narrativa admitida
+
+En prosa se puede adaptar gramaticalmente conservando siempre los tres conceptos (`Analista de Títulos` · `Subastas del Condado` · `Tax Deed`):
+
+- ES: *"Como Analista de Títulos en Subastas del Condado (Tax Deed) certificada, mi metodología incluye…"*
+- EN: *"As a Certified Tax Deed Title Analyst, my methodology includes…"*
+
+### Formas NO admitidas en español como título oficial
+
+- `Certificada como Analista de Títulos en Tax Deed`
+- `Analista Tax Deed`
+- `Analista de Tax Deed`
+- `Certified Tax Deed Title Analyst` (dejar en inglés dentro de copy ES)
+- `Certified Tax Deed Analyst`
+
+### Formas NO admitidas en inglés como título oficial
+
+- `Certified County Auction Title Analyst`
+- `Certified County Auction Analyst`
+- `Certified Tax Deed Analyst`
+- `Certified Title Analyst`
+- `County Auction Analyst`
+
+### Alcance NO implicado por la credencial
+
+Esta credencial **no** implica ni permite comunicar públicamente que Ana es:
+
+- abogada
+- title attorney
+- title agent
+- broker
+- CPA
+- financial advisor
+- ninguna otra licencia profesional distinta a la certificación real
+
+### Datos NO documentados — NO inventar
+
+No se declaran públicamente hasta contar con evidencia aprobada por Ana:
+
+- entidad emisora / issuer / issuingOrganization
+- número de certificado / identifier
+- número de licencia
+- organismo acreditador / recognizedBy / credentialCategory
+- alcance regulatorio adicional
+- `dateCreated`, `validFor`, `expirationDate`
+
+En Schema.org sólo se declara el `name` de la credencial:
+
+```json
+"hasCredential": {
+  "@type": "EducationalOccupationalCredential",
+  "name": "Certified Tax Deed Title Analyst"
+}
+```
+
+### Diferenciación · Formación vs. Credencial
+
+Son conceptos **distintos** que pueden coexistir cuando ambos son factualmente correctos. No convertir automáticamente uno en el otro.
+
+| Concepto | ES | EN | Uso típico |
+|---|---|---|---|
+| Formación / entrenamiento | `Formación especializada en análisis Tax Deed` | `Specialized training in Tax Deed analysis` | About subheadline, timeline 2025, eyebrows generales de trayectoria |
+| Credencial formal | `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)` | `Certified Tax Deed Title Analyst` | Post 2 del blog, `author.hasCredential`, Authority Tax Deed cuando refiera específicamente a la credencial, bio autor |
+
+Cuando una sección refiere específicamente a **la credencial**, se usa la credencial. Cuando refiere a **formación**, se usa `specialized training`. No se degrada la credencial a "specialized training" ni se amplía "specialized training" a "certified" por defecto.
+
+### Regla operativa maestra sobre `certified`
+
+`certified` / `certificada` **no** está prohibido universalmente. Es admisible **únicamente** cuando refiere específicamente a la credencial real aprobada (`Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`). Cualquier otro uso permanece bajo la regla de prudencia y requiere evidencia aprobada.
+
+Auditorías automáticas deben tratar apariciones de `certified` / `certificada` como aceptables sólo cuando el contexto refiera literalmente a esta credencial.
+

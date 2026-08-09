@@ -214,7 +214,7 @@ En el `<head>` de cada versión del Home:
 | Alt foto | `AnaMaría Morrison — Real Estate Investor & STR / Tax Deed Strategist` | `AnaMaría Morrison — Real Estate Investor & STR / Tax Deed Strategist` |
 | Scroll indicator | `Scroll` | `Scroll` |
 
-**Regla preservada:** formulación prudente `Specialized training in Tax Deed analysis`. No se inventan certificaciones ni claims.
+**Regla preservada:** la formulación `Specialized training in Tax Deed analysis` aplica al eyebrow de formación general. La credencial formal `Certified Tax Deed Title Analyst` (equiv. ES `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`) existe y se usa cuando la sección refiere específicamente a la credencial (ver `i18n/BRAND-NAME.md` §"Credencial oficial aprobada — Category B"). No convertir automáticamente `specialized training` en credencial, ni degradar la credencial a `specialized training`.
 
 ### 1.3.2 · ValueProp (Propuesta única) — APROBADO
 
@@ -346,7 +346,7 @@ En el `<head>` de cada versión del Home:
 | Título línea 1 (marfil) | `Experiencia real en` | `Real experience in` |
 | Título línea 2 (dorado + itálica) | `inversión y operación inmobiliaria` | `real estate investing and operations` |
 
-**Nota:** eyebrow `Real-World Experience` reemplaza `Verified Expertise` para evitar cualquier lectura de verificación externa o certificación implícita. Cero claims nuevos, cero certificaciones sugeridas.
+**Nota:** eyebrow `Real-World Experience` reemplaza `Verified Expertise` para evitar cualquier lectura de verificación externa implícita. Cero claims nuevos. La credencial real (`Certified Tax Deed Title Analyst` / `Certificada como Analista de Títulos en Subastas del Condado (Tax Deed)`) se referencia únicamente donde la sección lo requiera explícitamente, no en eyebrows generales.
 
 **4 pilares numéricos**
 
