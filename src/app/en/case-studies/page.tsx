@@ -65,11 +65,25 @@ export default function CaseStudiesEN() {
               </article>
             ))}
 
-            <div className="p-8 rounded-2xl border border-dashed border-[#C8A45D]/25 bg-[#1C1916]/40 flex flex-col items-center justify-center text-center">
-              <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">More cases in preparation</p>
-              <p className="text-[#F7F3EC]/60 text-sm leading-relaxed max-w-xs">
-                We're preparing additional cases across management, Tax Deed acquisition, revenue optimization, and automation.
-              </p>
+            <div className="p-8 rounded-2xl border border-[#C8A45D]/25 bg-[#1C1916] flex flex-col justify-between text-left">
+              <div>
+                <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">
+                  Property assessment
+                </p>
+                <h2 className="heading-serif text-2xl text-[#F7F3EC] mb-4">
+                  Want to analyze your property's potential?
+                </h2>
+                <p className="text-[#F7F3EC]/70 text-sm leading-relaxed mb-6">
+                  Every property requires a different strategy. We can review your situation, goals,
+                  and operating model to identify opportunities for improvement.
+                </p>
+              </div>
+              <Link
+                href="/en/contact"
+                className="inline-block self-start px-6 py-3 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-xs hover:bg-[#E2C98A] transition-all"
+              >
+                Request a Property Assessment
+              </Link>
             </div>
           </div>
         </section>

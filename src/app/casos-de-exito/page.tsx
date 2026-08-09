@@ -80,15 +80,25 @@ export default function CasosPage() {
               </article>
             ))}
 
-            {/* Placeholder card para más casos por venir */}
-            <div className="p-8 rounded-2xl border border-dashed border-[#C8A45D]/25 bg-[#1C1916]/40 flex flex-col items-center justify-center text-center">
-              <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">
-                Más casos próximamente
-              </p>
-              <p className="text-[#F7F3EC]/60 text-sm leading-relaxed max-w-xs">
-                Estamos preparando casos adicionales de administración, adquisición Tax Deed,
-                optimización de ingresos y automatización.
-              </p>
+            <div className="p-8 rounded-2xl border border-[#C8A45D]/25 bg-[#1C1916] flex flex-col justify-between text-left">
+              <div>
+                <p className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold mb-3">
+                  Evaluación de propiedad
+                </p>
+                <h2 className="heading-serif text-2xl text-[#F7F3EC] mb-4">
+                  ¿Quieres analizar el potencial de tu propiedad?
+                </h2>
+                <p className="text-[#F7F3EC]/70 text-sm leading-relaxed mb-6">
+                  Cada propiedad requiere una estrategia diferente. Podemos revisar tu situación,
+                  objetivos y modelo operativo para identificar oportunidades de mejora.
+                </p>
+              </div>
+              <Link
+                href="/contacto"
+                className="inline-block self-start px-6 py-3 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-xs hover:bg-[#E2C98A] transition-all"
+              >
+                Solicitar evaluación de propiedad
+              </Link>
             </div>
           </div>
         </section>
