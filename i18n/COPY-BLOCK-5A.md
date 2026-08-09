@@ -11,9 +11,9 @@
 ## Índice
 
 - Reglas globales aplicadas a este bloque
-- Post 1 · `/en/resources/what-is-a-short-term-rental`
-- Post 2 · `/en/resources/what-is-a-tax-deed`
-- Post 3 · `/en/resources/5-paths-to-wealth-with-short-term-rentals`
+- Post 1 · `/en/blog/what-is-a-short-term-rental`
+- Post 2 · `/en/blog/what-is-a-tax-deed`
+- Post 3 · `/en/blog/5-paths-to-wealth-with-short-term-rentals`
 - Tabla final de cifras / claims que sobreviven
 - Tabla de credenciales
 - Cambios futuros ES requeridos (F2)
@@ -36,15 +36,15 @@
 
 ---
 
-## Post 1 · `/en/resources/what-is-a-short-term-rental`
+## Post 1 · `/en/blog/what-is-a-short-term-rental`
 
 ### 1.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
 | slug | `what-is-a-short-term-rental` |
-| canonical EN | `https://anamorrison.com/en/resources/what-is-a-short-term-rental` |
-| canonical ES equivalente | `https://anamorrison.com/recursos/que-es-el-alquiler-a-corto-plazo` |
+| canonical EN | `https://anamorrison.com/en/blog/what-is-a-short-term-rental` |
+| canonical ES equivalente | `https://anamorrison.com/blog/que-es-el-alquiler-a-corto-plazo` |
 | category | `Basic Education` |
 | readTime | `8 min` |
 | author | `AnaMaría Morrison` |
@@ -80,7 +80,7 @@
   "author": { "@type": "Person", "name": "AnaMaría Morrison" },
   "publisher": { "@type": "Person", "name": "AnaMaría Morrison" },
   "datePublished": "2026-05-01",
-  "mainEntityOfPage": "https://anamorrison.com/en/resources/what-is-a-short-term-rental"
+  "mainEntityOfPage": "https://anamorrison.com/en/blog/what-is-a-short-term-rental"
 }
 ```
 
@@ -94,7 +94,7 @@
 
 ### 1.5 · hreflang
 
-- `es-US` → `https://anamorrison.com/recursos/que-es-el-alquiler-a-corto-plazo`
+- `es-US` → `https://anamorrison.com/blog/que-es-el-alquiler-a-corto-plazo`
 - `en-US` → canonical EN
 - `x-default` → versión ES
 
@@ -140,8 +140,8 @@ The properties that perform well over time tend to share:
 
 **## Continue reading**
 
-- What Is a Tax Deed → `/en/resources/what-is-a-tax-deed`
-- 5 Paths to Building a Short-Term Rental Business → `/en/resources/5-paths-to-wealth-with-short-term-rentals`
+- What Is a Tax Deed → `/en/blog/what-is-a-tax-deed`
+- 5 Paths to Building a Short-Term Rental Business → `/en/blog/5-paths-to-wealth-with-short-term-rentals`
 - Short-Term Rentals (services) → `/en/short-term-rentals`
 - Case Studies → `/en/case-studies`
 
@@ -173,15 +173,15 @@ The properties that perform well over time tend to share:
 
 ---
 
-## Post 2 · `/en/resources/what-is-a-tax-deed`
+## Post 2 · `/en/blog/what-is-a-tax-deed`
 
 ### 2.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
 | slug | `what-is-a-tax-deed` |
-| canonical EN | `https://anamorrison.com/en/resources/what-is-a-tax-deed` |
-| canonical ES equivalente | `https://anamorrison.com/recursos/tax-deed-que-es` |
+| canonical EN | `https://anamorrison.com/en/blog/what-is-a-tax-deed` |
+| canonical ES equivalente | `https://anamorrison.com/blog/tax-deed-que-es` |
 | category | `Advanced Investing` |
 | readTime | `10 min` |
 | author | `AnaMaría Morrison` |
@@ -215,7 +215,7 @@ The properties that perform well over time tend to share:
   },
   "publisher": { "@type": "Person", "name": "AnaMaría Morrison" },
   "datePublished": "2026-04-20",
-  "mainEntityOfPage": "https://anamorrison.com/en/resources/what-is-a-tax-deed"
+  "mainEntityOfPage": "https://anamorrison.com/en/blog/what-is-a-tax-deed"
 }
 ```
 
@@ -229,7 +229,7 @@ The properties that perform well over time tend to share:
 
 ### 2.5 · hreflang
 
-- `es-US` → `https://anamorrison.com/recursos/tax-deed-que-es`
+- `es-US` → `https://anamorrison.com/blog/tax-deed-que-es`
 - `en-US` → canonical EN
 - `x-default` → ES
 
@@ -284,8 +284,8 @@ The properties that perform well over time tend to share:
 
 **## Continue reading**
 
-- What Is a Short-Term Rental → `/en/resources/what-is-a-short-term-rental`
-- 5 Paths to Building a Short-Term Rental Business → `/en/resources/5-paths-to-wealth-with-short-term-rentals`
+- What Is a Short-Term Rental → `/en/blog/what-is-a-short-term-rental`
+- 5 Paths to Building a Short-Term Rental Business → `/en/blog/5-paths-to-wealth-with-short-term-rentals`
 - Tax Deed Investing (services) → `/en/tax-deed-investing`
 - Case Studies → `/en/case-studies`
 
@@ -317,15 +317,15 @@ The properties that perform well over time tend to share:
 
 ---
 
-## Post 3 · `/en/resources/5-paths-to-wealth-with-short-term-rentals`
+## Post 3 · `/en/blog/5-paths-to-wealth-with-short-term-rentals`
 
 ### 3.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
 | slug | `5-paths-to-wealth-with-short-term-rentals` |
-| canonical EN | `https://anamorrison.com/en/resources/5-paths-to-wealth-with-short-term-rentals` |
-| canonical ES equivalente | `https://anamorrison.com/recursos/5-rutas-riqueza-alquiler-corto-plazo` |
+| canonical EN | `https://anamorrison.com/en/blog/5-paths-to-wealth-with-short-term-rentals` |
+| canonical ES equivalente | `https://anamorrison.com/blog/5-rutas-riqueza-alquiler-corto-plazo` |
 | category | `Strategy` |
 | readTime | `9 min` |
 | author | `AnaMaría Morrison` |
@@ -352,7 +352,7 @@ The properties that perform well over time tend to share:
   "author": { "@type": "Person", "name": "AnaMaría Morrison" },
   "publisher": { "@type": "Person", "name": "AnaMaría Morrison" },
   "datePublished": "2026-04-10",
-  "mainEntityOfPage": "https://anamorrison.com/en/resources/5-paths-to-wealth-with-short-term-rentals"
+  "mainEntityOfPage": "https://anamorrison.com/en/blog/5-paths-to-wealth-with-short-term-rentals"
 }
 ```
 
@@ -364,7 +364,7 @@ The properties that perform well over time tend to share:
 
 ### 3.5 · hreflang
 
-- `es-US` → `https://anamorrison.com/recursos/5-rutas-riqueza-alquiler-corto-plazo`
+- `es-US` → `https://anamorrison.com/blog/5-rutas-riqueza-alquiler-corto-plazo`
 - `en-US` → canonical EN
 - `x-default` → ES
 
@@ -418,8 +418,8 @@ The properties that perform well over time tend to share:
 
 **## Continue reading**
 
-- What Is a Short-Term Rental → `/en/resources/what-is-a-short-term-rental`
-- What Is a Tax Deed → `/en/resources/what-is-a-tax-deed`
+- What Is a Short-Term Rental → `/en/blog/what-is-a-short-term-rental`
+- What Is a Tax Deed → `/en/blog/what-is-a-tax-deed`
 - Short-Term Rentals (services) → `/en/short-term-rentals`
 - Tax Deed Investing (services) → `/en/tax-deed-investing`
 

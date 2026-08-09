@@ -21,15 +21,15 @@
 
 ---
 
-## Post 4 · `/en/resources/how-to-start-with-airbnb-without-owning-property`
+## Post 4 · `/en/blog/how-to-start-airbnb-without-a-property`
 
 ### 4.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
-| slug | `how-to-start-with-airbnb-without-owning-property` |
-| canonical EN | `https://anamorrison.com/en/resources/how-to-start-with-airbnb-without-owning-property` |
-| canonical ES | `https://anamorrison.com/recursos/como-empezar-airbnb-sin-propiedad` |
+| slug | `how-to-start-airbnb-without-a-property` |
+| canonical EN | `https://anamorrison.com/en/blog/how-to-start-airbnb-without-a-property` |
+| canonical ES | `https://anamorrison.com/blog/como-empezar-airbnb-sin-propiedad` |
 | category | `Practical Guides` |
 | readTime | `7 min` |
 | author | `AnaMaría Morrison` |
@@ -90,9 +90,9 @@ Patrón estándar: `Article`, `inLanguage: en-US`, `author: Person AnaMaría Mor
 
 **## Continue reading**
 
-- What Is a Short-Term Rental → `/en/resources/what-is-a-short-term-rental`
-- 5 Paths to Building a Short-Term Rental Business → `/en/resources/5-paths-to-wealth-with-short-term-rentals`
-- Co-Hosting Complete Guide → `/en/resources/co-hosting-complete-guide`
+- What Is a Short-Term Rental → `/en/blog/what-is-a-short-term-rental`
+- 5 Paths to Building a Short-Term Rental Business → `/en/blog/5-paths-to-wealth-with-short-term-rentals`
+- Co-Hosting Complete Guide → `/en/blog/airbnb-co-hosting-complete-guide`
 
 **## CTA**
 
@@ -109,15 +109,15 @@ Patrón estándar: `Article`, `inLanguage: en-US`, `author: Person AnaMaría Mor
 
 ---
 
-## Post 5 · `/en/resources/long-term-rental-vs-airbnb`
+## Post 5 · `/en/blog/traditional-rental-vs-airbnb`
 
 ### 5.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
-| slug | `long-term-rental-vs-airbnb` |
-| canonical EN | `https://anamorrison.com/en/resources/long-term-rental-vs-airbnb` |
-| canonical ES | `https://anamorrison.com/recursos/diferencia-renta-tradicional-airbnb` |
+| slug | `traditional-rental-vs-airbnb` |
+| canonical EN | `https://anamorrison.com/en/blog/traditional-rental-vs-airbnb` |
+| canonical ES | `https://anamorrison.com/blog/diferencia-renta-tradicional-airbnb` |
 | category | `Comparisons` |
 | readTime | `8 min` |
 | author | `AnaMaría Morrison` |
@@ -126,7 +126,7 @@ Patrón estándar: `Article`, `inLanguage: en-US`, `author: Person AnaMaría Mor
 
 ### 5.2 · Metadata
 
-**`title`:** `Long-Term Rental vs. Airbnb: How to Compare the Two Models` (retitulado — no promete un ganador)
+**`title`:** `Traditional Rental vs. Airbnb: How to Compare the Two Models` (retitulado — no promete un ganador)
 
 **`meta description`:** `A structured comparison of long-term rental and short-term rental (Airbnb) as operating models: how they differ, what each requires, and how to think about which one may fit a specific property. No income promises.`
 
@@ -179,8 +179,8 @@ Patrón estándar Article + `datePublished: 2026-03-15`.
 
 **## Continue reading**
 
-- What Is a Short-Term Rental → `/en/resources/what-is-a-short-term-rental`
-- Best Florida STR Markets → `/en/resources/best-florida-str-markets`
+- What Is a Short-Term Rental → `/en/blog/what-is-a-short-term-rental`
+- Best Florida STR Markets → `/en/blog/best-florida-airbnb-markets`
 
 **## CTA**
 
@@ -199,15 +199,15 @@ Patrón estándar Article + `datePublished: 2026-03-15`.
 
 ---
 
-## Post 6 · `/en/resources/financial-freedom-through-real-estate`
+## Post 6 · `/en/blog/financial-freedom-through-real-estate`
 
 ### 6.1 · Identificación
 
 | Campo | Valor EN |
 |---|---|
 | slug | `financial-freedom-through-real-estate` |
-| canonical EN | `https://anamorrison.com/en/resources/financial-freedom-through-real-estate` |
-| canonical ES | `https://anamorrison.com/recursos/libertad-financiera-bienes-raices` |
+| canonical EN | `https://anamorrison.com/en/blog/financial-freedom-through-real-estate` |
+| canonical ES | `https://anamorrison.com/blog/libertad-financiera-bienes-raices` |
 | category | `Mindset` |
 | readTime | `9 min` |
 | author | `AnaMaría Morrison` |
@@ -264,8 +264,8 @@ Patrón estándar Article + `datePublished: 2026-03-05`.
 
 **## Continue reading**
 
-- What Is a Short-Term Rental → `/en/resources/what-is-a-short-term-rental`
-- 5 Paths to Building a Short-Term Rental Business → `/en/resources/5-paths-to-wealth-with-short-term-rentals`
+- What Is a Short-Term Rental → `/en/blog/what-is-a-short-term-rental`
+- 5 Paths to Building a Short-Term Rental Business → `/en/blog/5-paths-to-wealth-with-short-term-rentals`
 - Case Studies → `/en/case-studies`
 
 **## CTA**
