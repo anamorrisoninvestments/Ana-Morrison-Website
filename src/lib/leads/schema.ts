@@ -82,6 +82,9 @@ const interestEnum = z.enum([
 export const contactFormSchema = z
   .object({
     source: z.literal("contact_form"),
+    // Optional locale of the form when submitted. Backward-compatible: ES forms
+    // that don't send it default to "es" downstream. Internal enums stay ES.
+    locale: z.enum(["es", "en"]).optional(),
     interest: interestEnum,
     name: nameField,
     email,

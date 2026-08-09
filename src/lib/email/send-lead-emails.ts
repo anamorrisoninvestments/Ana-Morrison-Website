@@ -48,6 +48,7 @@ function buildHtml(input: { leadId: string; payload: LeadPayload }): string {
   const tag = payload.interest || payload.source;
 
   const rows: [string, string][] = [
+    ["Language / Idioma", payload.locale === "en" ? "English" : "Español"],
     ["Nombre", esc(payload.name)],
     ["Email", `<a href="mailto:${esc(payload.email)}" style="color:#22AEEF">${esc(payload.email)}</a>`],
   ];
@@ -214,7 +215,7 @@ export async function sendLeadNotificationWithDeps(input: {
       from: env.RESEND_FROM_EMAIL,
       to,
       replyTo: payload.email,
-      subject: `[Lead] ${tag} — ${payload.name}`,
+      subject: `[Lead · ${payload.locale === "en" ? "EN" : "ES"}] ${tag} — ${payload.name}`,
       html: buildHtml({ leadId, payload }),
     });
 

@@ -79,10 +79,40 @@ const INTEREST_MAP: Record<string, InterestKey> = {
   otro: "otro",
 };
 
-function ContactFormInner() {
+function ContactFormInner({ locale = "es" }: { locale?: "es" | "en" }) {
   const searchParams = useSearchParams();
   const initialInteres = searchParams.get("interes");
   const initialSelected = initialInteres ? INTEREST_MAP[initialInteres] ?? null : null;
+  const isEN = locale === "en";
+  const L = {
+    step1Title: isEN ? "How can we help you?" : "¿Cómo podemos ayudarte?",
+    step1Subtitle: isEN ? "Pick the option that best describes your situation and I'll show you the right form." : "Elige la opción que mejor describe tu momento y te mostraré el formulario adecuado.",
+    successTitle: isEN ? "Message received!" : "¡Mensaje recibido!",
+    successBody: isEN ? "I'll respond within 24 business hours. In the meantime, follow me on Instagram for more content." : "Te respondo en menos de 24 horas hábiles. Mientras tanto, sígueme en Instagram para más contenido.",
+    successMore: isEN ? "Send another message" : "Enviar otro mensaje",
+    selectedLabel: isEN ? "Selected Form" : "Formulario Seleccionado",
+    change: isEN ? "Change" : "Cambiar",
+    fldName: isEN ? "Name *" : "Nombre *",
+    fldNamePh: isEN ? "Your full name" : "Tu nombre completo",
+    fldEmail: isEN ? "Email *" : "Email *",
+    fldWA: isEN ? "WhatsApp *" : "WhatsApp *",
+    fldWAPh: "+1 (786) 000-0000",
+    fldCompany: isEN ? "Media / Company" : "Medio / Empresa",
+    fldCompanyPh: isEN ? "Name of podcast, media outlet, or company" : "Nombre del podcast, medio o empresa",
+    fldLocSTR: isEN ? "Property city" : "Ciudad de la propiedad",
+    fldLocSTRPh: isEN ? "e.g., Miami, FL" : "Ej: Miami, FL",
+    fldLocGeneric: isEN ? "City / State / County of interest" : "Ciudad / Estado / Condado de interés",
+    fldLocGenericPh: isEN ? "e.g., Miami-Dade, FL" : "Ej: Miami-Dade, FL",
+    submit: isEN ? "Send message" : "Enviar mensaje",
+    submitting: isEN ? "Sending..." : "Enviando...",
+    errRate: isEN ? "Too many requests. Please try again in a minute." : "Demasiadas solicitudes. Intenta de nuevo en un minuto.",
+    errInvalid: isEN ? "Please review the fields: something is invalid." : "Revisa los campos: algún valor no es válido.",
+    errGeneric: isEN ? "Something went wrong. Please try again in a few minutes." : "Ocurrió un error. Intenta de nuevo en unos minutos.",
+    errNetwork: isEN ? "Connection error. Check your internet." : "Error de conexión. Verifica tu internet.",
+    consent: isEN
+      ? "By submitting, I agree that AnaMaría Morrison may contact me and that my data will be processed per the Privacy Policy."
+      : "Al enviar, acepto que AnaMaría Morrison pueda contactarme y que se procesen mis datos según la Política de Privacidad.",
+  };
 
   const [selected, setSelected] = useState<InterestKey | null>(initialSelected);
   const [state, setState] = useState<FormState>("idle");
@@ -100,6 +130,7 @@ function ContactFormInner() {
 
     const payload = {
       source: "contact_form" as const,
+      locale,
       interest: selected || "otro",
       name: String(raw.name || ""),
       email: String(raw.email || ""),
@@ -138,28 +169,41 @@ function ContactFormInner() {
       } else {
         const json = (await res.json().catch(() => ({}))) as { error?: string };
         if (res.status === 429) {
-          setErrorMsg("Demasiadas solicitudes. Intenta de nuevo en un minuto.");
+          setErrorMsg(L.errRate);
         } else if (json.error === "invalid_input") {
-          setErrorMsg("Revisa los campos: algún valor no es válido.");
+          setErrorMsg(L.errInvalid);
         } else {
-          setErrorMsg("Ocurrió un error. Intenta de nuevo en unos minutos.");
+          setErrorMsg(L.errGeneric);
         }
         setState("error");
       }
     } catch {
-      setErrorMsg("Error de conexión. Verifica tu internet.");
+      setErrorMsg(L.errNetwork);
       setState("error");
     }
   }
+
+  const interestsForLocale = isEN
+    ? interests.map((it) => {
+        const map: Record<InterestKey, { label: string; description: string }> = {
+          "str-rentabilizar": { label: "I want to improve my property's performance", description: "I own a property and want to operate it as a short-term rental." },
+          "str-administracion": { label: "I want professional STR management", description: "I need professional management of my STR property." },
+          "str-preparacion": { label: "I want to prepare and launch a property", description: "Design, furnishing, photos, listing, and go-live." },
+          "tax-deed-aprender": { label: "I want to learn about Tax Deed", description: "Education about county tax deed auctions." },
+          "tax-deed-oportunidades": { label: "I want to evaluate Tax Deed opportunities", description: "1:1 consultation about county auctions." },
+          entrevista: { label: "Invite AnaMaría to an interview or event", description: "Podcasts, media, keynotes, or corporate events." },
+          otro: { label: "Other", description: "Tell me what it's about." },
+        };
+        return { ...it, ...map[it.key] };
+      })
+    : interests;
 
   if (state === "success") {
     return (
       <div className="p-10 rounded-2xl border border-[#C8A45D]/40 bg-[#C8A45D]/5 text-center">
         <div className="text-4xl mb-4 text-[#C8A45D]">✓</div>
-        <h3 className="text-[#C8A45D] font-bold text-xl mb-2 heading-serif">¡Mensaje recibido!</h3>
-        <p className="text-[#F7F3EC]/70 text-sm mb-6">
-          Te respondo en menos de 24 horas hábiles. Mientras tanto, sígueme en Instagram para más contenido.
-        </p>
+        <h3 className="text-[#C8A45D] font-bold text-xl mb-2 heading-serif">{L.successTitle}</h3>
+        <p className="text-[#F7F3EC]/70 text-sm mb-6">{L.successBody}</p>
         <button
           onClick={() => {
             setState("idle");
@@ -167,7 +211,7 @@ function ContactFormInner() {
           }}
           className="text-[#C8A45D] text-sm underline"
         >
-          Enviar otro mensaje
+          {L.successMore}
         </button>
       </div>
     );
@@ -177,12 +221,10 @@ function ContactFormInner() {
   if (!selected) {
     return (
       <div>
-        <h2 className="heading-serif text-2xl text-[#F7F3EC] mb-2">¿Cómo podemos ayudarte?</h2>
-        <p className="text-[#F7F3EC]/60 text-sm mb-6">
-          Elige la opción que mejor describe tu momento y te mostraré el formulario adecuado.
-        </p>
+        <h2 className="heading-serif text-2xl text-[#F7F3EC] mb-2">{L.step1Title}</h2>
+        <p className="text-[#F7F3EC]/60 text-sm mb-6">{L.step1Subtitle}</p>
         <div className="grid sm:grid-cols-2 gap-3">
-          {interests.map((it) => (
+          {interestsForLocale.map((it) => (
             <button
               key={it.key}
               onClick={() => setSelected(it.key)}
@@ -207,7 +249,7 @@ function ContactFormInner() {
     );
   }
 
-  const current = interests.find((i) => i.key === selected)!;
+  const current = interestsForLocale.find((i) => i.key === selected)!;
   const isSTRProperty =
     selected === "str-rentabilizar" ||
     selected === "str-administracion" ||
@@ -234,7 +276,7 @@ function ContactFormInner() {
             className="text-xs tracking-widest uppercase font-semibold mb-1"
             style={{ color: accent }}
           >
-            Formulario Seleccionado
+            {L.selectedLabel}
           </p>
           <p className="text-[#F7F3EC] text-base heading-serif">{current.label}</p>
         </div>
@@ -243,25 +285,25 @@ function ContactFormInner() {
           onClick={() => setSelected(null)}
           className="text-[#888888] text-xs underline hover:text-[#F7F3EC] flex-shrink-0"
         >
-          Cambiar
+          {L.change}
         </button>
       </div>
 
       {/* Campos comunes */}
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Nombre *" name="name" required placeholder="Tu nombre completo" />
-        <Field label="Email *" name="email" type="email" required placeholder="tu@email.com" />
+        <Field label={L.fldName} name="name" required placeholder={L.fldNamePh} />
+        <Field label={L.fldEmail} name="email" type="email" required placeholder="you@email.com" />
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="WhatsApp *" name="whatsapp" type="tel" required placeholder="+1 (786) 000-0000" />
+        <Field label={L.fldWA} name="whatsapp" type="tel" required placeholder={L.fldWAPh} />
         {isInterview ? (
-          <Field label="Medio / Empresa" name="company" placeholder="Nombre del podcast, medio o empresa" />
+          <Field label={L.fldCompany} name="company" placeholder={L.fldCompanyPh} />
         ) : (
           <Field
-            label={isSTRProperty ? "Ciudad de la propiedad" : "Ciudad / Estado / Condado de interés"}
+            label={isSTRProperty ? L.fldLocSTR : L.fldLocGeneric}
             name="location"
             required
-            placeholder={isSTRProperty ? "Ej: Miami, FL" : "Ej: Miami-Dade, FL"}
+            placeholder={isSTRProperty ? L.fldLocSTRPh : L.fldLocGenericPh}
           />
         )}
       </div>
@@ -270,26 +312,26 @@ function ContactFormInner() {
       {isSTRProperty && (
         <>
           <div className="grid sm:grid-cols-2 gap-4">
-            <Select label="Tipo de propiedad" name="propertyType" options={propertyTypes} />
-            <Field label="Habitaciones" name="bedrooms" type="number" placeholder="Ej: 2" />
+            <Select label={isEN ? "Property type" : "Tipo de propiedad"} name="propertyType" options={propertyTypes} placeholder={isEN ? "Select" : "Selecciona"} />
+            <Field label={isEN ? "Bedrooms" : "Habitaciones"} name="bedrooms" type="number" placeholder={isEN ? "e.g., 2" : "Ej: 2"} />
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <Select
-              label="¿Ya está publicada?"
+              label={isEN ? "Already listed?" : "¿Ya está publicada?"}
               name="platform"
               options={platforms}
-              placeholder="Selecciona una opción"
+              placeholder={isEN ? "Select an option" : "Selecciona una opción"}
             />
             <Field
-              label="Ingreso mensual aproximado"
+              label={isEN ? "Approximate monthly income" : "Ingreso mensual aproximado"}
               name="monthlyIncome"
-              placeholder="Opcional · USD"
+              placeholder={isEN ? "Optional · USD" : "Opcional · USD"}
             />
           </div>
           <Field
-            label="Fecha estimada para comenzar"
+            label={isEN ? "Estimated start date" : "Fecha estimada para comenzar"}
             name="startDate"
-            placeholder="Ej: en 1 mes, próximos 3 meses, ya"
+            placeholder={isEN ? "e.g., in 1 month, next 3 months, now" : "Ej: en 1 mes, próximos 3 meses, ya"}
           />
         </>
       )}
@@ -299,22 +341,22 @@ function ContactFormInner() {
         <>
           <div className="grid sm:grid-cols-2 gap-4">
             <Select
-              label="Experiencia previa"
+              label={isEN ? "Prior experience" : "Experiencia previa"}
               name="experience"
               options={investmentExperience}
-              placeholder="Selecciona"
+              placeholder={isEN ? "Select" : "Selecciona"}
             />
             <Select
-              label="Capital destinado (segmentación, no exclusión)"
+              label={isEN ? "Capital allocated (segmentation, not exclusion)" : "Capital destinado (segmentación, no exclusión)"}
               name="capital"
               options={investmentCapital}
-              placeholder="Selecciona"
+              placeholder={isEN ? "Select" : "Selecciona"}
             />
           </div>
           <Field
-            label="Plazo estimado para invertir"
+            label={isEN ? "Estimated investment timeframe" : "Plazo estimado para invertir"}
             name="timeframe"
-            placeholder="Ej: en 30 días, 3 meses, explorando"
+            placeholder={isEN ? "e.g., 30 days, 3 months, exploring" : "Ej: en 30 días, 3 meses, explorando"}
           />
         </>
       )}
@@ -322,13 +364,13 @@ function ContactFormInner() {
       {/* Campos condicionales Entrevista */}
       {isInterview && (
         <div className="grid sm:grid-cols-2 gap-4">
-          <Field label="Tipo de evento" name="eventType" placeholder="Podcast, evento, keynote, etc." />
-          <Field label="Fecha estimada" name="eventDate" placeholder="Opcional" />
+          <Field label={isEN ? "Event type" : "Tipo de evento"} name="eventType" placeholder={isEN ? "Podcast, event, keynote, etc." : "Podcast, evento, keynote, etc."} />
+          <Field label={isEN ? "Estimated date" : "Fecha estimada"} name="eventDate" placeholder={isEN ? "Optional" : "Opcional"} />
         </div>
       )}
 
       <div>
-        <label className="block text-[#888888] text-xs tracking-widest uppercase mb-2">Mensaje *</label>
+        <label className="block text-[#888888] text-xs tracking-widest uppercase mb-2">{isEN ? "Message *" : "Mensaje *"}</label>
         <textarea
           name="message"
           required
@@ -336,12 +378,12 @@ function ContactFormInner() {
           className="w-full bg-[#111111] border border-[#C8A45D]/30 focus:border-[#C8A45D] text-[#F7F3EC] px-4 py-3 text-sm outline-none transition-colors resize-none rounded-lg"
           placeholder={
             isTaxDeed
-              ? "Cuéntame qué buscas: aprender, filtrar oportunidades específicas, etc."
+              ? isEN ? "Tell me what you're looking for: education, evaluating specific opportunities, etc." : "Cuéntame qué buscas: aprender, filtrar oportunidades específicas, etc."
               : isSTRProperty
-              ? "Cuéntame de tu propiedad, tu objetivo y cualquier detalle relevante."
+              ? isEN ? "Tell me about your property, your goal, and any relevant details." : "Cuéntame de tu propiedad, tu objetivo y cualquier detalle relevante."
               : isInterview
-              ? "Cuéntame del formato, la audiencia, la fecha y qué te gustaría abordar."
-              : "Cuéntame en qué puedo ayudarte."
+              ? isEN ? "Tell me about the format, audience, date, and topics you'd like to cover." : "Cuéntame del formato, la audiencia, la fecha y qué te gustaría abordar."
+              : isEN ? "Tell me how I can help you." : "Cuéntame en qué puedo ayudarte."
           }
         />
       </div>
@@ -353,10 +395,7 @@ function ContactFormInner() {
           required
           className="mt-0.5 accent-[#C8A45D]"
         />
-        <span>
-          Acepto que Ana Morrison me contacte por email, WhatsApp o teléfono en relación a esta
-          consulta. Sin spam, nunca.
-        </span>
+        <span>{L.consent}</span>
       </label>
 
       {state === "error" && (
@@ -371,7 +410,7 @@ function ContactFormInner() {
         onMouseOut={(e) => (e.currentTarget.style.backgroundColor = accent)}
         className="w-full px-8 py-4 rounded-full text-black font-bold tracking-widest uppercase text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {state === "loading" ? "Enviando..." : "Enviar Mensaje"}
+        {state === "loading" ? L.submitting : L.submit}
       </button>
     </form>
   );
@@ -434,10 +473,12 @@ function Select({
   );
 }
 
-export default function ContactForm() {
+type ContactFormProps = { locale?: "es" | "en" };
+
+export default function ContactForm({ locale = "es" }: ContactFormProps) {
   return (
-    <Suspense fallback={<div className="text-[#888888] text-sm">Cargando formulario...</div>}>
-      <ContactFormInner />
+    <Suspense fallback={<div className="text-[#888888] text-sm">{locale === "en" ? "Loading form..." : "Cargando formulario..."}</div>}>
+      <ContactFormInner locale={locale} />
     </Suspense>
   );
 }
