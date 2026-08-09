@@ -5,22 +5,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { CLIENT } from "@/lib/client-data";
+import type { Locale } from "@/lib/i18n/config";
+import { I18N_ENABLED } from "@/lib/i18n/config";
+import { getDict } from "@/lib/i18n/dict";
+import { ROUTE_MAP } from "@/lib/i18n/route-map";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/sobre-mi", label: "Sobre Ana" },
-  { href: "/alquileres-a-corto-plazo", label: "Alquileres a Corto Plazo" },
-  { href: "/tax-deed", label: "Tax Deed" },
-  { href: "/casos-de-exito", label: "Casos de Éxito" },
-  { href: "/recursos", label: "Recursos" },
-  { href: "/contacto", label: "Contacto" },
-];
+type Props = { locale?: Locale };
 
-export default function Navbar() {
+export default function Navbar({ locale = "es" }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const isEN = pathname.startsWith("/en");
+  const pathname = usePathname() || "/";
+  const dict = getDict(locale);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,9 +25,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = isEN
-    ? navLinks.map((l) => ({ ...l, href: `/en${l.href === "/" ? "" : l.href}` }))
-    : navLinks;
+  const links = [
+    { href: ROUTE_MAP.home[locale], label: dict.nav.home },
+    { href: ROUTE_MAP.about[locale], label: dict.nav.about },
+    { href: ROUTE_MAP.shortTermRentals[locale], label: dict.nav.str },
+    { href: ROUTE_MAP.taxDeed[locale], label: dict.nav.taxDeed },
+    { href: ROUTE_MAP.caseStudies[locale], label: dict.nav.caseStudies },
+    { href: ROUTE_MAP.resources[locale], label: dict.nav.resources },
+    { href: ROUTE_MAP.contact[locale], label: dict.nav.contact },
+  ];
+
+  const contactHref = ROUTE_MAP.contact[locale];
+  const homeHref = ROUTE_MAP.home[locale];
 
   return (
     <header
@@ -39,15 +45,13 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-        {/* Logo */}
-        <Link href={isEN ? "/en" : "/"} className="flex flex-col leading-tight group">
+        <Link href={homeHref} className="flex flex-col leading-tight group">
           <span className="text-[#C8A45D] font-bold text-lg tracking-widest uppercase group-hover:text-[#E2C98A] transition-colors">
             {CLIENT.nameShort}
           </span>
           <span className="text-[#888888] text-xs tracking-widest uppercase">STR &amp; Tax Deed Strategist</span>
         </Link>
 
-        {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-8">
           {links.map((link) => {
             const active = pathname === link.href || (link.href !== "/" && link.href !== "/en" && pathname.startsWith(link.href));
@@ -66,27 +70,29 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Right side */}
         <div className="hidden lg:flex items-center gap-4">
+          {I18N_ENABLED ? (
+            <LocaleSwitcher />
+          ) : (
+            <Link
+              href={locale === "en" ? "/" : "/en"}
+              className="text-xs text-[#888888] hover:text-[#C8A45D] tracking-widest uppercase transition-colors"
+            >
+              {locale === "en" ? "ES" : "EN"}
+            </Link>
+          )}
           <Link
-            href={isEN ? "/" : "/en"}
-            className="text-xs text-[#888888] hover:text-[#C8A45D] tracking-widest uppercase transition-colors"
-          >
-            {isEN ? "ES" : "EN"}
-          </Link>
-          <Link
-            href="/contacto"
+            href={contactHref}
             className="px-5 py-2 rounded-full bg-[#C8A45D] text-black text-sm font-semibold tracking-wider uppercase hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_20px_rgba(200,164,93,0.35)]"
           >
-            Trabaja Conmigo
+            {dict.nav.ctaWork}
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           className="lg:hidden p-2 text-[#F7F3EC]"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label={locale === "en" ? "Menu" : "Menú"}
         >
           <div className="w-6 space-y-1.5">
             <span className={`block h-0.5 bg-[#C8A45D] transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -96,7 +102,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -117,13 +122,18 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
+              {I18N_ENABLED && (
+                <li className="pt-2">
+                  <LocaleSwitcher />
+                </li>
+              )}
               <li className="pt-4 border-t border-[#C8A45D]/20">
                 <Link
-                  href="/contacto"
+                  href={contactHref}
                   onClick={() => setMenuOpen(false)}
                   className="block w-full text-center px-5 py-3 rounded-full bg-[#C8A45D] text-black font-semibold tracking-wider uppercase"
                 >
-                  Trabaja Conmigo
+                  {dict.nav.ctaWork}
                 </Link>
               </li>
             </ul>
