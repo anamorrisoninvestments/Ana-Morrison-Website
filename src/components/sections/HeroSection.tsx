@@ -3,8 +3,30 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import type { Locale } from "@/lib/i18n/config";
 
-export default function HeroSection() {
+type Props = { locale?: Locale };
+
+export default function HeroSection({ locale = "es" }: Props) {
+  const isEN = locale === "en";
+  const L = {
+    eyebrow: "AnaMaría Morrison · Real Estate Investor & Strategist",
+    h1a: isEN ? "Acquire properties strategically and turn them into" : "Adquiere propiedades estratégicamente y conviértelas en",
+    h1accent: isEN ? "high-performing assets" : "activos rentables",
+    lead: isEN
+      ? "I help you identify Tax Deed opportunities, transform properties, and monetize them through short-term rentals with strategy, systems, and professional operations."
+      : "Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas y operación profesional.",
+    ctaPrimary: isEN ? "Explore How We Can Work Together" : "Explorar cómo trabajar conmigo",
+    ctaSecondary: isEN ? "See My Track Record" : "Conocer mi experiencia",
+    aboutHref: isEN ? "/en/about" : "/sobre-mi",
+    workHref: "#trabaja-conmigo",
+    credit: isEN
+      ? "9+ years of experience · Operations across 4 countries · Multi-million-dollar real estate portfolio · Specialized training in Tax Deed analysis"
+      : "9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario multimillonario · Formación especializada en análisis Tax Deed",
+    scroll: isEN ? "Scroll" : "Scroll",
+    alt: "AnaMaría Morrison — Real Estate Investor & STR / Tax Deed Strategist",
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0D0A08]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#10145F]/15 via-[#0D0A08] to-[#0D0A08]" />
@@ -31,7 +53,7 @@ export default function HeroSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D] animate-pulse" />
               <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-                AnaMaría Morrison · Real Estate Investor &amp; Strategist
+                {L.eyebrow}
               </span>
             </motion.div>
 
@@ -41,8 +63,8 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="heading-serif text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[#F7F3EC]"
             >
-              Adquiere propiedades estratégicamente y conviértelas en{" "}
-              <span className="text-gold-gradient italic">activos rentables</span>.
+              {L.h1a}{" "}
+              <span className="text-gold-gradient italic">{L.h1accent}</span>.
             </motion.h1>
 
             <motion.p
@@ -51,9 +73,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-[#F7F3EC]/75 text-lg leading-relaxed mb-10 max-w-xl"
             >
-              Te ayudo a identificar oportunidades en Tax Deed, transformar propiedades
-              y monetizarlas mediante alquileres a corto plazo con estrategia, sistemas
-              y operación profesional.
+              {L.lead}
             </motion.p>
 
             <motion.div
@@ -63,16 +83,16 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-3 mb-8"
             >
               <Link
-                href="#trabaja-conmigo"
+                href={L.workHref}
                 className="px-7 py-3.5 rounded-full bg-[#C8A45D] text-black font-bold tracking-widest uppercase text-xs hover:bg-[#E2C98A] transition-all hover:shadow-[0_0_32px_rgba(200,164,93,0.4)] text-center"
               >
-                Explorar cómo trabajar conmigo
+                {L.ctaPrimary}
               </Link>
               <Link
-                href="/sobre-mi"
+                href={L.aboutHref}
                 className="px-7 py-3.5 rounded-full border border-[#C8A45D]/40 text-[#F7F3EC] tracking-widest uppercase text-xs hover:border-[#C8A45D] hover:text-[#C8A45D] transition-all text-center hover:bg-[#C8A45D]/5"
               >
-                Conocer mi experiencia
+                {L.ctaSecondary}
               </Link>
             </motion.div>
 
@@ -82,8 +102,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="text-[#888888] text-sm leading-relaxed max-w-xl border-t border-[#C8A45D]/15 pt-6"
             >
-              9+ años de experiencia · Operaciones en 4 países · Portafolio inmobiliario
-              multimillonario · Formación especializada en análisis Tax Deed
+              {L.credit}
             </motion.p>
           </div>
 
@@ -100,7 +119,7 @@ export default function HeroSection() {
               <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
                 <Image
                   src="/images/anamaria-morrison.jpg"
-                  alt="AnaMaría Morrison — Real Estate Investor &amp; STR / Tax Deed Strategist"
+                  alt={L.alt}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 448px"
@@ -120,7 +139,7 @@ export default function HeroSection() {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
       >
-        <span className="text-[#888888] text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-[#888888] text-xs tracking-widest uppercase">{L.scroll}</span>
         <div className="w-px h-8 bg-gradient-to-b from-[#C8A45D] to-transparent" />
       </motion.div>
     </section>

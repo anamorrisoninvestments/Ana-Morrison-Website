@@ -1,15 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Locale } from "@/lib/i18n/config";
 
-const pillars = [
-  { value: "9+", label: "Años de experiencia", detail: "en alquileres a corto plazo" },
-  { value: "4", label: "Países", detail: "US · MX · CO · VE" },
-  { value: "3", label: "Roles", detail: "propietaria · administradora · inversionista" },
-  { value: "Tax Deed", label: "Formación especializada", detail: "análisis de títulos y oportunidades" },
-];
+type Props = { locale?: Locale };
 
-export default function AuthoritySection() {
+export default function AuthoritySection({ locale = "es" }: Props) {
+  const isEN = locale === "en";
+  const pillars = isEN
+    ? [
+        { value: "9+", label: "Years of Experience", detail: "in short-term rentals" },
+        { value: "4", label: "Countries", detail: "US · MX · CO · VE" },
+        { value: "3", label: "Roles", detail: "owner · operator · investor" },
+        { value: "Tax Deed", label: "Specialized Training", detail: "title and opportunity analysis" },
+      ]
+    : [
+        { value: "9+", label: "Años de experiencia", detail: "en alquileres a corto plazo" },
+        { value: "4", label: "Países", detail: "US · MX · CO · VE" },
+        { value: "3", label: "Roles", detail: "propietaria · administradora · inversionista" },
+        { value: "Tax Deed", label: "Formación especializada", detail: "análisis de títulos y oportunidades" },
+      ];
+
+  const L = {
+    eyebrow: isEN ? "Real-World Experience" : "Autoridad Verificada",
+    h2a: isEN ? "Real experience in" : "Experiencia real en",
+    h2accent: isEN ? "real estate investing and operations" : "inversión y operación inmobiliaria",
+  };
+
   return (
     <section
       id="autoridad"
@@ -26,13 +43,11 @@ export default function AuthoritySection() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <span className="text-[#C8A45D] text-xs tracking-widest uppercase font-semibold">
-            Autoridad Verificada
+            {L.eyebrow}
           </span>
           <h2 className="heading-serif text-4xl sm:text-5xl mt-4 leading-tight text-[#F7F3EC]">
-            Experiencia real en{" "}
-            <span className="text-gold-gradient italic">
-              inversión y operación inmobiliaria
-            </span>
+            {L.h2a}{" "}
+            <span className="text-gold-gradient italic">{L.h2accent}</span>
           </h2>
         </motion.div>
 
