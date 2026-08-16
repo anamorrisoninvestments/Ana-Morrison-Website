@@ -33,7 +33,7 @@ export default function Footer({ locale = "es" }: Props) {
             </p>
           </div>
           <div className="w-full md:max-w-sm">
-            <NewsletterForm variant="footer" />
+            <NewsletterForm variant="footer" locale={locale} />
           </div>
         </div>
       </div>

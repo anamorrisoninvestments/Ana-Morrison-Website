@@ -2,7 +2,7 @@ import "server-only";
 import { getSupabaseServer, isMissingTableError } from "./supabase-server";
 import { log } from "./log";
 
-type Endpoint = "/api/leads" | "/api/consent/log";
+type Endpoint = "/api/leads" | "/api/consent/log" | "/api/newsletter";
 
 const RULES: Record<Endpoint, { windowSec: number; max: number }[]> = {
   "/api/leads": [
@@ -11,6 +11,10 @@ const RULES: Record<Endpoint, { windowSec: number; max: number }[]> = {
   ],
   "/api/consent/log": [
     { windowSec: 60, max: 30 },
+  ],
+  "/api/newsletter": [
+    { windowSec: 60, max: 3 },
+    { windowSec: 3600, max: 10 },
   ],
 };
 
