@@ -1,0 +1,12 @@
+drop trigger if exists p3_newsletter_editions_touch on public.newsletter_editions;
+drop trigger if exists p3_newsletter_runs_touch on public.newsletter_runs;
+drop function if exists public.p3_newsletter_editions_touch();
+drop index if exists public.newsletter_editions_period_idx;
+drop index if exists public.newsletter_editions_status_idx;
+drop index if exists public.newsletter_runs_created_at_idx;
+drop index if exists public.newsletter_runs_status_idx;
+drop index if exists public.newsletter_story_seen_dedup_key_idx;
+drop index if exists public.newsletter_story_seen_category_idx;
+drop table if exists public.newsletter_editions;
+drop table if exists public.newsletter_runs;
+drop table if exists public.newsletter_story_seen;
