@@ -40,18 +40,33 @@ async function handle(req: NextRequest) {
       seedDraft: runMode === "dry" ? SAMPLE_DRAFT : undefined,
     });
     if (!result.ok) {
-      return NextResponse.json({ ok: false, reason: result.reason, details: result.details }, { status: 200 });
+      return NextResponse.json({
+        ok: false,
+        researchMode: runMode === "dry" ? "fixture" : "live_web",
+        reason: result.reason,
+        details: result.details,
+      }, { status: 200 });
     }
+    const sourceDomains = Array.from(new Set(
+      result.draft.selected.flatMap((s) => s.source_urls)
+        .map((u) => { try { return new URL(u).host; } catch { return null; } })
+        .filter((h): h is string => !!h),
+    ));
     return NextResponse.json({
       ok: true,
-      mode: runMode,
+      researchMode: runMode === "dry" ? "fixture" : "live_web",
+      generatedAt: new Date().toISOString(),
+      researchWindow: { start: iso(periodStart), end: iso(periodEnd) },
       editionId: result.editionId,
       status: result.status,
       runId: result.runId,
       compliance: result.compliance,
+      candidatesCount: result.draft.candidates.length,
+      selectedCount: result.draft.selected.length,
+      rejectedCount: result.draft.rejected.length,
       selected: result.draft.selected,
       rejected: result.draft.rejected,
-      candidates_count: result.draft.candidates.length,
+      sourceDomains,
       subject_es: result.draft.subject_es,
       subject_en: result.draft.subject_en,
       content_es: result.draft.content_es,
