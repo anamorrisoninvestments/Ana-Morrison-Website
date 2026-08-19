@@ -65,7 +65,7 @@ Default deploy state: `NEWSLETTER_AUTOMATION_ENABLED` unset → cron returns `{ 
 | `NEWSLETTER_AUTOMATION_ENABLED` | Cron enable/disable | Set to `true` to allow the cron to run past the gate. |
 | `NEWSLETTER_AUTO_SEND` | Autopilot enable | Set to `true` to auto-send via Resend. Only set after Ana authorizes. |
 | `RESEND_API_KEY` | Broadcasts | Same key already used for transactional email. |
-| `RESEND_NEWSLETTER_AUDIENCE_ID_ES` / `_EN` | Broadcasts | Audience IDs (created in Resend UI). Fallback to `RESEND_NEWSLETTER_AUDIENCE_ID` if the per-locale IDs are unset. |
+| `RESEND_NEWSLETTER_SEGMENT_ID_ES` / `_EN` | Broadcasts | Segment IDs (Ana already created `AnaMaría Weekly · ES` and `AnaMaría Weekly · EN` manually in the Resend dashboard). Under the current Resend Contacts + Segments model, Broadcasts target Segments, not the deprecated Audience primitive. |
 | `NEWSLETTER_FROM_EMAIL` | Broadcasts | Sending address. Defaults to `noreply@anamorrison.com`. |
 | `NEXT_PUBLIC_SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` | Persistence | Required for editions/runs/dedup. |
 
@@ -155,7 +155,7 @@ Prereq: `OPENAI_API_KEY`, `CRON_SECRET`, `ADMIN_PREVIEW_SECRET`, `NEXT_PUBLIC_SU
    - `OPENAI_API_KEY`
    - `CRON_SECRET` (fresh value, not the Preview one)
    - `ADMIN_PREVIEW_SECRET`
-   - `RESEND_NEWSLETTER_AUDIENCE_ID_ES`, `RESEND_NEWSLETTER_AUDIENCE_ID_EN`
+   - `RESEND_NEWSLETTER_SEGMENT_ID_ES`, `RESEND_NEWSLETTER_SEGMENT_ID_EN`
 3. Merge PR to `main`.
 4. Set `NEWSLETTER_AUTOMATION_ENABLED=true` in Production. Verify next Tuesday's cron persists a `ready_for_review` edition. Ana reviews it.
 5. Once satisfied, set `NEWSLETTER_AUTO_SEND=true`. The following Tuesday, autopilot sends the edition via Resend Broadcasts to the ES + EN audiences.

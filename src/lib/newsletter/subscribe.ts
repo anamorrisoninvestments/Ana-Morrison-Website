@@ -168,17 +168,21 @@ export async function markWelcomeSent(input: MarkWelcomeSentInput): Promise<void
 export type MarkResendSyncedInput = {
   id: string;
   contactId?: string | null;
-  audienceId?: string | null;
+  segmentId?: string | null;
   error?: string;
 };
 export async function markResendSynced(input: MarkResendSyncedInput): Promise<void> {
   const supabase = getSupabaseServer();
   if (!supabase || input.id === "email-only-fallback") return;
+  // Column name kept for schema stability. Semantically now holds a Segment ID
+  // under the current Resend Contacts + Segments model. Existing DB rows that
+  // stored an Audience ID from the deprecated API are still valid keys in
+  // Resend's backward-compat layer; new rows store Segment IDs.
   await supabase
     .from("newsletter_subscribers")
     .update({
       resend_contact_id: input.contactId ?? null,
-      resend_audience_id: input.audienceId ?? null,
+      resend_audience_id: input.segmentId ?? null,
       resend_synced_at: new Date().toISOString(),
       resend_last_error: input.error ? input.error.slice(0, 500) : null,
     })

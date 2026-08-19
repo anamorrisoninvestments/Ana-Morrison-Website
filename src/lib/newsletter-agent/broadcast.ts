@@ -6,6 +6,9 @@ import { log } from "@/lib/log";
 // Create a Resend Broadcast per language and mark the edition as sent.
 // Only invoked when NEWSLETTER_AUTO_SEND=true. Never called during preview or
 // production_generate modes. Never sends to individual contacts one-by-one.
+//
+// Uses the current Resend Broadcasts API with `segmentId` targeting. The
+// deprecated `audienceId` field is not used.
 
 export type BroadcastOptions = {
   editionId: string;
@@ -13,8 +16,8 @@ export type BroadcastOptions = {
   subjectEN: string;
   contentES: string;   // HTML
   contentEN: string;   // HTML
-  audienceIdES: string | null;
-  audienceIdEN: string | null;
+  segmentIdES: string | null;
+  segmentIdEN: string | null;
   fromEmail: string;   // e.g. "noreply@anamorrison.com"
   fromName: string;    // "AnaMaría Morrison"
   autoSend: boolean;   // when false, only creates the drafts
@@ -38,9 +41,9 @@ export async function createAndOptionallySend(opts: BroadcastOptions): Promise<B
   let idEN: string | null = null;
 
   try {
-    if (opts.audienceIdES) {
+    if (opts.segmentIdES) {
       const { data, error } = await resend.broadcasts.create({
-        audienceId: opts.audienceIdES,
+        segmentId: opts.segmentIdES,
         from: `${opts.fromName} <${opts.fromEmail}>`,
         subject: opts.subjectES,
         html: opts.contentES,
@@ -48,9 +51,9 @@ export async function createAndOptionallySend(opts: BroadcastOptions): Promise<B
       if (error) return fail("broadcast_create_es", (error as { message?: string }).message);
       idES = (data?.id as string) ?? null;
     }
-    if (opts.audienceIdEN) {
+    if (opts.segmentIdEN) {
       const { data, error } = await resend.broadcasts.create({
-        audienceId: opts.audienceIdEN,
+        segmentId: opts.segmentIdEN,
         from: `${opts.fromName} <${opts.fromEmail}>`,
         subject: opts.subjectEN,
         html: opts.contentEN,

@@ -77,11 +77,11 @@ export async function runNewsletterPipeline(input: {
     await registerSelectedStories(edition.id, draft.selected);
   }
 
-  // 6) Autopilot only: create/send Resend Broadcast
+  // 6) Autopilot only: create/send Resend Broadcast targeting Segments.
   let broadcastIds: { es?: string | null; en?: string | null } | undefined;
   if (mode === "autopilot") {
-    const audienceES = process.env.RESEND_NEWSLETTER_AUDIENCE_ID_ES || process.env.RESEND_NEWSLETTER_AUDIENCE_ID || null;
-    const audienceEN = process.env.RESEND_NEWSLETTER_AUDIENCE_ID_EN || process.env.RESEND_NEWSLETTER_AUDIENCE_ID || null;
+    const segmentES = process.env.RESEND_NEWSLETTER_SEGMENT_ID_ES || null;
+    const segmentEN = process.env.RESEND_NEWSLETTER_SEGMENT_ID_EN || null;
     const autoSend = process.env.NEWSLETTER_AUTO_SEND === "true";
     const br = await createAndOptionallySend({
       editionId: edition.id,
@@ -89,8 +89,8 @@ export async function runNewsletterPipeline(input: {
       subjectEN: draft.subject_en,
       contentES: draft.content_es,
       contentEN: draft.content_en,
-      audienceIdES: audienceES,
-      audienceIdEN: audienceEN,
+      segmentIdES: segmentES,
+      segmentIdEN: segmentEN,
       fromEmail: process.env.NEWSLETTER_FROM_EMAIL || "noreply@anamorrison.com",
       fromName: "AnaMaría Morrison",
       autoSend,

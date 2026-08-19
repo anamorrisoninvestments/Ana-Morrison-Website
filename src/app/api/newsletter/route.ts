@@ -102,9 +102,9 @@ export async function POST(req: NextRequest) {
   // 2. Sync to Resend Contacts (best-effort, non-blocking on error).
   const resendSync = await syncContactToResend({ email: sub.email, name, locale });
   if (resendSync.ok && !("skipped" in resendSync)) {
-    await markResendSynced({ id: sub.id, contactId: resendSync.contactId, audienceId: resendSync.audienceId });
+    await markResendSynced({ id: sub.id, contactId: resendSync.contactId, segmentId: resendSync.segmentId });
   } else if (!resendSync.ok) {
-    await markResendSynced({ id: sub.id, error: resendSync.error, audienceId: resendSync.audienceId ?? null });
+    await markResendSynced({ id: sub.id, error: resendSync.error, segmentId: resendSync.segmentId ?? null });
   }
 
   // 3. Welcome email — only if new or resubscribed (idempotent).

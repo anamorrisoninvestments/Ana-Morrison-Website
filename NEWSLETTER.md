@@ -39,20 +39,19 @@ Set the following in Vercel per environment. Nothing here is committed.
 |---|---|---|
 | `RESEND_API_KEY` | Yes for real delivery | Server-side Resend key. If unset or `re_placeholder`, welcome emails are skipped and the subscription still persists. |
 | `NEWSLETTER_FROM_EMAIL` | Optional | Sending address for the welcome. Defaults to `noreply@anamorrison.com`. Must be a verified sending identity in Resend. |
-| `RESEND_NEWSLETTER_AUDIENCE_ID` | Optional | Default audience for Contact sync when no per-locale audience is set. |
-| `RESEND_NEWSLETTER_AUDIENCE_ID_ES` | Recommended | Audience for Spanish subscribers. |
-| `RESEND_NEWSLETTER_AUDIENCE_ID_EN` | Recommended | Audience for English subscribers. |
+| `RESEND_NEWSLETTER_SEGMENT_ID_ES` | Required for sync | Segment ID of `AnaMaría Weekly · ES` (already created by Ana in the Resend dashboard). Under the current Resend Contacts + Segments model, Contacts are global and Segment membership determines who receives which Broadcast. |
+| `RESEND_NEWSLETTER_SEGMENT_ID_EN` | Required for sync | Segment ID of `AnaMaría Weekly · EN` (already created by Ana in the Resend dashboard). |
 | `NEXT_PUBLIC_SITE_URL` | Optional | Used to build the unsubscribe URL. Falls back to `CLIENT.siteUrl`. |
 | `NEXT_PUBLIC_CONSENT_VERSION` | Optional | Recorded on each subscription. Defaults to `v1.0`. |
 | `NEXT_PUBLIC_SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` | Yes | Required for persistence. Without them the endpoint falls back to email-only mode and returns success without storing anything. |
 | `CONSENT_IP_HASH_SALT` | Yes for rate-limit tracking | Used to compute `ip_hash` for rate limiting and consent evidence. |
 
-**Ana's one manual step for Preview activation:** create two audiences in
-Resend (one for Spanish, one for English), copy their IDs into
-`RESEND_NEWSLETTER_AUDIENCE_ID_ES` and `RESEND_NEWSLETTER_AUDIENCE_ID_EN` in
-the **Preview** environment scope, and redeploy. The site works without them
-(sync is best-effort), but Contacts only appear in Resend when at least one
-of these IDs is set.
+**Ana's one manual step for Preview activation:** the two Segments already
+exist in Resend as `AnaMaría Weekly · ES` and `AnaMaría Weekly · EN`. Copy
+their IDs from the Resend dashboard into `RESEND_NEWSLETTER_SEGMENT_ID_ES`
+and `RESEND_NEWSLETTER_SEGMENT_ID_EN` in the **Preview** environment scope,
+and redeploy. The site works without them (sync is best-effort skip), but
+Contacts appear in the correct Segment only when the IDs are set.
 
 ## Applying the Supabase migration
 
@@ -70,14 +69,14 @@ Rollback: `supabase/migrations/20260817_newsletter_subscribers.down.sql`.
 Do not build a custom bulk-mail engine. Use Resend Broadcasts directly.
 
 1. Log in to Resend at <https://resend.com>.
-2. Navigate to **Audiences**. You will see the ES and EN audiences you
-   created.
+2. Navigate to **Segments**. You will see `AnaMaría Weekly · ES` and
+   `AnaMaría Weekly · EN`.
 3. Click **Broadcasts → New Broadcast**.
 4. **From:** `AnaMaría Morrison <noreply@anamorrison.com>` (or another
    verified sending address on the domain).
-5. **Audience:** pick the ES audience for the Spanish broadcast, the EN
-   audience for the English broadcast. Send them as two separate broadcasts
-   if you need parallel language delivery.
+5. **Segment:** pick `AnaMaría Weekly · ES` for the Spanish broadcast,
+   `AnaMaría Weekly · EN` for the English broadcast. Send as two separate
+   broadcasts if you want parallel bilingual delivery.
 6. **Subject line:** write in the target language.
 7. **Content:** paste the email content (HTML or the Resend editor).
    Include a visible unsubscribe link — Resend appends the standard
