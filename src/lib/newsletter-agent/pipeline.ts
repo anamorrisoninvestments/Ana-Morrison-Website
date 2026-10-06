@@ -25,7 +25,7 @@ export type ResearchResult =
 // STAGE 1: Research + validate + dedup
 export async function runResearch(opts: ResearchOptions): Promise<ResearchResult> {
   let candidates: CandidateStory[] = [];
-  let rejected: RejectedStory[] = [];
+  const rejected: RejectedStory[] = [];
   let rawText: string | undefined;
 
   if (opts.seed) {
