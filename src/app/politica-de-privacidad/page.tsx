@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import LegalDraftBanner from "@/components/consent/LegalDraftBanner";
 import ConsentPreferencesLink from "@/components/consent/ConsentPreferencesLink";
 import { CLIENT } from "@/lib/client-data";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description:
-    "Cómo tratamos tus datos personales en anamorrison.com. Borrador provisional pendiente de revisión legal.",
+    "Cómo tratamos tus datos personales en anamorrison.com.",
   alternates: { canonical: "/politica-de-privacidad" },
   robots: { index: true, follow: true },
 };
@@ -30,8 +29,6 @@ export default function PoliticaPrivacidadPage() {
 
           <h1 className="heading-serif text-4xl sm:text-5xl mb-4">Política de Privacidad</h1>
           <p className="text-[#888888] text-sm mb-2">Última actualización: {lastUpdated} · Versión: {version}</p>
-
-          <LegalDraftBanner />
 
           <section className="space-y-6 text-[#F7F3EC]/85 text-base leading-relaxed">
             <div>
@@ -83,16 +80,13 @@ export default function PoliticaPrivacidadPage() {
             </div>
 
             <div>
-              <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">6. Retención (provisional, pendiente de revisión legal)</h2>
+              <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">6. Retención</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>Leads sin relación comercial activa: máximo provisional 24 meses desde la última actividad; luego anonimización.</li>
+                <li>Leads sin relación comercial activa: máximo 24 meses desde la última actividad; luego anonimización.</li>
                 <li>Leads con relación comercial activa: sin cutoff automático mientras estén activos.</li>
                 <li>Clientes y transacciones: según necesidades contractuales, contables y fiscales aplicables.</li>
-                <li>Registros de consentimiento: evidencia mínima necesaria; periodo sujeto a revisión legal.</li>
+                <li>Registros de consentimiento: evidencia mínima necesaria según la normativa aplicable.</li>
               </ul>
-              <p className="text-[#888888] text-sm italic mt-3">
-                Estos periodos son provisionales y quedan sujetos a la revisión de un abogado autorizado en Florida.
-              </p>
             </div>
 
             <div>
@@ -128,7 +122,7 @@ export default function PoliticaPrivacidadPage() {
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">11. Ley aplicable</h2>
               <p>
-                Ver <Link href="/terminos-de-uso" className="text-[#C8A45D] underline">Términos de Uso</Link>. Jurisdicción provisional: Estado de Florida, Estados Unidos.
+                Ver <Link href="/terminos-de-uso" className="text-[#C8A45D] underline">Términos de Uso</Link>. Jurisdicción: Estado de Florida, Estados Unidos.
               </p>
             </div>
           </section>

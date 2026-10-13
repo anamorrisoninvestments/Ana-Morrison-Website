@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import LegalDraftBanner from "@/components/consent/LegalDraftBanner";
 import ConsentPreferencesLink from "@/components/consent/ConsentPreferencesLink";
 
 export const metadata: Metadata = {
@@ -27,8 +26,6 @@ export default function PoliticaCookiesPage() {
 
           <h1 className="heading-serif text-4xl sm:text-5xl mb-4">Política de Cookies</h1>
           <p className="text-[#888888] text-sm mb-2">Versión: {version}</p>
-
-          <LegalDraftBanner />
 
           <section className="space-y-6 text-[#F7F3EC]/85 text-base leading-relaxed">
             <div>

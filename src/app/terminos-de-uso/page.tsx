@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import LegalDraftBanner from "@/components/consent/LegalDraftBanner";
 
 export const metadata: Metadata = {
   title: "Términos de Uso",
   description:
-    "Términos de uso del sitio anamorrison.com. Borrador provisional pendiente de revisión legal por abogado autorizado en Florida.",
+    "Términos de uso del sitio anamorrison.com.",
   alternates: { canonical: "/terminos-de-uso" },
 };
 
@@ -26,8 +25,6 @@ export default function TerminosPage() {
 
           <h1 className="heading-serif text-4xl sm:text-5xl mb-4">Términos de Uso</h1>
           <p className="text-[#888888] text-sm mb-2">Última actualización: {lastUpdated}</p>
-
-          <LegalDraftBanner />
 
           <section className="space-y-6 text-[#F7F3EC]/85 text-base leading-relaxed">
             <div>
@@ -90,10 +87,7 @@ export default function TerminosPage() {
             <div>
               <h2 className="heading-serif text-2xl text-[#C8A45D] mt-8 mb-3">10. Ley aplicable y jurisdicción</h2>
               <p>
-                Provisionalmente, estos términos se rigen por las leyes del Estado de Florida, Estados Unidos, sin considerar sus principios de conflicto de leyes. Cualquier controversia relacionada con el uso del sitio se someterá provisionalmente a los tribunales competentes del Estado de Florida, sujeto a revisión legal.
-              </p>
-              <p className="text-[#888888] text-sm italic mt-3">
-                Nota interna: jurisdicción provisional. Pendiente de confirmación por abogado autorizado en Florida.
+                Estos términos se rigen por las leyes del Estado de Florida, Estados Unidos, sin considerar sus principios de conflicto de leyes. Cualquier controversia relacionada con el uso del sitio se someterá a los tribunales competentes del Estado de Florida.
               </p>
             </div>
           </section>
