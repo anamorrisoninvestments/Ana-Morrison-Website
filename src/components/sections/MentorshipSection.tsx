@@ -120,7 +120,7 @@ export default function MentorshipSection() {
             Ver la Clase Gratuita
           </Link>
           <p className="text-[#888888] text-xs mt-4 italic">
-            Webinar automatizado · Sin costo · Cupo limitado
+            Sin costo · Cupo limitado
           </p>
         </div>
       </div>
